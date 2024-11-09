@@ -17,7 +17,7 @@ return {
       -- C
       clangd = {},
       -- TS/JS
-      tsserver = {
+      ts_ls = {
         filetypes = {
           'typescript',
           'javascript',
@@ -59,7 +59,19 @@ return {
         },
       },
       -- PYTHON
-      pylsp = {},
+      --pyright = {},
+      pylsp = {
+        settings = {
+          pylsp = {
+            plugins = {
+              pycodestyle = {
+                ignore = { 'E501' },         -- This is the Error code for line too long.
+                maxLineLength = 200          -- This sets how long the line is allowed to be. Also has effect on formatter.
+              },
+            },
+          },
+        },
+      }
     }
 
     -- Configure each LSP server
