@@ -5,7 +5,7 @@ local opts = { noremap = true, silent = true }
 
 -- Copilot keymaps
 function PLUGINS.copilot_keymaps()
-  set('n', '<leader>cc', ':lua ToggleCopilot()<CR>', { desc = '[C]ode Toggle [C]opilot' })
+  set('n', '<leader>ca', ':lua ToggleCopilot()<CR>', { desc = '[C]ode Toggle Copilot [A]ctive' })
 end
 
 -- TodoComment keymaps
@@ -51,22 +51,54 @@ function PLUGINS.telescope_keymaps()
   end, { desc = '[/] Fuzzily search in current buffer' })
 
   --  See `:help telescope.builtin.live_grep()` for information about particular keys
-  set('n', '<leader>so', function()
+  set('n', '<leader>fo', function()
     builtin.live_grep {
       grep_open_files = true,
       prompt_title = 'Live Grep in Open Files',
     }
-  end, { desc = '[S]earch in [O]pen Files' })
+  end, { desc = '[F]ind in [O]pen Files' })
 end
 
--- Debugger
--- set('n', '<leader>db', '<Cmd>DapToggleBreakPoint<CR>', { desc = '[D]ebugger Add [B]reakpoint' }, opts)
--- set('n', '<leader>dc', '<Cmd>DapContinue<CR>', { desc = '[D]ebugger Start or [C]ontinue' }, opts)
+function PLUGINS.lsp_keymaps()
+  vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
+    callback = function(event)
+      local key_map = function(keys, func, desc)
+        vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+      end
+
+      key_map('<leader>gd', require('telescope.builtin').lsp_definitions, '[D]efinition')
+      key_map('<leader>gr', require('telescope.builtin').lsp_references, '[R]eferences')
+      key_map('<leader>li', require('telescope.builtin').lsp_implementations, '[I]mplementation')
+      key_map('<leader>lt', require('telescope.builtin').lsp_type_definitions, '[T]ype Definition')
+      key_map('<leader>cs', require('telescope.builtin').lsp_document_symbols, 'Find [S]ymbols')
+      key_map('<leader>lw', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace Symbols')
+      key_map('<leader>cc', vim.lsp.buf.code_action, '[C]ode Action')
+      key_map('<leader>cr', vim.lsp.buf.rename, '[R]ename')
+      key_map('K', vim.lsp.buf.hover, 'Hover Documentation')
+
+      local client = vim.lsp.get_client_by_id(event.data.client_id)
+      if client and client.server_capabilities.documentHighlightProvider then
+        vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
+          buffer = event.buf,
+          callback = vim.lsp.buf.document_highlight,
+        })
+
+        vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+          buffer = event.buf,
+          callback = vim.lsp.buf.clear_references,
+        })
+      end
+    end,
+  })
+end
+
 
 function PLUGINS.setup()
   PLUGINS.copilot_keymaps()
   PLUGINS.todo_keymaps()
   PLUGINS.oil_keymaps()
+  PLUGINS.lsp_keymaps()
 end
 
 return PLUGINS
