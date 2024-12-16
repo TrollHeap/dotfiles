@@ -40,7 +40,7 @@ return {
       function()
         require("which-key").show({ global = false })
       end,
-      desc = "Git"
+      desc = "Git & Goto"
     },
     {
       "<leader>l",
