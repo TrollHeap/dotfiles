@@ -25,6 +25,7 @@ return { -- Highlight, edit, and navigate code
         'markdown',
         'markdown_inline',
         'xml',
+        'java',
         'http',
         'json',
         'graphql',
