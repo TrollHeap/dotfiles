@@ -2,6 +2,7 @@
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.loop.fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+
   vim.fn.system {
     'git',
     'clone',
@@ -19,14 +20,16 @@ require 'core.keymaps.init_keymaps'
 
 -- [[ Configure and install plugins ]]
 require('lazy').setup {
-
   spec = {
+    { import = 'plugins.ai_plugins' },
     { import = 'plugins.configs' },
     { import = 'plugins.database' },
-    { import = 'plugins.navigation' },
-    { import = 'plugins.themes' },
-    { import = 'plugins.ui' },
     { import = 'plugins.git' },
+    { import = 'plugins.third_party' },
+    { import = 'plugins.ui' },
+    { import = 'plugins.lint_formatters' },
+    { import = 'plugins.navigation' },
+    { import = 'plugins.utils' },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
