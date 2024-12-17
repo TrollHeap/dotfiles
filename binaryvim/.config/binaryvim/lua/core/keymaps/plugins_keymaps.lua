@@ -8,6 +8,11 @@ function PLUGINS.copilot_keymaps()
   set('n', '<leader>ca', ':lua ToggleCopilot()<CR>', { desc = '[C]ode Toggle Copilot [A]ctive' })
 end
 
+-- Neotree keymaps
+function PLUGINS.neotree()
+  set('n', '<leader>e', '<CMD>Neotree toggle left<CR>', { desc = 'Open Neotre[E]' })
+end
+
 -- TodoComment keymaps
 function PLUGINS.todo_keymaps()
   set('n', '<leader>ft', '<CMD>TodoTelescope keywords=TODO,FIX,WARNING,HACK<CR>',
@@ -59,6 +64,7 @@ function PLUGINS.telescope_keymaps()
   end, { desc = '[F]ind in [O]pen Files' })
 end
 
+-- LSP keymaps
 function PLUGINS.lsp_keymaps()
   vim.api.nvim_create_autocmd('LspAttach', {
     group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
@@ -93,12 +99,29 @@ function PLUGINS.lsp_keymaps()
   })
 end
 
+-- Barbar keymaps
+function PLUGINS.barbar_keymaps()
+  -- Buffer key
+  set('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', opts)
+  set('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)
+  set('n', '<A-p>', '<Cmd>BufferPick<CR>', { desc = '[B]uffers [P]ick' })
+  set('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', { noremap = true, silent = true })
+  set('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', { noremap = true, silent = true })
+  set('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', { noremap = true, silent = true })
+  set('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', { noremap = true, silent = true })
+  set('n', '<leader>bd', '<Cmd>BufferClose<CR>', { desc = '[B]uffers [D]elete' })
+  set('n', '<leader>bx', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = '[B]uffers Close All' })
+  set('n', '<leader>bl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = '[B]uffers Close Left' })
+  set('n', '<leader>br', '<Cmd>BufferCloseBuffersRight<CR>', { desc = '[B]uffers Close Right' })
+end
 
 function PLUGINS.setup()
   PLUGINS.copilot_keymaps()
+  PLUGINS.neotree()
   PLUGINS.todo_keymaps()
   PLUGINS.oil_keymaps()
   PLUGINS.lsp_keymaps()
+  PLUGINS.barbar_keymaps()
 end
 
 return PLUGINS
