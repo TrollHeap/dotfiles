@@ -43,13 +43,43 @@ return {
           }
           require('mason-nvim-dap').default_setup(config)
         end,
-      },
+        codelldb = function(config)
+          config.adapters = {
+            type = 'server',
+            port = "${port}",
+            executable = {
+              command = vim.fn.stdpath("data") .. "/mason/bin/codelldb", -- chemin vers codelldb
+              args = { "--port", "${port}" },
+            },
+          }
+          config.configurations = {
+            {
+              name = "Launch C++",
+              type = "codelldb",
+              request = "launch",
+              program = function()
+                return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+              end,
+              cwd = "${workspaceFolder}",
+              stopOnEntry = false,
+              args = {}, -- Ajoute tes arguments ici si nécessaire
+            },
+          }
+          require('mason-nvim-dap').default_setup(config)
+        end,
+      }
     }
 
     -- Python configuration
     require('dap-python').setup('~/.local/share/binaryvim/mason/packages/debugpy/venv/bin/python', {
       include_configs = true,
     })
+    -- Custom event handlers for debugpy
+    local function log_event(event)
+      print('Debugpy session ' .. event)
+    end
+
+
 
     -- DAP listeners
     dap.listeners.after.event_initialized['dapui_config'] = dapui.open
@@ -58,12 +88,6 @@ return {
     dap.listeners.after.event_exited['dapui_config'] = function()
       print('Event exited')
     end
-
-    -- Custom event handlers for debugpy
-    local function log_event(event)
-      print('Debugpy session ' .. event)
-    end
-
     dap.listeners.before.event_terminated['custom_debugpy'] = function() log_event('terminated') end
     dap.listeners.before.event_exited['custom_debugpy'] = function() log_event('exited') end
     dap.listeners.before.event_stopped['custom_debugpy'] = function() log_event('stopped') end
