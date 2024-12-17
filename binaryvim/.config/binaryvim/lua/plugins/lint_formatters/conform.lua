@@ -8,12 +8,15 @@ return {
     },
     formatters_by_ft = {
       lua = { 'stylua' },
+      html = { 'prettier' },
+      css = { 'prettier' },
       javascript = { 'prettierd', 'prettier' },
       typescript = { 'prettierd', 'prettier' },
       typescriptreact = { 'prettierd', "prettier" },
       vue = { 'prettier' },
       c = { 'clang-format' },
       cpp = { 'clang-format' },
+
     },
   },
 }
