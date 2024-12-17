@@ -3,8 +3,8 @@ if initialize_session "C-Training"; then
   run_cmd "cd $HOME" || echo "Failed to run cd $HOME"
   run_cmd "lzd" || echo "Failed to run lzd"
 
-  new_window "C" || echo "Failed to create C window"
-  run_cmd "cd ~/Developer/WORKSPACE/C/training" || echo "Failed to run cd C_traning directory"
+  new_window "C++" || echo "Failed to create C++ window"
+  run_cmd "cd ~/Developer/WORKSPACE/C_CPP" || echo "Failed to run cd C_traning directory"
   run_cmd "nvim ." || echo "Failed to run nvim"
 
   # Optionally, select a window to be displayed first. 0 is the index of the first window.
