@@ -8,6 +8,13 @@ return {
   },
   keys = {
     {
+      "<leader>a",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      desc = "Avante"
+    },
+    {
       "<leader>b",
       function()
         require("which-key").show({ global = false })
@@ -41,13 +48,6 @@ return {
         require("which-key").show({ global = false })
       end,
       desc = "Git & Goto"
-    },
-    {
-      "<leader>l",
-      function()
-        require("which-key").show({ global = false })
-      end,
-      desc = "LSP"
     },
     {
       "<leader>s",
