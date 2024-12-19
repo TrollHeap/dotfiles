@@ -23,21 +23,27 @@ return {
         'bash',
         'python',
         'debugpy',
+        'php-debug-adapter'
       },
       handlers = {
         function(config)
           require('mason-nvim-dap').default_setup(config)
         end,
         php = function(config)
+          config.adapters = {
+            type = "executable",
+            command = vim.fn.stdpath("data") .. "/mason/packages/php-debug-adapter/php-debug-adapter",
+            args = {}
+          }
           config.configurations = {
             {
-              type = 'php',
-              request = 'launch',
-              name = 'Listen for Xdebug',
+              type = "php",
+              request = "launch",
+              name = "Listen for Xdebug",
               port = 9003,
               pathMappings = {
-                ['${workspaceFolder}'] = '${workspaceFolder}',
-                ['/var/www/html'] = '${workspaceFolder}',
+                ["${workspaceFolder}"] = "${workspaceFolder}",
+                ["/var/www/html"] = "${workspaceFolder}",
               },
             },
           }
