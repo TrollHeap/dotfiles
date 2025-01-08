@@ -6,7 +6,7 @@ source $CONFIG_PATH/functions/global-functions.sh
 source $CONFIG_PATH/functions/dev-functions.sh
 
 # Load general configurations if available
-source $CONFIG_PATH/loads/loads.sh
+source $CONFIG_PATH/loads/general_load.sh
 
 for env_file in ~/.config/env-files/env/*.env; do
     source "$env_file"
@@ -35,6 +35,8 @@ done
 
 # ----- Create the Developer directory -----
 source $CONFIG_PATH/loads/folders_load.sh
+# ---- Stow the dotfiles -----
+source $CONFIG_PATH/loads/stow_load.sh
 
 # Finalization message
 echo "All configurations have been loaded."
