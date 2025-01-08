@@ -1,8 +1,4 @@
-
 # Description: Load all the necessary configurations
-
-# ----- Create the Developer directory -----
-source ./folders_load.sh
 
 # ----- Make zsh default shell -----
 echo "Configuring Zsh..."

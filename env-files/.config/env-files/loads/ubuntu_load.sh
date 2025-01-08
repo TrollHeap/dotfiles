@@ -1,13 +1,7 @@
 #!/bin/bash
 
 # Load general configurations if available
-if [ -f ./loads.sh ]; then
-  source ./loads.sh
-fi
-
-# Install essential packages
-echo "Installing essential packages..."
-sudo apt install -y neovim fzf ripgrep tree tmux lazygit neofetch lazydocker
+source ./loads.sh
 
 # Clone the tmux plugin manager
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
@@ -15,8 +9,12 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
+# clone tmuxifier
+if [ ! -d "$HOME/.tmuxifier/" ]; then
+  git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
+fi
+
 # ----- Install wezterm -----
-# Install wezterm
 echo "Installing WezTerm..."
 if ! command -v wezterm &> /dev/null; then
   curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
@@ -29,4 +27,7 @@ fi
 echo "Updating the system..."
 sudo apt update && sudo apt upgrade -y
 
-sudo apt install wezterm
+sudo apt install -y wezterm
+# Install essential packages
+echo "Installing essential packages..."
+sudo apt install -y tmux neofetch neovim fzf ripgrep tree 

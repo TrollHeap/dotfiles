@@ -32,5 +32,8 @@ source ~/.config/env-files/functions/dev-functions.sh
 # Load aliases
 source ~/.config/env-files/env/aliases.env
 
+# ----- Create the Developer directory -----
+source ./folders_load.sh
+
 # Finalization message
 echo "All configurations have been loaded."
