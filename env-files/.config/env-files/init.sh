@@ -1,5 +1,5 @@
 # Load all environment variables
-CONFIG_PATH="~/.config/env-files"
+CONFIG_PATH="$HOME/.config/env-files"
 
 # Load shell functions
 source $CONFIG_PATH/functions/global-functions.sh
