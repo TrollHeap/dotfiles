@@ -2,7 +2,7 @@
 # Author: Binary-Blade VH
 
 # ENV Variables
-source ~/.config/env-files/load.sh
+source ~/.config/env-files/init.sh
 
 # Plugins
 plugins=(git fzf fzf-zsh-plugin zsh-syntax-highlighting zsh-autosuggestions)
