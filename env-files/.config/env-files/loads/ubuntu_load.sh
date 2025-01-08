@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Base directory for the developer workspace
-BASE_DIR="Developer"
-
 # Check if the script is run with sudo privileges
 if [ "$(id -u)" -ne 0 ]; then
   echo "Error: Please run this script with sudo."

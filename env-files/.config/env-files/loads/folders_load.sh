@@ -1,4 +1,9 @@
+#!/bin/bash
+
 # ----- Create the base directory if it doesn't exist -----
+# Base directory for the developer workspace
+BASE_DIR="Developer"
+
 echo "Setting up the developer workspace..."
 if [ ! -d "$BASE_DIR" ]; then
   mkdir -p "$BASE_DIR/Workspace"
