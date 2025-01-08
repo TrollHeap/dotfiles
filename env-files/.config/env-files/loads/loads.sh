@@ -1,6 +1,7 @@
 # Description: Load all the necessary configurations
 
 # ----- Make zsh default shell -----
+sudo apt install -y zsh
 echo "Configuring Zsh..."
 if ! command -v zsh &> /dev/null; then
   sudo apt install -y zsh

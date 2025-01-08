@@ -1,4 +1,13 @@
 # Load all environment variables
+CONFIG_PATH="~/.config/env-files"
+
+# Load shell functions
+source $CONFIG_PATH/functions/global-functions.sh
+source $CONFIG_PATH/functions/dev-functions.sh
+
+# Load general configurations if available
+source $CONFIG_PATH/loads/loads.sh
+
 for env_file in ~/.config/env-files/env/*.env; do
     source "$env_file"
 done
@@ -11,12 +20,12 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Homebrew initialization
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    source ~/.config/env-files/loads/macos_load.sh
+    source $CONFIG_PATH/loads/macos_load.sh
 else
     for linux_file in ~/.config/env-files/linux/*.env; do
         source "$linux_file"
     done
-    source ~/.config/env-files/loads/ubuntu_load.sh
+    source $CONFIG_PATH/loads/ubuntu_load.sh
 fi
 
 ## Load all PATH configurations
@@ -24,16 +33,8 @@ for path_file in ~/.config/env-files/path/*.env; do
     source "$path_file"
 done
 
-# Load shell functions
-source ~/.config/env-files/functions/global-functions.sh
-source ~/.config/env-files/functions/dev-functions.sh
-
-
-# Load aliases
-source ~/.config/env-files/env/aliases.env
-
 # ----- Create the Developer directory -----
-source ./folders_load.sh
+source $CONFIG_PATH/loads/folders_load.sh
 
 # Finalization message
 echo "All configurations have been loaded."

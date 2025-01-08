@@ -1,8 +1,4 @@
 #!/bin/bash
-
-# Load general configurations if available
-source ./loads.sh
-
 # Clone the tmux plugin manager
 if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   echo "Cloning Tmux Plugin Manager..."
