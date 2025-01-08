@@ -1,0 +1,11 @@
+zsh-completions
+neovim
+git
+fzf
+ripgrep
+tree
+tmux
+lazygit
+neofetch
+zsh-syntax-highlighting
+zsh-autosuggestions
