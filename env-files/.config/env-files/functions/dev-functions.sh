@@ -1,11 +1,11 @@
-# Initialisation de Cargo si le fichier env existe
+# Initialisation of Cargo if the env file exists
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
-# Initialisation NVM
+# NVM initialization
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
 
-# Initialisation Pyenv
+# Initialize Pyenv
 if command -v pyenv >/dev/null; then
     eval "$(pyenv init --path)"
     eval "$(pyenv virtualenv-init -)"
