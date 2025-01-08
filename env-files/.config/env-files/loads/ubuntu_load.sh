@@ -5,11 +5,6 @@ if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-# clone tmuxifier
-if [ ! -d "$HOME/.tmuxifier/" ]; then
-  git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
-fi
-
 # ----- Install wezterm -----
 echo "Installing WezTerm..."
 if ! command -v wezterm &> /dev/null; then
