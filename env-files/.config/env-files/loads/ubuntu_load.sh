@@ -1,19 +1,9 @@
 #!/bin/bash
 
-# Check if the script is run with sudo privileges
-if [ "$(id -u)" -ne 0 ]; then
-  echo "Error: Please run this script with sudo."
-  exit 1
-fi
-
 # Load general configurations if available
-if [ -f ./loading_general.sh ]; then
-  source ./loading_general.sh
+if [ -f ./loads.sh ]; then
+  source ./loads.sh
 fi
-
-# Update the system
-echo "Updating the system..."
-sudo apt update && sudo apt upgrade -y
 
 # Install essential packages
 echo "Installing essential packages..."
@@ -31,8 +21,12 @@ echo "Installing WezTerm..."
 if ! command -v wezterm &> /dev/null; then
   curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
   echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-  sudo apt install wezterm
 else
   echo "WezTerm is already installed."
 fi
 
+# Update the system
+echo "Updating the system..."
+sudo apt update && sudo apt upgrade -y
+
+sudo apt install wezterm
