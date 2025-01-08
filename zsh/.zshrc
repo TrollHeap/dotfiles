@@ -1,5 +1,5 @@
 # ZSH - Environment Configuration
-# Author: Binary-Blade VH
+# Author: Binary-grunt
 
 # ENV Variables
 source ~/.config/env-files/init.sh
