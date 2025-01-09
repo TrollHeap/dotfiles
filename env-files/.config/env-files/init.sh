@@ -3,6 +3,7 @@ INIT_FLAG="$HOME/.config/env-files/.init_done"
 CONFIG_PATH="$HOME/.config/env-files"
 
 if [ ! -f "$INIT_FLAG" ]; then
+    echo "Performing first-time initialization..."
     # Load general configurations if available
     source $CONFIG_PATH/loads/general_load.sh
 
@@ -19,10 +20,11 @@ if [ ! -f "$INIT_FLAG" ]; then
 fi
 
 # Load shell functions
-source $CONFIG_PATH/functions/global-functions.sh
-source $CONFIG_PATH/functions/dev-functions.sh
+for shell_file in $CONFIG_PATH/functions/*.sh; do
+    source "$shell_file"
+done
 
-
+# Load all environment variables
 for env_file in ~/.config/env-files/env/*.env; do
     source "$env_file"
 done
