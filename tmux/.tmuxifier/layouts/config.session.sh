@@ -8,7 +8,7 @@ if initialize_session "Config"; then
   new_window "C-Tmuxifier" || echo "Failed to create C-Tmuxifier window"
   run_cmd "cd ~/dotfiles/tmux/.tmuxifier/layouts && nvim ." || echo "Failed to run 'cd ~/.config/tmux/.tmuxifier/layouts && nvim .'"
 
-  new_window "C-Envman" || echo "Failed to create C-Envman window"
+  new_window "C-EnvFiles" || echo "Failed to create C-Envman window"
   run_cmd "cd ~/dotfiles/env-files/.config/env-files && nvim ." || echo "Failed to run 'cd ~/.config/envman && nvim .'"
 
   new_window "C-Wezterm" || echo "Failed to create C-Wezterm window"
