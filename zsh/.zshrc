@@ -2,7 +2,7 @@
 # Author: Binary-grunt
 
 # ENV Variables
-source ~/.config/env-files/init.sh
+source ~/.config/env-files/main.sh
 
 # Plugins
 plugins=(git fzf fzf-zsh-plugin zsh-syntax-highlighting zsh-autosuggestions)
