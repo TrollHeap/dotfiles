@@ -9,3 +9,4 @@ echo "Installing packages from the list..."
 for i in $(cat BREW_LIST); do
   brew install $i
 done
+
