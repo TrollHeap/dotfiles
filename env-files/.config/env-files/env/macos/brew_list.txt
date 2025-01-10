@@ -5,7 +5,14 @@ fzf
 ripgrep
 tree
 tmux
+curl
+wget
 lazygit
+vagrant
+qemu
+vagrant-qemu
+docker
 neofetch
 zsh-syntax-highlighting
 zsh-autosuggestions
+-- cask wezterm
