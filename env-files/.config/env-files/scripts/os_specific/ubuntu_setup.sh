@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PACKAGE_LIST="$HOME/.config/env-files/env/linux/package_list.txt"
+
 # ----- Make zsh default shell -----
 sudo apt install -y zsh
 echo "Configuring Zsh..."
@@ -25,6 +27,9 @@ echo "Updating the system..."
 sudo apt update && sudo apt upgrade -y
 
 sudo apt install -y wezterm
+
 # Install essential packages
-echo "Installing essential packages..."
-sudo apt install -y tmux neofetch neovim fzf ripgrep tree 
+echo "Installing packages from the list..."
+for i in $(cat PACKAGE_LIST); do
+  sudo apt install -y $i
+done
