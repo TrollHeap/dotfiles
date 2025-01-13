@@ -16,6 +16,7 @@ return {
     'DBUIToggle',
     'DBUIAddConnection',
     'DBUIFindBuffer',
+    'DBUISaveQuery'
   },
   init = function()
     -- Your DBUI configuration
