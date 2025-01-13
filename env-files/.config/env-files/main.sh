@@ -9,6 +9,7 @@ for env_file in $CONFIG_PATH/env/global/*.env; do
     [ -r "$env_file" ] && source "$env_file"
 done
 
+source "$CONFIG_PATH/env/aliases/aliases.env"
 
 # Finalization
 echo "All configurations have been loaded."
