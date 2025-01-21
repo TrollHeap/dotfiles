@@ -1,7 +1,6 @@
 # Description: Load all the necessary configurations
 
 # ----- Variables -----
-CONFIG_PATH="$HOME/.config/env-files"
 INIT_FLAG="$CONFIG_PATH/.init_done"
 
 # ----- First-Time Initialization -----
