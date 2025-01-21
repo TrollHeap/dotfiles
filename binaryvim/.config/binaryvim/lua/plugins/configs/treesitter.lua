@@ -8,6 +8,7 @@ return { -- Highlight, edit, and navigate code
     require('nvim-treesitter.configs').setup {
       ensure_installed = {
         'c',
+        'c_sharp',
         'html',
         'json',
         'lua',

@@ -16,6 +16,7 @@ return {
       vue = { 'prettier' },
       c = { 'clang-format' },
       cpp = { 'clang-format' },
+      csharp = { 'csharpier' }
 
     },
   },

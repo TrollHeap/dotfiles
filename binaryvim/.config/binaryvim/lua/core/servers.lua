@@ -6,6 +6,8 @@ return {
   jsonls = {},
   yamlls = {},
 
+  bashls = {},
+
   -- TS/JS
   ts_ls = {
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact' },
@@ -53,6 +55,32 @@ return {
       },
     },
   },
-  -- JAVA
-  jdtls = {},
+
+  -- CSharp
+  omnisharp = {
+    cmd = {
+      "omnisharp",
+      "--languageserver",
+      "--hostPID", tostring(vim.fn.getpid()),
+      "--encoding", "utf-8",
+      "RoslynExtensionsOptions:EnableAnalyzersSupport=true",
+      "RoslynExtensionsOptions:EnableImportCompletion=true",
+      "FormattingOptions:OrganizeImports=true"
+    },
+    settings = {
+      omnisharp = {
+        useModernNet = true,
+        formattingOptions = {
+          enableEditorConfigSupport = true,
+          organizeImports = true,
+        },
+        enableRoslynAnalyzers = true,
+      },
+    },
+    filetypes = { "cs", "vb" },
+    root_dir = function(fname)
+      return require("lspconfig.util").root_pattern("*.sln", "*.csproj", ".git")(fname)
+    end,
+  },
+  -- csharp_ls = {},
 }
