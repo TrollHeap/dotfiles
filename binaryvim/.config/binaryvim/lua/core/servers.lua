@@ -63,18 +63,18 @@ return {
       "--languageserver",
       "--hostPID", tostring(vim.fn.getpid()),
       "--encoding", "utf-8",
-      "RoslynExtensionsOptions:EnableAnalyzersSupport=true",
+      "RoslynExtensionsOptions:EnableAnalyzersSupport=false",
       "RoslynExtensionsOptions:EnableImportCompletion=true",
-      "FormattingOptions:OrganizeImports=true"
+      "FormattingOptions:OrganizeImports=true",
     },
     settings = {
       omnisharp = {
         useModernNet = true,
         formattingOptions = {
-          enableEditorConfigSupport = true,
-          organizeImports = true,
+          enableEditorConfigSupport = true, -- Disable .editorconfig formatting
+          organizeImports = true,           -- Disable auto-organized imports
         },
-        enableRoslynAnalyzers = true,
+        enableRoslynAnalyzers = true,       -- Disable Roslyn-based analyzers
       },
     },
     filetypes = { "cs", "vb" },

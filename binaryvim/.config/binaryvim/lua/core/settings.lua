@@ -3,6 +3,7 @@ vim.g.mapleader = ' '         -- Set leader key
 vim.g.maplocalleader = ' '    -- Set local leader key
 vim.g.copilot_enabled = false -- Disable GitHub Copilot by default
 vim.g.editorconfig = false    -- Disable EditorConfig by default
+vim.opt.laststatus = 3        -- Always show statusline
 
 -- User Interface Options
 vim.opt.number = true             -- Show line numbers
