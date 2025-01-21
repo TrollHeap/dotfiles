@@ -3,12 +3,11 @@ if initialize_session "Shell"; then
   run_cmd "cd $HOME" || echo "Failed to run cd $HOME"
   run_cmd "lzd" || echo "Failed to run lzd"
 
-  new_window "shell_test" 
-  run_cmd "cd ~/Developer/WORKSPACE/Shell/"
-  run_cmd "nvim ." 
+  new_window "shell_test" || echo "Failed to create shell_test window"
+  run_cmd "cd ~/Developer/WORKSPACE/Shell/" || echo "Make shell_test windows"
 
-  new_window "terminal"
-  run_cmd "cd ~/Developer/WORKSPACE/Shell/"
+  new_window "terminal" || echo "Failed to create terminal window"
+  run_cmd "cd ~/Developer/WORKSPACE/Shell/"|| echo "Make shell_test windows"
 
   # Optionally, select a window to be displayed first. 0 is the index of the first window.
   select_window 1 

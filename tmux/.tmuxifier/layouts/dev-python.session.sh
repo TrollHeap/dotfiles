@@ -6,7 +6,6 @@ if initialize_session "python"; then
   new_window "Py" || echo "Failed to create python window"
   run_cmd "cd ~/Developer/WORKSPACE/Python" || echo "Failed to run cd py"
 
-
   new_window "Django" || echo "Failed to create Django window"
   run_cmd "cd ~/Developer/WORKSPACE/Python/DJANGO" || echo "Failed to run cd Django"
 
