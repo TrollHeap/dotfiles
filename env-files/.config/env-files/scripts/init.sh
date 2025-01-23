@@ -14,15 +14,6 @@ if [ ! -f "$INIT_FLAG" ]; then
         [ -r "$env" ] && source "$env"
     done
 
-    # Load OS-specific configurations
-    if [[ "$OSTYPE" == "darwin"* ]]; then
-        echo "Loading macOS-specific configurations..."
-        source "$CONFIG_PATH/scripts/os_specific/macos_setup.sh"
-    else
-        echo "Loading Ubuntu-specific configurations..."
-        source "$CONFIG_PATH/scripts/os_specific/ubuntu_setup.sh"
-    fi
-
     # Load Main OS-Specific Configurations
     source "$CONFIG_PATH/scripts/os_specific/main_setup.sh"
 
