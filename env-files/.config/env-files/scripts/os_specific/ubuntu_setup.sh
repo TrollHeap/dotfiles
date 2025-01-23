@@ -29,21 +29,34 @@ git_clone_wezterm(){
   fi
 }
 
-install_zsh
-make_zsh_default
-git_clone_wezterm
+# ----- Re-execute the script in Zsh -----
+reload_in_zsh() {
+  echo "Switching to Zsh for the remaining steps..."
+  export SHELL="$(which zsh)"
+  exec zsh -c "source $0"
+}
 
-# ----- Update the system -----
-echo "Updating the system..."
-sudo apt update && sudo apt upgrade -y
+# ----- Main Execution Flow -----
+if [ "$SHELL" != "$(which zsh)" ]; then
+  install_zsh
+  make_zsh_default
+  reload_in_zsh
 
-sudo apt install -y wezterm
+  # ----- Update the system -----
+  echo "Updating the system..."
+  sudo apt update && sudo apt upgrade -y
 
-# ----- Install essential packages -----
-echo "Installing essential packages..."
-if [ -f "$PACKAGE_LIST" ]; then
-    install_packages "$PACKAGE_LIST" apt
-else
-    echo "Error: Package list file not found at $PACKAGE_LIST!" >&2
-    exit 1
+  sudo apt install -y wezterm
+
+  # ----- Install essential packages -----
+  echo "Installing essential packages..."
+  if [ -f "$PACKAGE_LIST" ]; then
+      install_packages "$PACKAGE_LIST" apt
+  else
+      echo "Error: Package list file not found at $PACKAGE_LIST!" >&2
+      exit 1
+  fi
+
+  exit 0
 fi
+
