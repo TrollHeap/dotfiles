@@ -16,8 +16,8 @@ install_packages() {
     # Install packages from the list
     while IFS= read -r package; do
         if [ -n "$package" ]; then
-            echo "Installing $package..." >> "$LOG_FILE/install_packages.log"
-            if ! sudo "$package_manager" install -y "$package" >> "$LOG_FILE/install_packages.log" 2>&1; then
+            echo "Installing $package..." 
+            if ! sudo "$package_manager" install -y "$package"; then
                 echo "Error: Failed to install $package. Check the log for details." >> "$LOG_FILE/install_packages.log"
             else
                 echo "$package installed successfully." >> "$LOG_FILE/install_packages.log"
