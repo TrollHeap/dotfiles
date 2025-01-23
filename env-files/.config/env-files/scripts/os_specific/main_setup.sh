@@ -1,61 +1,46 @@
 #!/bin/bash
 
+CONFIG_PATH="$HOME/config" # Chemin vers vos fichiers de configuration
+
 install_packages() {
-    # Load OS-specific configurations
     if [[ "$OSTYPE" == "darwin"* ]]; then
-        echo "Loading macOS-specific configurations..."
+        printf "Loading macOS-specific configurations...\n"
         source "$CONFIG_PATH/scripts/os_specific/macos_setup.sh"
     else
-        echo "Loading Ubuntu-specific configurations..."
+        printf "Loading Ubuntu-specific configurations...\n"
         source "$CONFIG_PATH/scripts/os_specific/ubuntu_setup.sh"
     fi
 }
 
-# ---- Install NVM -----
 install_nvm() {
-    echo "Installing NVM..."
+    printf "Installing NVM...\n"
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
 }
-# ---- Install starship  -----
+
 install_starship() {
     if ! command -v starship &> /dev/null; then
-        echo "Installing Starship..."
+        printf "Installing Starship...\n"
         curl -sS https://starship.rs/install.sh | sh
     else
-        echo "Starship is already installed."
+        printf "Starship is already installed.\n"
     fi
 }
 
-# ---- Install Tmux Plugin Manager -----
 install_tmux_plugin_manager() {
-  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-    echo "Cloning Tmux Plugin Manager..."
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  fi
-}
-
-# ---- Install Zsh Autosuggestions -----
-install_fzf_zsh() {
-  if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin" ]; then
-    git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
-  fi
-}
-
-
-# ---- Install Oh My Zsh -----
-install_oh_my_zsh() {
-    if [ ! -d "$HOME/.oh-my-zsh" ]; then
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-        git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
+        printf "Cloning Tmux Plugin Manager...\n"
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
     fi
 }
 
+# Charger le fichier zsh_setup.sh pour gérer toutes les configurations Zsh
+setup_zsh() {
+    source "$CONFIG_PATH/scripts/zsh_setup.sh"
+}
 
-
+# Appels des fonctions principales
 install_packages
 install_nvm
 install_starship
 install_tmux_plugin_manager
-install_fzf_zsh
-install_oh_my_zsh
+setup_zsh

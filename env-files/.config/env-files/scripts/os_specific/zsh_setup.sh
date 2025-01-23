@@ -1,0 +1,61 @@
+#!/bin/bash
+
+install_zsh() {
+    if ! command -v zsh &> /dev/null; then
+        printf "Installing Zsh...\n"
+        sudo apt install -y zsh
+    fi
+}
+
+set_zsh_default_shell() {
+    printf "Configuring Zsh as default shell...\n"
+    if [[ "$SHELL" != "$(command -v zsh)" ]]; then
+        chsh -s "$(command -v zsh)"
+    fi
+}
+
+install_oh_my_zsh() {
+    if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
+        printf "Installing Oh My Zsh...\n"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    fi
+}
+
+install_zsh_plugins() {
+    local zsh_custom="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+    
+    printf "Installing Zsh plugins...\n"
+    
+    if [[ ! -d "$zsh_custom/plugins/zsh-autosuggestions" ]]; then
+        git clone https://github.com/zsh-users/zsh-autosuggestions "$zsh_custom/plugins/zsh-autosuggestions"
+    fi
+
+    if [[ ! -d "$zsh_custom/plugins/zsh-syntax-highlighting" ]]; then
+        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$zsh_custom/plugins/zsh-syntax-highlighting"
+    fi
+
+    if [[ ! -d "$zsh_custom/plugins/fzf-zsh-plugin" ]]; then
+        git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git "$zsh_custom/plugins/fzf-zsh-plugin"
+    fi
+}
+
+
+install_wezterm() {
+    if ! command -v wezterm &> /dev/null; then
+        printf "Installing WezTerm...\n"
+        curl -fsSL https://wezfurlong.org/wezterm/keys/wezterm.asc | gpg --dearmor -o /etc/apt/keyrings/wezterm.gpg
+        echo "deb [signed-by=/etc/apt/keyrings/wezterm.gpg] https://wezfurlong.org/wezterm/debian stable main" | sudo tee /etc/apt/sources.list.d/wezterm.list > /dev/null
+        sudo apt update
+        sudo apt install -y wezterm
+    else
+        printf "WezTerm is already installed.\n"
+    fi
+}
+
+
+# Appels des fonctions spécifiques à Zsh
+install_zsh
+install_oh_my_zsh
+install_zsh_plugins
+set_zsh_default_shell
+install_wezterm
