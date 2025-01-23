@@ -22,7 +22,7 @@ install_oh_my_zsh() {
 }
 
 install_zsh_plugins() {
-    local zsh_custom="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+    local zsh_custom="${ZSH_CUSTOM:-$HOME/.oh-my-zsh}"
     
     printf "Installing Zsh plugins...\n"
     
@@ -53,9 +53,8 @@ install_wezterm() {
 }
 
 
-# Appels des fonctions spécifiques à Zsh
 install_zsh
+set_zsh_default_shell
 install_oh_my_zsh
 install_zsh_plugins
-set_zsh_default_shell
 install_wezterm

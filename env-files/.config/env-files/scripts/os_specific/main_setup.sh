@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CONFIG_PATH="$HOME/config" # Chemin vers vos fichiers de configuration
+CONFIG_PATH="$HOME/config" 
 
 install_packages() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -33,12 +33,10 @@ install_tmux_plugin_manager() {
     fi
 }
 
-# Charger le fichier zsh_setup.sh pour gérer toutes les configurations Zsh
 setup_zsh() {
-    source "$CONFIG_PATH/scripts/zsh_setup.sh"
+    source "$CONFIG_PATH/scripts/os_specific/zsh_setup.sh"
 }
 
-# Appels des fonctions principales
 install_packages
 install_nvm
 install_starship
