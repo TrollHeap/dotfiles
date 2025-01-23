@@ -2,7 +2,6 @@
 CONFIG_PATH="$HOME/.config/env-files"
 
 source "$CONFIG_PATH/scripts/init.sh"
-source "$CONFIG_PATH/functions/dev-functions.sh"
 
 for env_file in $CONFIG_PATH/env/global/*.env; do
     # Verify if the file is readable
@@ -10,6 +9,7 @@ for env_file in $CONFIG_PATH/env/global/*.env; do
 done
 
 source "$CONFIG_PATH/env/aliases/aliases.env"
+source "$CONFIG_PATH/scripts/tools/init.sh"
 
 # Finalization
 echo "All configurations have been loaded."
