@@ -22,8 +22,8 @@ make_zsh_default() {
 git_clone_wezterm(){
   echo "Installing WezTerm..."
   if ! command -v wezterm &> /dev/null; then
-    curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
-    echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+    curl -fsSL https://apt.fury.io/wez/gpg.key 
+    echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *'
   else
     echo "WezTerm is already installed."
   fi
