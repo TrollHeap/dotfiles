@@ -8,11 +8,6 @@ INIT_FLAG="$CONFIG_PATH/.init_done"
 if [ ! -f "$INIT_FLAG" ]; then
     echo "Performing first-time initialization..."
     
-    # Load global environment variables
-    for env in $CONFIG_PATH/env/global/*.env; do
-        echo "Loading global environment variables..."
-        [ -r "$env" ] && source "$env"
-    done
 
     # Load Main OS-Specific Configurations
     source "$CONFIG_PATH/scripts/os_specific/main_setup.sh"
