@@ -9,7 +9,6 @@ for env_file in $CONFIG_PATH/env/global/*.env; do
 done
 
 source "$CONFIG_PATH/env/aliases/aliases.env"
-source "$CONFIG_PATH/scripts/tools/init.sh"
 
 # Finalization
 echo "All configurations have been loaded."
