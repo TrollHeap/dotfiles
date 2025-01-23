@@ -1,7 +1,5 @@
 #!/bin/bash
 
-CONFIG_PATH="$HOME/config" 
-
 install_packages() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         printf "Loading macOS-specific configurations...\n"
