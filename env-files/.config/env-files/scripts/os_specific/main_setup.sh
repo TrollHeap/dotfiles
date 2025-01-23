@@ -26,6 +26,22 @@ install_starship() {
     fi
 }
 
+# ---- Install Tmux Plugin Manager -----
+install_tmux_plugin_manager() {
+  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
+    echo "Cloning Tmux Plugin Manager..."
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  fi
+}
+
+# ---- Install Zsh Autosuggestions -----
+install_fzf_zsh() {
+  if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin" ]; then
+    git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
+  fi
+}
+
+
 # ---- Install Oh My Zsh -----
 install_oh_my_zsh() {
     if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -36,24 +52,10 @@ install_oh_my_zsh() {
 }
 
 
-# ---- Install Zsh Autosuggestions -----
-install_fzf_zsh() {
-  if [ ! -d "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin" ]; then
-    git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-zsh-plugin
-  fi
-}
-
-# ---- Install Tmux Plugin Manager -----
-install_tmux_plugin_manager() {
-  if [ ! -d "$HOME/.tmux/plugins/tpm" ]; then
-    echo "Cloning Tmux Plugin Manager..."
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  fi
-}
 
 install_packages
 install_nvm
 install_starship
-install_oh_my_zsh
-#install_fzf_zsh
 install_tmux_plugin_manager
+install_fzf_zsh
+install_oh_my_zsh
