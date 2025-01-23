@@ -27,8 +27,8 @@ vim.opt.swapfile = false -- Disable swapfile
 
 -- Whitespace Management
 vim.opt.wrap = false -- Disable line wrapping
-vim.opt.list = true -- Show whitespace characters
-vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- Set listchars for whitespace
+--vim.opt.list = true  -- Show whitespace characters
+--vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' } -- Set listchars for whitespace
 
 -- Performance
 vim.opt.updatetime = 250 -- Faster completion

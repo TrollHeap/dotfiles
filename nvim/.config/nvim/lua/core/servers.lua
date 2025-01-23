@@ -6,8 +6,6 @@ return {
   jsonls = {},
   yamlls = {},
 
-  bashls = {},
-
   -- TS/JS
   ts_ls = {
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact' },

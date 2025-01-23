@@ -29,6 +29,15 @@ return {
         null_ls.builtins.formatting.isort,
         -- null_ls.builtins.diagnostics.mypy,
         null_ls.builtins.diagnostics.ruff,
+
+        -- Shell formatters and linters
+        null_ls.builtins.formatting.shfmt,
+        null_ls.builtins.diagnostics.shellcheck,
+
+        -- Csharp formatters and linters
+        null_ls.builtins.formatting.dotnet_format,
+        null_ls.builtins.diagnostics.dotnet_diagnostic,
+
       },
     }
   end,
