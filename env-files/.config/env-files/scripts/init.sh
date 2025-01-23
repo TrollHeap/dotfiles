@@ -1,3 +1,4 @@
+#!/bin/bash
 # Description: Load all the necessary configurations
 
 # ----- Variables -----

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Helper function to initialize path
 init_path() {
     local path=$1

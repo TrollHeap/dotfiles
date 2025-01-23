@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Function to deduplicate the PATH variable
 deduplicate_path() {
     local old_path="$PATH"

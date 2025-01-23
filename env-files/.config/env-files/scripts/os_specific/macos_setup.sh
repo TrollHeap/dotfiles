@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 BREW_LIST="$CONFIG_ENV/macos/brew_list.txt"
 source "$CONFIG_FUNCTIONS/install_packages.sh"
 
