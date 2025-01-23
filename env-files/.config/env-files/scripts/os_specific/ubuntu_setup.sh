@@ -1,7 +1,5 @@
-#!/bin/bash
-
-PACKAGE_LIST="$HOME/.config/env-files/env/linux/package_list.txt"
-source "$HOME/.config/env-files/functions/install_packages.sh"
+PACKAGE_LIST="$CONFIG_ENV/linux/package_list.txt"
+source "$CONFIG_FUNCTIONS/install_packages.sh"
 
 # ----- Install zsh -----
 install_zsh() {
@@ -29,34 +27,21 @@ git_clone_wezterm(){
   fi
 }
 
-# ----- Re-execute the script in Zsh -----
-reload_in_zsh() {
-  echo "Switching to Zsh for the remaining steps..."
-  export SHELL="$(which zsh)"
-  exec zsh -c "source $0"
-}
+install_zsh
+make_zsh_default
+git_clone_wezterm
 
-# ----- Main Execution Flow -----
-if [ "$SHELL" != "$(which zsh)" ]; then
-  install_zsh
-  make_zsh_default
-  reload_in_zsh
+# ----- Update the system -----
+echo "Updating the system..."
+sudo apt update && sudo apt upgrade -y
 
-  # ----- Update the system -----
-  echo "Updating the system..."
-  sudo apt update && sudo apt upgrade -y
+sudo apt install -y wezterm
 
-  sudo apt install -y wezterm
-
-  # ----- Install essential packages -----
-  echo "Installing essential packages..."
-  if [ -f "$PACKAGE_LIST" ]; then
-      install_packages "$PACKAGE_LIST" apt
-  else
-      echo "Error: Package list file not found at $PACKAGE_LIST!" >&2
-      exit 1
-  fi
-
-  exit 0
+# ----- Install essential packages -----
+echo "Installing essential packages..."
+if [ -f "$PACKAGE_LIST" ]; then
+    install_packages "$PACKAGE_LIST" apt
+else
+    echo "Error: Package list file not found at $PACKAGE_LIST!" >&2
+    exit 1
 fi
-
