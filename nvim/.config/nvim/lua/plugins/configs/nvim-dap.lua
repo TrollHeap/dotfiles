@@ -77,7 +77,7 @@ return {
     }
 
     -- Python configuration
-    require('dap-python').setup('~/.local/share/binaryvim/mason/packages/debugpy/venv/bin/python', {
+    require('dap-python').setup('~/.local/share/nvim/mason/packages/debugpy/venv/bin/python', {
       include_configs = true,
     })
     -- Custom event handlers for debugpy
