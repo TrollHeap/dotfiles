@@ -6,8 +6,8 @@ if initialize_session "CSharp"; then
   new_window "CSharp" || echo "Failed to create CSharp window"
   run_cmd "cd $HOME/Developer/WORKSPACE/CSharp/" || echo "Failed to run cd CSharp"
 
-  new_window "terminal"
-  run_cmd "cd $HOME/Developer/WORKSPACE/CSharp/"
+  new_window "terminal" || echo "Failed to create CSharp window"
+  run_cmd "cd $HOME/Developer/WORKSPACE/CSharp/" || echo "Failed to create CSharp window"
 
   # Optionally, select a window to be displayed first. 0 is the index of the first window.
   select_window 1 
