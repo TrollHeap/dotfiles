@@ -9,10 +9,10 @@ if [ ! -f "$INIT_FLAG" ]; then
     echo "Performing first-time initialization..."
    
     # Load General OS-Specific Configurations
-    source "$CONFIG_PATH/scripts/os_specific/general_setup.sh"
+    source "$CONFIG_INIT/os_specific/general_setup.sh"
 
     # Create the Developer directory
-    source "$CONFIG_PATH/scripts/modules/folders_setup.sh"
+    source "$CONFIG_INIT/modules/folders_setup.sh"
 
     # Mark initialization as complete
     touch "$INIT_FLAG"
@@ -20,7 +20,7 @@ if [ ! -f "$INIT_FLAG" ]; then
 
     # Load the ending stow setup
     if [ -e "$INIT_FLAG"] ; then
-        source "$CONFIG_PATH/scripts/modules/stow_setup.sh"
+        source "$CONFIG_INIT/modules/stow_setup.sh"
     fi
 fi
 
@@ -31,8 +31,8 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
 
     # Homebrew initialization
     eval "$(/opt/homebrew/bin/brew shellenv)"
-    source "$CONFIG_PATH/scripts/tools/init.sh"
+    source "$CONFIG_INIT/tools/init.sh"
 else
-    source "$CONFIG_PATH/env/linux" ".env"
-    source "$CONFIG_PATH/scripts/tools/init.sh"
+    source "$CONFIG_ENV/linux" ".env"
+    source "$CONFIG_INIT/tools/init.sh"
 fi

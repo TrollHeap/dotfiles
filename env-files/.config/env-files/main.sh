@@ -8,7 +8,8 @@ for env_file in $CONFIG_PATH/env/global/*.env; do
     [ -r "$env_file" ] && source "$env_file"
 done
 
-source "$CONFIG_PATH/scripts/init.sh"
+# Load the initialization script
+source "$CONFIG_INIT/init.sh"
 
 # Finalization
 echo "All configurations have been loaded."

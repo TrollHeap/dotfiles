@@ -3,10 +3,10 @@
 install_packages() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         printf "Loading macOS-specific configurations...\n"
-        source "$CONFIG_PATH/scripts/os_specific/macos_setup.sh"
+        source "$CONFIG_INIT/os_specific/macos_setup.sh"
     else
         printf "Loading Ubuntu-specific configurations...\n"
-        source "$CONFIG_PATH/scripts/os_specific/linux_setup.sh"
+        source "$CONFIG_INIT/scripts/os_specific/linux_setup.sh"
     fi
 }
 
@@ -32,7 +32,7 @@ install_tmux_plugin_manager() {
 }
 
 setup_zsh() {
-    source "$CONFIG_PATH/scripts/os_specific/zsh_setup.sh"
+    source "$CONFIG_INIT/os_specific/zsh_setup.sh"
 }
 
 install_packages
