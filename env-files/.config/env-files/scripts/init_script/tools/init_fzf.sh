@@ -2,6 +2,7 @@
 
 FZF_DIR="$HOME/.fzf/shell"
 
+# ------ Load FZF completion and key bindings ------
 fzf_completion(){
     if [ -f "$FZF_DIR/completion.zsh" ]; then
         source "$FZF_DIR/completion.zsh" 2>>"$LOG_FILE/init_errors.log"

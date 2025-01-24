@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Description: Install all the necessary packages and tools
+
+# ----- Functions -----
 install_packages() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         printf "Loading macOS-specific configurations...\n"
