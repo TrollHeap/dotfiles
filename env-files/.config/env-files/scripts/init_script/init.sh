@@ -33,6 +33,6 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
     source "$CONFIG_INIT/tools/init.sh"
 else
-    source "$CONFIG_ENV/linux" ".env"
+    source "$CONFIG_PATH/env/linux" ".env"
     source "$CONFIG_INIT/tools/init.sh"
 fi
