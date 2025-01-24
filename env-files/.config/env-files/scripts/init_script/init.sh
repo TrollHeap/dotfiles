@@ -11,17 +11,13 @@ if [ ! -f "$INIT_FLAG" ]; then
     # Load General OS-Specific Configurations
     source "$CONFIG_INIT/os_specific/general_setup.sh"
 
+    source "$CONFIG_INIT/modules/stow_setup.sh"
     # Create the Developer directory
     source "$CONFIG_INIT/modules/folders_setup.sh"
 
     # Mark initialization as complete
     touch "$INIT_FLAG"
     echo "First-time initialization complete."
-
-    # Load the ending stow setup
-    if [ -e "$INIT_FLAG"] ; then
-        source "$CONFIG_INIT/modules/stow_setup.sh"
-    fi
 fi
 
 

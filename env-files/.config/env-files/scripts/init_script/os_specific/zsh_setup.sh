@@ -45,12 +45,12 @@ install_zsh_plugins() {
 install_wezterm() {
     if ! command -v wezterm &> /dev/null; then
         echo "Installing WezTerm...\n"
-        curl -fsSL https://wezfurlong.org/wezterm/keys/wezterm.asc | gpg --dearmor -o /etc/apt/keyrings/wezterm.gpg
-        echo "deb [signed-by=/etc/apt/keyrings/wezterm.gpg] https://wezfurlong.org/wezterm/debian stable main" | sudo tee /etc/apt/sources.list.d/wezterm.list > /dev/null
+        curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
+        echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
         sudo apt update
         sudo apt install -y wezterm
     else
-        printf "WezTerm is already installed.\n"
+        echo "WezTerm is already installed.\n"
     fi
 }
 
