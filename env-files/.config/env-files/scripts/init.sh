@@ -8,6 +8,7 @@ INIT_FLAG="$CONFIG_PATH/.init_done"
 if [ ! -f "$INIT_FLAG" ]; then
     echo "Performing first-time initialization..."
     
+    source "$CONFIG_PATH/scripts/modules/stow_setup.sh"
 
     # Load Main OS-Specific Configurations
     source "$CONFIG_PATH/scripts/os_specific/main_setup.sh"
