@@ -6,7 +6,7 @@ install_packages() {
         source "$CONFIG_INIT/os_specific/macos_setup.sh"
     else
         printf "Loading Ubuntu-specific configurations...\n"
-        source "$CONFIG_INIT/scripts/os_specific/linux_setup.sh"
+        source "$CONFIG_INIT/os_specific/linux_setup.sh"
     fi
 }
 
