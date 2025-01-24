@@ -14,5 +14,5 @@ install_stow() {
 install_stow
 
 # ----- Setup dotfiles -----
-cd dotfiles && stow wezterm && stow tmux && stow nvim && cd && source .zshrc
+cd dotfiles && stow wezterm && stow tmux && stow nvim && cd
 

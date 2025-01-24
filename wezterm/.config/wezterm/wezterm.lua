@@ -21,8 +21,10 @@ config.window_decorations = "RESIZE"
 
 -- Configure the font with a fallback option
 config.font = wezterm.font_with_fallback({
-    { family = 'JetBrains Mono',   scale = 1.25 },
-    --{ family = 'GeistMono Nerd Font', scale = 1.1 },
+    -- { family = 'JetBrains Mono',   scale = 1.25 },
+    --{ family = 'FiraCode Nerd Font', scale = 1.25 },
+    --{ family = 'Hack Nerd Font',   scale = 1.25 },
+    { family = 'GeistMono Nerd Font', scale = 1.25 },
     { family = "Symbols Nerd Font" }
 })
 
