@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Function to deduplicate the PATH variable
-deduplicate_path() {
+# Function to duplicate the PATH variable
+duplicate_path() {
     local old_path="$PATH"
     local new_path
     new_path=$(echo "$old_path" | tr ':' '\n' | awk '!seen[$0]++' | tr '\n' ':')

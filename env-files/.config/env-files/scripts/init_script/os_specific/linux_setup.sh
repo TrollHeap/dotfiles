@@ -3,7 +3,7 @@ source "$CONFIG_FUNCTIONS/install_packages.sh"
 
 # ----- Update the system -----
 echo "Updating the system..."
-sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y && sudo apt install -y build-essential
 
 # ----- Install essential packages -----
 echo "Installing essential packages..."

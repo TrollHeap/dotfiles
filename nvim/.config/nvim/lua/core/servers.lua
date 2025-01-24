@@ -80,5 +80,4 @@ return {
       return require("lspconfig.util").root_pattern("*.sln", "*.csproj", ".git")(fname)
     end,
   },
-  -- csharp_ls = {},
 }
