@@ -46,7 +46,8 @@ return {
     end
     require('lualine').setup {
       options = {
-        theme = 'palenight',
+        --theme = 'palenight',
+        theme = 'gruvbox',
         icons_enabled = true,
         section_separators = { left = '', right = '' },
         component_separators = { left = '', right = '' },
