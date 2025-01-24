@@ -8,9 +8,6 @@ INIT_FLAG="$CONFIG_PATH/.init_done"
 if [ ! -f "$INIT_FLAG" ]; then
     echo "Performing first-time initialization..."
    
-    # Initialize the stow setup
-    source "$CONFIG_PATH/scripts/modules/starting_stow_setup.sh"
-
     # Load General OS-Specific Configurations
     source "$CONFIG_PATH/scripts/os_specific/general_setup.sh"
 
@@ -23,7 +20,7 @@ if [ ! -f "$INIT_FLAG" ]; then
 
     # Load the ending stow setup
     if [ -e "$INIT_FLAG"] ; then
-        source "$CONFIG_PATH/scripts/modules/ending_stow_setup.sh"
+        source "$CONFIG_PATH/scripts/modules/stow_setup.sh"
     fi
 fi
 
