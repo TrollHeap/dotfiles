@@ -8,7 +8,7 @@ return {
 
     bufferline.setup {
       options = {
-        mode = 'buffers', -- Utilisez le mode buffers
+        mode = 'buffers',                               -- Utilisez le mode buffers
         style_preset = bufferline.style_preset.default, -- or bufferline.style_preset.minimal,
         -- Personnalisation des offsets pour intégrer avec NvimTree ou autres plugins similaires
         offsets = {
@@ -24,7 +24,7 @@ return {
         always_show_bufferline = false,
         show_buffer_close_icons = false, -- Désactiver les icônes de fermeture si vous n'utilisez pas la souris
         show_close_icon = false,
-        color_icons = true, -- Activer les icônes colorées (nécessite 'nvim-web-devicons')
+        color_icons = true,              -- Activer les icônes colorées (nécessite 'nvim-web-devicons')
         diagnostics = 'nvim_lsp',
         diagnostics_indicator = function(count, level, diagnostics_dict, diagnostics_hint, context)
           local icon = level:match 'error' and ' ' or (level:match 'warning' and ' ') or ' '
@@ -71,11 +71,4 @@ return {
     end
   end, { desc = 'Close current buffer and move to the left buffer' }),
 
-  -- Keybindings
-  vim.keymap.set('n', '<leader>x', ':CloseBufferAndGoLeft<CR>', { noremap = true, silent = true }),
-  vim.keymap.set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', { noremap = true, silent = true }),
-  vim.keymap.set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', { noremap = true, silent = true }),
-  vim.keymap.set('n', '<leader>ba', ':BufferLineCloseOthers<CR>', { noremap = true, silent = true }),
-  vim.keymap.set('n', '<leader>bl', ':BufferLineCloseLeft<CR>', { noremap = true, silent = true }),
-  vim.keymap.set('n', '<leader>br', ':BufferLineCloseRight<CR>', { noremap = true, silent = true }),
 }
