@@ -2,21 +2,21 @@
 
 install_zsh() {
     if ! command -v zsh &> /dev/null; then
-        printf "Installing Zsh...\n"
+        echo "Installing Zsh...\n"
         sudo apt install -y zsh
     fi
 }
 
 set_zsh_default_shell() {
-    printf "Configuring Zsh as default shell...\n"
-    if [[ "$SHELL" != "$(command -v zsh)" ]]; then
-        chsh -s "$(command -v zsh)"
+    echo "Configuring Zsh as default shell...\n"
+    if [ "$SHELL" != "$(which zsh)" ]; then
+        chsh -s "$(which zsh)"
     fi
 }
 
 install_oh_my_zsh() {
     if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
-        printf "Installing Oh My Zsh...\n"
+        echo "Installing Oh My Zsh...\n"
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     fi
 }
@@ -24,7 +24,7 @@ install_oh_my_zsh() {
 install_zsh_plugins() {
     local zsh_custom="${ZSH_CUSTOM:-$HOME/.oh-my-zsh}"
     
-    printf "Installing Zsh plugins...\n"
+    echo "Installing Zsh plugins...\n"
     
     if [[ ! -d "$zsh_custom/plugins/zsh-autosuggestions" ]]; then
         git clone https://github.com/zsh-users/zsh-autosuggestions "$zsh_custom/plugins/zsh-autosuggestions"
@@ -37,12 +37,14 @@ install_zsh_plugins() {
     if [[ ! -d "$zsh_custom/plugins/fzf-zsh-plugin" ]]; then
         git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git "$zsh_custom/plugins/fzf-zsh-plugin"
     fi
+
+    rm -f "$HOME/.zshrc" && cd dotfiles && stow zsh && cd ..
 }
 
 
 install_wezterm() {
     if ! command -v wezterm &> /dev/null; then
-        printf "Installing WezTerm...\n"
+        echo "Installing WezTerm...\n"
         curl -fsSL https://wezfurlong.org/wezterm/keys/wezterm.asc | gpg --dearmor -o /etc/apt/keyrings/wezterm.gpg
         echo "deb [signed-by=/etc/apt/keyrings/wezterm.gpg] https://wezfurlong.org/wezterm/debian stable main" | sudo tee /etc/apt/sources.list.d/wezterm.list > /dev/null
         sudo apt update

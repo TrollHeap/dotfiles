@@ -7,17 +7,24 @@ INIT_FLAG="$CONFIG_PATH/.init_done"
 # ----- First-Time Initialization -----
 if [ ! -f "$INIT_FLAG" ]; then
     echo "Performing first-time initialization..."
-    
-    source "$CONFIG_PATH/scripts/modules/stow_setup.sh"
+   
+    # Initialize the stow setup
+    source "$CONFIG_PATH/scripts/modules/starting_stow_setup.sh"
 
-    # Load Main OS-Specific Configurations
-    source "$CONFIG_PATH/scripts/os_specific/main_setup.sh"
+    # Load General OS-Specific Configurations
+    source "$CONFIG_PATH/scripts/os_specific/general_setup.sh"
 
     # Create the Developer directory
     source "$CONFIG_PATH/scripts/modules/folders_setup.sh"
 
     # Mark initialization as complete
     touch "$INIT_FLAG"
+    echo "First-time initialization complete."
+
+    # Load the ending stow setup
+    if [ -e "$INIT_FLAG"] ; then
+        source "$CONFIG_PATH/scripts/modules/ending_stow_setup.sh"
+    fi
 fi
 
 
