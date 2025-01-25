@@ -23,6 +23,26 @@ return { -- Collection of various small independent plugins/modules
 
     require('mini.indentscope').setup()
 
+    vim.notify = require('mini.notify').make_notify()
+    require('mini.notify').setup({
+      content = {
+        format = function(notif) return notif.msg end,
+        sort = function(notif_arr)
+          table.sort(notif_arr, function(a, b) return a.ts_update > b.ts_update end)
+          return notif_arr
+        end,
+      },
+      lsp_progress = {
+        enable = true,
+        duration_last = 2500,
+      },
+      window = {
+        config = {},
+        max_width_share = 0.5,
+        winblend = 20,
+      },
+    })
+
     -- Simple and easy statusline.
     --  You could remove this setup call if you don't like it,
     --  and try some other statusline plugin
