@@ -5,8 +5,8 @@ if initialize_session "Config"; then
   create_and_run_window "C-Tmux" "cd $DOTFILES/tmux && nvim ."
   create_and_run_window "C-Tmuxifier" "cd $DOTFILES/tmux/.tmuxifier/layouts && nvim ."
   create_and_run_window "C-EnvFiles" "cd $DOTFILES/env-files/.config/env-files && nvim ."
-  create_and_run_window "C-Wezterm" "cd $DOTFILES/wezterm && nvim ."
-  create_and_run_window "C-Yazi" "cd $DOTFILES/yazi && nvim ."
+  create_and_run_window "C-Wezterm" "cd $DOTFILES/wezterm/.config/wezterm && nvim ."
+  create_and_run_window "C-Yazi" "cd $DOTFILES/yazi/.config/yazi && nvim ."
 
   select_window 1 || echo "Failed to select window 1"
 fi
