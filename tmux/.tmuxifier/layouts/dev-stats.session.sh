@@ -1,10 +1,9 @@
+source "$DOTFILES/tmux/utils/create_win_run.sh"
+
 if initialize_session "Stats"; then
 
-  new_window "Btop" || echo "Failed to create Btop window"
-  run_cmd "btop" || echo "Failed to run 'btop'"
-
-  new_window "Zsh" || echo "Failed to create Zsh window"
-  #run_cmd "" || echo "Failed to run 'cd ~/.config/tmux && nvim .'"
+  create_and_run_window "BTop" "btop"
+  create_and_run_window "term" "cd"
 
   select_window 1 || echo "Failed to select window 1"
 fi
