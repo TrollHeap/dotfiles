@@ -15,6 +15,7 @@ config.window_background_image_hsb = {
 -- Set the color scheme
 -- config.color_scheme = "Tokyo Night"
 -- config.color_scheme = "Catppuccin Mocha"
+-- config.color_scheme = 'GruvboxDarkHard'
 config.color_scheme = "Gruvbox Material (Gogh)"
 config.window_background_opacity = 0.95
 config.window_decorations = "RESIZE"
