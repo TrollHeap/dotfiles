@@ -9,3 +9,6 @@ echo "Installing Homebrew..."
 
 # Install packages from the list
 install_packages "$BREW_LIST" brew
+
+ya pack -a yazi-rs/flavors:catppuccin-mocha
+ya pack -a bennyyip/gruvbox-dark
