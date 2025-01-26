@@ -5,6 +5,7 @@ return {
   cssls = {},
   jsonls = {},
   yamlls = {},
+  bashls = {},
 
   -- TS/JS
   ts_ls = {

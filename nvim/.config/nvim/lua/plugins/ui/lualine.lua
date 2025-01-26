@@ -25,13 +25,19 @@ return {
 
       -- Mapping from LSP server name to icon
       local lsp_icons = {
-        ['intelephense'] = ' ', -- Replace with your chosen PHP icon
-        ['tsserver'] = '󰛦 ', -- Replace with your chosen TypeScript icon
-        ['volar'] = ' ', -- Replace with your chosen Vue icon
-        ['lua_ls'] = '󰢱 ',
-        ['clangd'] = ' ', -- Replace with your chosen C/C++ icon
-        ['yamlls'] = '󰍛 ', -- Replace with your chosen YAML icon
-        ['dockerls'] = '󰡨 ', -- Replace with your chosen Docker icon
+        ['intelephense'] = '', -- PHP
+        ['tsserver'] = '󰛦', -- TypeScript
+        ['volar'] = '', -- Vue
+        ['lua_ls'] = '󰢱', -- Lua
+        ['clangd'] = '', -- C/C++
+        ['yamlls'] = '󰍛', -- YAML
+        ['dockerls'] = '󰡨', -- Docker
+        ['jsonls'] = '󰘋', -- JSON
+        ['html'] = '󰌝', -- HTML
+        ['cssls'] = '󰌜', -- CSS
+        ['bashls'] = '', -- Bash
+        ['pylsp'] = '󰌠', -- Python
+        ['omnisharp'] = '󰌛', -- C#
       }
 
       for _, client in ipairs(clients) do

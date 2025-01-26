@@ -16,8 +16,11 @@ return {
       vue = { 'prettier' },
       c = { 'clang-format' },
       cpp = { 'clang-format' },
-      csharp = { 'csharpier' }
-
+      csharp = { 'csharpier' },
+      bash = { 'shfmt' },
+      json = { 'prettier' },
+      yaml = { 'prettier' },
+      markdown = { 'prettier' },
     },
   },
 }
