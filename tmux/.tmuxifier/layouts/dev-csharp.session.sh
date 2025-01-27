@@ -5,8 +5,8 @@ if initialize_session "CSharp"; then
   run_cmd "cd $HOME" || echo "Failed to run cd $HOME"
   run_cmd "lzd" || echo "Failed to run lzd"
 
-  create_and_run_window "CSharp" "cd $HOME/Developer/WORKSPACE/CSharp/ && nvim ."
-  create_and_run_window "terminal" "cd $HOME/Developer/WORKSPACE/CSharp "
+  create_and_run_window "CSharp" "cd $WORK_SYSTEM/CSharp/ && nvim ."
+  create_and_run_window "terminal" "cd $WORK_SYSTEM/CSharp"
 
   select_window 1 
 fi

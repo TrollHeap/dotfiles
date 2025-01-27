@@ -5,9 +5,8 @@ if initialize_session "Php"; then
   run_cmd "cd $HOME" || echo "Failed to run cd $HOME"
   run_cmd "lzd" || echo "Failed to run lzd"
 
-  create_and_run_window "PHP" "cd $HOME/Developer/WORKSPACE/PHP"
-  create_and_run_window "Laravel" "cd $HOME/Developer/WORKSPACE/PHP/LARAVEL"
-  create_and_run_window "VueJS" "cd $HOME/Developer/WORKSPACE/JS_TS/VUEJS"
+  create_and_run_window "PHP" "cd $WORK_WEB/PHP"
+  create_and_run_window "Laravel" "cd $WORK_WEB/PHP/LARAVEL"
 
   select_window 1 || echo "Failed to select window 1"
 fi

@@ -5,9 +5,8 @@ if initialize_session "Shell"; then
   run_cmd "cd $HOME" || echo "Failed to run cd $HOME"
   run_cmd "lzd" || echo "Failed to run lzd"
 
-
-  create_and_run_window "shell" "cd $HOME/Developer/WORKSPACE/Shell"
-  create_and_run_window "term_shell" "cd $HOME/Developer/WORKSPACE/Shell"
+  create_and_run_window "shell" "cd $WORK_DEVOPS"
+  create_and_run_window "term_shell" "cd $WORK_DEVOPS"
 
   select_window 1 
 fi

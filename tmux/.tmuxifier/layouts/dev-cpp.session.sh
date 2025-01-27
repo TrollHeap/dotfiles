@@ -5,7 +5,7 @@ if initialize_session "C-Training"; then
   run_cmd "cd $HOME" || echo "Failed to run cd $HOME"
   run_cmd "lzd" || echo "Failed to run lzd"
 
-  create_and_run_window "C++" "cd $HOME/Developer/WORKSPACE/C_CPP && nvim ."
+  create_and_run_window "C++" "cd $WORK_SYSTEM/C_CPP && nvim ."
 
   select_window 1 || echo "Failed to select window 1"
 fi

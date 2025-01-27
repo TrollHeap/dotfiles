@@ -5,7 +5,7 @@ if initialize_session "python"; then
   run_cmd "cd $HOME" || echo "Failed to run cd $HOME"
   run_cmd "lzd" || echo "Failed to run lzd"
 
-  create_and_run_window "Py" "cd $HOME/Developer/WORKSPACE/Python"
+  create_and_run_window "Py" "cd $WORK_SYSTEM/Python"
 
   select_window 1 || echo "Failed to select window 1"
 fi
