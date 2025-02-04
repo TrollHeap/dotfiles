@@ -56,6 +56,13 @@ return {
       end,
       desc = "Search"
     },
+    {
+      "<leader>o",
+      function()
+        require("which-key").show({ global = false })
+      end,
+      desc = "Obsidian"
+    },
 
     {
       "<leader>t",
