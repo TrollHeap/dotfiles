@@ -1,0 +1,101 @@
+# [Created by Binary-grunt 3.3.0 2/7/2025 15:40:18]
+data.location=~/.task
+news.version=3.3.0
+
+# To use the default location of the XDG directories,
+# move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
+
+#data.location=~/.local/share/task
+#hooks.location=~/.config/task/hooks
+
+color=on
+#_forcecolor=1
+# Color theme (uncomment one to use)
+include dark-red-256.theme
+#include ~/.task/themes/gruvbox.theme
+#include light-16.theme
+#include light-256.theme
+#include bubblegum-256.theme
+#include dark-16.theme
+#include dark-256.theme
+#include dark-green-256.theme
+#include dark-blue-256.theme
+#include dark-violets-256.theme
+#include dark-yellow-green.theme
+#include dark-gray-256.theme
+#include dark-gray-blue-256.theme
+#include solarized-dark-256.theme
+#include solarized-light-256.theme
+#include no-color.theme
+
+###############################################################################
+# 📅 Date format
+date.iso=yes
+
+# ✅ Show annotations with date and time
+journal.time=on
+
+# ******************************************************************************
+# 🏆 Reports and Task filtering
+# Optimized next report: tasks close to the due date, then by priority and decreasing urgency
+report.next.columns=id,priority,project,urgency,due,description,tags
+report.next.labels=ID,Prio,Project,Urg,Due,Description,Tags
+report.next.sort=due+,priority-,urgency-
+
+# 📌 Task list for soon-to-be-done tasks (max 7 days)
+report.soon.columns=id,project,tags,due,urgency,description
+report.soon.sort=due+
+report.soon.filter=status:pending and due.before:1week
+
+# 🔍 Overdue tasks report
+report.overdue.columns=id,project,tags,due,urgency,description
+report.overdue.sort=urgency-
+report.overdue.filter=status:pending and due.before:today
+
+# ******************************************************************************
+# ⚡ Urgency and Priorities
+# Adjustments to give more importance to deadlines and blocking tasks
+urgency.due.coefficient=12.0
+urgency.project.coefficient=1.5
+urgency.tags.coefficient=1.2
+urgency.scheduled.coefficient=5.0
+urgency.waiting.coefficient=-3.0
+urgency.blocked.coefficient=-5.0
+urgency.blocking.coefficient=8.0
+urgency.age.coefficient=2.0
+urgency.age.max=10.0
+urgency.annotations.coefficient=1.0
+
+# 🔥 Custom priorities
+priority.values=H,M,,L
+urgency.user.priority.H.coefficient=6.0
+urgency.user.priority.M.coefficient=3.9
+urgency.user.priority.L.coefficient=1.8
+
+# ******************************************************************************
+# 🏷️ Tag and User-defined attributes management
+uda.reviewed.type=date
+uda.reviewed.label=Reviewed
+report._reviewed.description=Task review report. Adjust the filter to your needs.
+report._reviewed.columns=uuid
+report._reviewed.sort=reviewed+,modified+
+report._reviewed.filter=(reviewed.none: or reviewed.before:now-6days) and (+PENDING or +WAITING)
+
+# ******************************************************************************
+# 🔄 Contexts (work, school, personal)
+context.school=project:school
+context.work=project:work
+context.personal=-(project:work, project:school)
+context.default=none
+
+# ******************************************************************************
+# 🔥 Handy aliases
+alias.soon=next filter:status:pending and due.before:today+3days
+alias.urgent=next filter:status:pending and urgency>9
+alias.today=next filter:status:pending due:today
+alias.progress=burndown.weekly
+alias tasks.utc502=task next project:UTC502
+
+# ******************************************************************************
+# 🏗️ Integration with Git for task tracking
+hook.on-mod
