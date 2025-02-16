@@ -2,7 +2,7 @@
 ## ░▀▀█░░█░░█▀█░█▀▄░▀▀█░█▀█░░█░░█▀▀
 ## ░▀▀▀░░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀▀▀░▀░░
 
-# Sets user-defined palette
+## CATPPUCCIN STARSHIP
 palette = "catppuccin_mocha"
 
 # Setups
