@@ -16,6 +16,7 @@ neofetch
 neovim
 poppler
 qemu
+ollama
 ripgrep
 sevenzip
 task
