@@ -1,5 +1,6 @@
 import sys
 from ollama import chat, ChatResponse
+from core.message_handler import MessageHandler
 
 
 class OllamaService:
@@ -15,6 +16,7 @@ class OllamaService:
         """
         self.model = model or self.DEFAULT_MODEL
 
+        # TODO: ADAPTER LA FONCTION EN LIEN AVEC LA NOUVELLE CLASS MessageHandler
     def chat_with_deepseek(self, user_input: str, stream: bool = True) -> None:
         """
         Sends user input to DeepSeek AI model via Ollama and streams the response.
@@ -24,9 +26,13 @@ class OllamaService:
             stream (bool): Whether to stream the response.
         """
         try:
+
+            # HACK: CELLE-CI
+            messages = MessageHandler.format(user_input)
+
             response: ChatResponse = chat(
                 model=self.model,
-                messages=[{'role': 'user', 'content': user_input}],
+                messages=messages,
                 stream=stream
             )
 

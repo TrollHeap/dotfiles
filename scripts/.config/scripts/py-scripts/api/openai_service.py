@@ -1,8 +1,7 @@
 from openai import OpenAI
-from common.singleton import singleton
+from core.message_handler import MessageHandler
 
 
-@singleton
 class OpenAIService:
     """
     A Singleton service class to manage all interactions with the OpenAI API.
@@ -28,19 +27,30 @@ class OpenAIService:
         except Exception as e:
             raise ValueError(f"Failed to initialize OpenAI client: {e}")
 
-    def request_response_to_openai(self, messages: list[dict]) -> str:
+            # TODO: ADAPTER LA FONCTION EN LIEN AVEC LA NOUVELLE CLASS MessageHandler
+    def request_response_to_openai(self, user_input: str) -> str:
         """
         Sends a message to the OpenAI API and returns the response.
 
         Args:
-            messages (list[dict]): A list of message dictionaries for the OpenAI chat API.
+            user_input (str): The user's message.
 
         Returns:
             str: The content of the first message in the response.
         """
         try:
-            completion = self._client.chat.completions.create(model=self.model, messages=messages)
-            return completion.choices[0].message.content
+
+            # HACK: CELLE-CI
+            messages = MessageHandler.format(user_input)
+
+            response = self._client.chat.completions.create(
+                model=self.model,
+                messages=messages
+            )
+
+            print(response.choices[0].message.content)
+            return response.choices[0].message.content
+
         except Exception as e:
             raise ValueError(f"Failed to process the request: {e}")
 
