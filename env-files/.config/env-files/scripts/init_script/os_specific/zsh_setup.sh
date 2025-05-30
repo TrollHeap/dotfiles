@@ -3,8 +3,20 @@
 # ---- Install Zsh ----
 install_zsh() {
     if ! command -v zsh &> /dev/null; then
-        echo "Installing Zsh...\n"
-        sudo apt install -y zsh
+        echo "Installing Zsh..."
+
+        case "$OS" in
+            ubuntu|debian) sudo apt install -y zsh ;;
+            fedora) sudo dnf install -y zsh ;;
+            arch)
+                if command -v yay &>/dev/null; then
+                    yay -S --noconfirm zsh
+                else
+                    sudo pacman -S --noconfirm zsh
+                fi
+                ;;
+            *) echo "Unsupported OS for Zsh installation: $OS" ;;
+        esac
     fi
 }
 
@@ -71,15 +83,23 @@ install_nerd_fonts() {
 
 install_wezterm() {
     if ! command -v wezterm &> /dev/null; then
-        echo "Installing WezTerm...\n"
-        curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
-        echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
-        sudo apt update
-        sudo apt install -y wezterm
-
-
+        echo "Installing WezTerm..."
+        case "$OS" in
+            ubuntu|debian) 
+                curl -fsSL https://apt.fury.io/wez/gpg.key | sudo gpg --yes --dearmor -o /etc/apt/keyrings/wezterm-fury.gpg
+                echo 'deb [signed-by=/etc/apt/keyrings/wezterm-fury.gpg] https://apt.fury.io/wez/ * *' | sudo tee /etc/apt/sources.list.d/wezterm.list
+                sudo apt update && sudo apt install -y wezterm
+                ;;
+            arch)
+                if command -v yay &>/dev/null; then
+                    yay -S --noconfirm wezterm
+                else
+                    sudo pacman -S --noconfirm wezterm
+                fi
+                ;;
+        esac
     else
-        echo "WezTerm is already installed.\n"
+        echo "WezTerm is already installed."
     fi
 }
 

@@ -18,7 +18,7 @@ poppler
 qemu
 ollama
 ripgrep
-sevenzip
+p7zip
 task
 tmux
 tree
@@ -27,7 +27,4 @@ vagrant-qemu
 wget
 yazi
 zoxide
-zsh-autosuggestions
-zsh-completions
-zsh-syntax-highlighting
--- cask wezterm
+wezterm

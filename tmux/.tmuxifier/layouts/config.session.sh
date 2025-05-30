@@ -1,7 +1,7 @@
 source "$DOTFILES/tmux/utils/create_win_run.sh"
 
 if initialize_session "Config"; then
-  create_and_run_window "C-Vim" "config && nvim ."
+  create_and_run_window "C-Vim" "cd $DOTFILES/nvim/.config/nvim/lua && nvim ."
   create_and_run_window "C-Tmux" "cd $DOTFILES/tmux && nvim .tmux.conf"
   create_and_run_window "C-EnvFiles" "cd $DOTFILES/env-files/.config/env-files && nvim ."
   create_and_run_window "C-Scripts" "cd $DOTFILES/scripts/.config/scripts/ && nvim ."

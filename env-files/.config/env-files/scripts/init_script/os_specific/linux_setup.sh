@@ -7,7 +7,14 @@ source "$CONFIG_FUNCTIONS/install_packages.sh"
 detect_os() {
     if [[ -f "/etc/os-release" ]]; then
         source /etc/os-release
-        echo "$ID"
+        case "$ID" in
+            arch | manjaro | cachyos)
+                echo "arch"
+                ;;
+            *)
+                echo "$ID"
+                ;;
+        esac
     else
         echo "unknown"
     fi
@@ -25,6 +32,16 @@ case "$OS" in
     fedora)
         sudo dnf check-update && sudo dnf upgrade -y && sudo dnf groupinstall -y "Development Tools"
         PACKAGE_MANAGER="dnf"
+        ;;
+    arch)
+        if command -v yay &>/dev/null; then
+            yay -Syu --noconfirm
+            PACKAGE_MANAGER="yay"
+        else
+            sudo pacman -Syu --noconfirm
+            sudo pacman -S --needed --noconfirm base-devel
+            PACKAGE_MANAGER="pacman"
+        fi
         ;;
     *)
         echo "Unsupported OS: $OS"
