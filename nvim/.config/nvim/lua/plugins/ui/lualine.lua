@@ -52,7 +52,7 @@ return {
     end
     require('lualine').setup {
       options = {
-        theme = 'tokyonight',
+        theme = 'catppuccin',
         --theme = 'gruvbox',
         icons_enabled = true,
         section_separators = { left = '', right = '' },
