@@ -8,8 +8,8 @@ fi
 
 eval "$(keychain --eval --quiet ~/.ssh/id_ed25519)"
 # ENV Variables
-source ~/.config/env-files/main.sh
-
+[[ -f "$HOME/.config/env-files/env/aliases.env" ]]   && source "$HOME/.config/env-files/env/aliases.env"
+[[ -f "$HOME/.config/env-files/env/variables.env" ]] && source "$HOME/.config/env-files/env/variables.env"
 
 system_status_summary() {
   echo -e "\033[0;34m🔋 GPU/Power Status\033[0m"
@@ -73,17 +73,9 @@ plugins=(git fzf zsh-syntax-highlighting zsh-autosuggestions)
 # Starship Prompt
 eval "$(starship init zsh)"
 
-# fzf() {
-#     command fzf --preview 'bat --style=numbers --color=always --line-range :500 {}' \
-#                 --multi \
-#                 --reverse \
-#                 --prompt="special-snowflake> " \
-#                 -- "$@"
-# }
-
 # Initialize Oh My Zsh
-source $HOME/.oh-my-zsh/oh-my-zsh.sh
+[[ -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]] && source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Finalization
+echo "All configurations have been loaded."
+
