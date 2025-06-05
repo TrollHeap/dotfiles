@@ -2,7 +2,11 @@
 set -euo pipefail
 set -x
 
-source "$(dirname "${BASH_SOURCE[0]}")/exports.sh"
+# Portable detection of script directory
+SCRIPT_SOURCE="${BASH_SOURCE[0]:-${(%):-%N}}"
+SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_SOURCE")" && pwd)"
+
+source "$SCRIPT_DIR/exports.sh"
 
 # 1. Détection OS
 detect_os() {

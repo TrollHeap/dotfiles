@@ -37,9 +37,9 @@ ohmyzsh::install_plugins
 starship::install
 tmux_tpm::install
 nvm::install
-fzf::install && fzf::setup_bindings
+fzf::install 
 wezterm::install
-pyenv::install && pyenv::init
+pyenv::install 
 nerdfonts::install
 
 # 5. Ya packing (macOS-specific aesthetic packages)
