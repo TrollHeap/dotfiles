@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+set -euo pipefail
+
 BREW_LIST="$C_PKGS/macos_brew.txt"
 
 source "$C_FUNCTIONS/install_packages.sh"

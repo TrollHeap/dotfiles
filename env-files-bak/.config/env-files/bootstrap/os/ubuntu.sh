@@ -19,7 +19,7 @@ install_pkgs "$C_ENV/pkgs/ubuntu_apt.txt" apt
 
 # 3. Install missing tools
 zsh::installed      || sudo apt install -y zsh
-wezterm::installed  || sudo apt install -y wezterm  # ou méthode custom
+wezterm::installed  || wezterm::install
 starship::installed || curl -sS https://starship.rs/install.sh | sh
 tmux_tpm::installed || tmux_tpm::install
 nvm::installed      || nvm::install

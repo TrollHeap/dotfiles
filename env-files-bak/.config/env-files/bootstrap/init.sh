@@ -1,6 +1,8 @@
 #!/bin/bash
 # Description: Initialise l’environnement en fonction de l’OS
 
+set -euo pipefail
+
 INIT_FLAG="$C_BOOTSTRAP/.init_done"
 
 # ------------------------------
@@ -30,5 +32,3 @@ if [ ! -f "$INIT_FLAG" ]; then
     echo "[✓] First-time initialization complete."
 fi
 
-# ------------------------------
-source "$C_TOOLS/init.sh"

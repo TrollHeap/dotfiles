@@ -33,4 +33,4 @@ zsh::installed      || yay -S --noconfirm zsh
 starship::installed || pacman -S starship
 tmux_tpm::installed || tmux_tpm::install
 nvm::installed      || nvm::install
-wezterm::installed || echo "⚠️ Wezterm installation failed or missing"
+wezterm::installed || wezterm::install

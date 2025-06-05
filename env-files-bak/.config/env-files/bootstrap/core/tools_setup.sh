@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 # Initialisation et configuration post-install commune
 source "$C_TOOLS/fzf.sh"
 source "$C_TOOLS/pyenv.sh"
