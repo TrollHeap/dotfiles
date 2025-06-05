@@ -3,27 +3,9 @@
 export DOTFILES := $(HOME)/dotfiles
 ENV_ROOT := $(CURDIR)/env-files/.config/env-files
 
-all: bootstrap
-
 bootstrap:
 	@echo "🔧 Running full bootstrap..."
 	bash $(ENV_ROOT)/bootstrap/init.sh
-
-os:
-	@echo "⚙️  Setting up OS-specific environment..."
-	@if [ -z "$(OS)" ]; then \
-		echo "❌ Please pass OS=ubuntu|arch|macos"; exit 1; \
-	fi
-	bash $(ENV_ROOT)/modules/os/$(OS).sh
-
-tools:
-	@echo "🔧 Installing core tools..."
-	bash $(ENV_ROOT)/modules/tools/setup.sh
-
-shell:
-	@echo "🐚 Setting up shell environment..."
-	bash $(ENV_ROOT)/modules/shell/zsh.sh
-	bash $(ENV_ROOT)/modules/shell/ohmyzsh.sh
 
 dotfiles:
 	@echo "🧩 Deploying dotfiles..."
