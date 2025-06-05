@@ -13,8 +13,6 @@ else
   SCRIPT_DIR="$(pwd)"
 fi
 
-echo "[debug] SCRIPT_DIR = $SCRIPT_DIR"
-
 source "$SCRIPT_DIR/exports.sh"
 
 # 1. Détection OS

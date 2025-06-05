@@ -7,13 +7,6 @@ if [[ -f "$HOME/.config/env-files/core/env.sh" ]]; then
   source "$HOME/.config/env-files/core/env.sh"
 fi
 
-if [[ -f "$C_CORE/logger.sh" ]]; then
-  source "$C_CORE/logger.sh"
-  log::section "Launching interactive shell"
-else
-  echo "➤ Launching interactive shell"
-fi
-
 # --- 1. Load environment variables & aliases
 [[ -f "$ROOT_ENV/env/aliases.env" ]]   && source "$ROOT_ENV/env/aliases.env"
 

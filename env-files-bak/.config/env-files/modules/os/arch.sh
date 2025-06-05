@@ -26,16 +26,16 @@ source "$C_TOOLS/wezterm.sh"
 source "$C_TOOLS/pyenv.sh"
 source "$C_TOOLS/nerdfonts.sh"
 
-zsh::install
-zsh::set_default_shell
 
-ohmyzsh::install
-ohmyzsh::install_plugins
-
-starship::install
 tmux_tpm::install
 nvm::install
 fzf::install 
 wezterm::install
 pyenv::install
 nerdfonts::install
+starship::install
+
+zsh::install
+ohmyzsh::install
+ohmyzsh::install_plugins
+zsh::set_default_shell
