@@ -1,26 +1,26 @@
-# ─── Encoding global ───────────────────────────────────────────────────────────
+# ─── Global Encoding ────────────────────────────────────────────────────────────
 export LANG="en_US.UTF-8"
-# export LC_ALL="en_US.UTF-8"  # désactivé pour laisser les sous-locales décider
+# export LC_ALL="en_US.UTF-8"  # Disabled to allow sub-locales to override
 
-# ─── PATH ──────────────────────────────────────────────────────────────────────
+# ─── PATH Configuration ─────────────────────────────────────────────────────────
 path_add() {
   case ":$PATH:" in
-    *":$1:"*) ;; 
-    *) PATH="$1:$PATH" ;;
+    *":$1:"*) ;;                    # Already in PATH → skip
+    *) PATH="$1:$PATH" ;;           # Prepend if missing
   esac
 }
 
-# Ajoute envctl uniquement si dossier existant
+# Custom binaries
 ENVCTL_BIN="$HOME/dotfiles/env-files/.config/env-files/bin"
 [[ -d "$ENVCTL_BIN" ]] && path_add "$ENVCTL_BIN"
 
-# Ajouts classiques
+# Common additions
 path_add "$HOME/.local/bin"
 path_add "/usr/local/bin"
 
 export PATH
 
-# ─── Variables globales ────────────────────────────────────────────────────────
+# ─── Global Variables ──────────────────────────────────────────────────────────
 export NVM_DIR="$HOME/.nvm"
 export FZF_DIR="$HOME/.fzf"
 export EDITOR="nvim"
