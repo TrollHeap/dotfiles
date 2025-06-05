@@ -28,6 +28,12 @@ fi
 [[ -f "$FZF_DIR/shell/completion.zsh" ]]   && source "$FZF_DIR/shell/completion.zsh"
 
 [[ -f "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
+
+[[ -d "$PYENV_ROOT" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+command -v pyenv &>/dev/null && eval "$(pyenv init --path)"
+
+
+# --- Starship ---
 eval "$(starship init zsh)"
 
 # --- 4. Oh My Zsh

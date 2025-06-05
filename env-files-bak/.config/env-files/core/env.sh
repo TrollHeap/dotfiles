@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 set -x
+
+source "$(dirname "${BASH_SOURCE[0]}")/exports.sh"
+
 # 1. Détection OS
 detect_os() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
