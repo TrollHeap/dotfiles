@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 FZF_SHELL_DIR="$FZF_DIR/shell"
 

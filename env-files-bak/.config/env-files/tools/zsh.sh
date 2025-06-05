@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 zsh::installed() {
     command -v zsh &> /dev/null

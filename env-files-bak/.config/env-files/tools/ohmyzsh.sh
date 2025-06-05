@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 ohmyzsh::installed() {
     [[ -d "$HOME/.oh-my-zsh" ]]

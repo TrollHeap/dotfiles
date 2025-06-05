@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 pyenv::init() {
     if command -v pyenv >/dev/null; then

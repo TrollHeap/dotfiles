@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 
 if [[ -n "$C_ENV_LOADED" ]]; then return; fi

@@ -4,7 +4,7 @@ set -euo pipefail
 
 BREW_LIST="$C_PKGS/macos_brew.txt"
 
-source "$C_FUNCTIONS/install_packages.sh"
+source "$C_FUNCTIONS/install_pkgs.sh"
 
 # Install Homebrew
 echo "Installing Homebrew..."

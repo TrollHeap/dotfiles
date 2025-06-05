@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 wezterm::installed() {
     command -v wezterm &> /dev/null
@@ -30,3 +31,4 @@ wezterm::install() {
             return 1
             ;;
     esac
+}

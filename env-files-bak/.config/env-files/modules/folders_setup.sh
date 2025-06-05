@@ -1,7 +1,8 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 # ----- Hybrid Structure Configuration -----
-BASE_DIR="$HOME/Developer/Workspace"
+BASE_DIR="$WORKSPACE"
 
 echo "Setting up workspace..."
 mkdir -p "$BASE_DIR" || { echo " Error creating root directory"; exit 1; }

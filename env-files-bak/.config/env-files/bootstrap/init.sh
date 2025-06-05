@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 # Description: Initialise l’environnement en fonction de l’OS
 
 set -euo pipefail
@@ -31,4 +32,3 @@ if [ ! -f "$INIT_FLAG" ]; then
     touch "$INIT_FLAG"
     echo "[✓] First-time initialization complete."
 fi
-

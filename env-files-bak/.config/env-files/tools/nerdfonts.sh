@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 nerdfonts::install() {
     local fonts_dir="$HOME/.local/share/fonts"

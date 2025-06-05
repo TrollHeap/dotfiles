@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
 nvm::installed() {
     [[ -s "$NVM_DIR/nvm.sh" ]]
