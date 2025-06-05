@@ -6,6 +6,12 @@ if command -v neofetch > /dev/null; then
   neofetch
 fi
 
+[[ -f "$HOME/.config/env-files/bootstrap/core/load_env.sh" ]] && source "$HOME/.config/env-files/bootstrap/core/load_env.sh"
+
+if [ -r "$C_BOOTSTRAP/init.sh" ]; then
+  source "$C_BOOTSTRAP/init.sh"
+fi
+
 eval "$(keychain --eval --quiet ~/.ssh/id_ed25519)"
 # ENV Variables
 [[ -f "$HOME/.config/env-files/env/aliases.env" ]]   && source "$HOME/.config/env-files/env/aliases.env"
