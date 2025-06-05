@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# 0. Charger variables fondamentales
-source "$HOME/dotfiles/env-files/config/variables.env"
-
 # 1. Détection OS
 detect_os() {
     if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -27,9 +24,6 @@ export OS="$(detect_os)"
 # 2. Vérification de double sourcing
 [[ -n "${C_ENV_LOADED:-}" ]] && return
 export C_ENV_LOADED=1
-
-# 3. Export de la racine (si manquante)
-export ENV_ROOT="$DOT_ENV"
 
 # 4. Sanity check des variables critiques
 : "${DOTFILES:?DOTFILES not set}"

@@ -15,8 +15,8 @@ else
 fi
 
 # --- 1. Load environment variables & aliases
-[[ -f "$DOT_ENV/env/aliases.env" ]]   && source "$DOT_ENV/env/aliases.env"
-[[ -f "$DOT_ENV/env/variables.env" ]] && source "$DOT_ENV/env/variables.env"
+[[ -f "$ROOT_ENV/env/aliases.env" ]]   && source "$ROOT_ENV/env/aliases.env"
+[[ -f "$ROOT_ENV/env/variables.env" ]] && source "$ROOT_ENV/env/variables.env"
 
 # --- 2. SSH Agent (Keychain)
 if command -v keychain >/dev/null; then

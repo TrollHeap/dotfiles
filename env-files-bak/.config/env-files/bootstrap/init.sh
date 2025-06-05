@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# 0. Charger variables fondamentales
+source "$HOME/dotfiles/env-files/.config/env-files/config/variables.env"
+
 # 0. Charger l’environnement (chemins, OS, flags)
 source "$C_CORE/env.sh"
 source "$C_CORE/state.sh"
