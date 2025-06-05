@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# Determine script directory (bash/zsh-compatible)
+source "$HOME/dotfiles/env-files/.config/env-files/config/variables.env"
 
 # Determine script directory (zsh + bash compatible)
 if [ -n "${BASH_SOURCE:-}" ]; then
