@@ -22,7 +22,7 @@ verify:
 backup_zen:
 	sh $(SCRIPTS_ROOT)/zen_browser/backup_zen_full.sh
 
-backup_zen:
+restore_zen:
 	sh $(SCRIPTS_ROOT)/zen_browser/restore_zen_full.sh
 
 clean:
