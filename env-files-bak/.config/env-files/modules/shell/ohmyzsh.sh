@@ -18,18 +18,32 @@ ohmyzsh::install() {
 }
 
 ohmyzsh::install_plugins() {
-    local zsh_custom="${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"
+    local zsh_custom="$HOME/.oh-my-zsh/custom"
 
     echo "[+] Installing Zsh plugins…"
 
-    [[ ! -d "$zsh_custom/plugins/zsh-autosuggestions" ]] && \
-        git clone https://github.com/zsh-users/zsh-autosuggestions "$zsh_custom/plugins/zsh-autosuggestions"
+    local plugins=(
+        "zsh-autosuggestions::https://github.com/zsh-users/zsh-autosuggestions"
+        "zsh-syntax-highlighting::https://github.com/zsh-users/zsh-syntax-highlighting"
+        "fzf-zsh-plugin::https://github.com/unixorn/fzf-zsh-plugin.git"
+    )
 
-    [[ ! -d "$zsh_custom/plugins/zsh-syntax-highlighting" ]] && \
-        git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "$zsh_custom/plugins/zsh-syntax-highlighting"
+    for entry in "${plugins[@]}"; do
+        local name="${entry%%::*}"
+        local url="${entry##*::}"
+        local path="$zsh_custom/plugins/$name"
 
-    [[ ! -d "$zsh_custom/plugins/fzf-zsh-plugin" ]] && \
-        git clone --depth 1 https://github.com/unixorn/fzf-zsh-plugin.git "$zsh_custom/plugins/fzf-zsh-plugin"
+        if [[ -d "$path" ]]; then
+            echo "[✓] $name already installed"
+            continue
+        fi
+
+        echo "[+] Cloning $name..."
+        if ! git clone --depth 1 "$url" "$path"; then
+            echo "❌ Failed to install $name"
+            continue  # ⚠️ ne pas return 1 ici → on veut continuer
+        fi
+    done
 }
 
 ohmyzsh::reset_zshrc() {
