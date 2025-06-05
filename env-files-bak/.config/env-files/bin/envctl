@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# Bootstrap
+ENV_ROOT="${ENV_ROOT:-$HOME/dotfiles/env-files/.config/env-files}"
+C_CORE="$ENV_ROOT/core"
+C_MODULES="$ENV_ROOT/modules"
+C_TOOLS="$C_MODULES/tools"
+C_LOGS="$ENV_ROOT/logs"
+
+LOG_FILE="$C_LOGS/envctl.log"
+mkdir -p "$C_LOGS"
+
+source "$C_CORE/env.sh"
+source "$C_CORE/logger.sh"
+source "$C_CORE/state.sh"
+
+CMD="${1:-help}"
+TARGET="${2:-}"
+
+log::section "envctl: $CMD $TARGET"
+
+case "$CMD" in
+  bootstrap)
+    source "$ENV_ROOT/bootstrap/init.sh"
+    ;;
+  install)
+    case "$TARGET" in
+      os)
+        source "$C_MODULES/os/$OS.sh"
+        ;;
+      tools/*)
+        tool="${TARGET#tools/}"
+        source "$C_TOOLS/$tool.sh"
+        "${tool}::install"
+        ;;
+      shell/*)
+        shmod="${TARGET#shell/}"
+        source "$C_MODULES/shell/$shmod.sh"
+        "${shmod}::install"
+        ;;
+      *)
+        log::error "Unknown install target: $TARGET"
+        ;;
+    esac
+    ;;
+  workspace)
+    source "$C_MODULES/workspace/setup.sh"
+    ;;
+  dotfiles)
+    source "$C_MODULES/dotfiles/setup.sh"
+    ;;
+  help|*)
+    echo -e "Usage: envctl <command> [target]\n"
+    echo "Commands:"
+    echo "  bootstrap          Run full setup (OS + tools + workspace)"
+    echo "  install os         Install base system (Arch, Ubuntu, macOS)"
+    echo "  install tools/<t>  Install tool (wezterm, starship...)"
+    echo "  install shell/<s>  Install shell module (zsh, ohmyzsh...)"
+    echo "  workspace          Setup WORKSPACE structure"
+    echo "  dotfiles           Stow config files into \$HOME"
+    ;;
+esac
