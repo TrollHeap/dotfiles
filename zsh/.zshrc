@@ -9,9 +9,9 @@
 [[ -f "$ROOT_ENV/env/aliases.env" ]]   && source "$ROOT_ENV/env/aliases.env"
 
 # --- 2. SSH Agent (Keychain)
-if command -v keychain >/dev/null; then
-  eval "$(keychain --eval --quiet ~/.ssh/id_ed25519)"
-fi
+# if command -v keychain >/dev/null; then
+#   eval "$(keychain --eval --quiet ~/.ssh/id_ed25519)"
+# fi
 
 # --- 3. Shell Tools Initialization
 [[ -f "$FZF_DIR/shell/key-bindings.zsh" ]] && source "$FZF_DIR/shell/key-bindings.zsh"
