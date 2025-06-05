@@ -25,7 +25,13 @@ installer::pkg() {
     case "$PKG_MANAGER" in
         apt)    sudo apt install -y "$name" ;;
         pacman) sudo pacman -S --noconfirm "$name" ;;
-        yay)    yay -S --noconfirm "$name" ;;
+        yay)
+            if ! yay -Si "$name" &>/dev/null; then
+                echo "❌ AUR package not found: $name" >&2
+                return 1
+            fi
+            yay -S --noconfirm "$name"
+            ;;
         brew)   brew install "$name" ;;
         *)      echo "❌ Unknown PKG_MANAGER: $PKG_MANAGER" && return 1 ;;
     esac

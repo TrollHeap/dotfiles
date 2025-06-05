@@ -3,6 +3,5 @@ ttf-nerd-fonts-symbols-mono
 ferdium-bin
 discord
 spotify
-minecraft-launcher
 lazydocker
 vagrant-bin

@@ -1,5 +1,6 @@
 .PHONY: all bootstrap os tools shell dotfiles workspace clean
 
+export DOTFILES := $(HOME)/dotfiles
 ENV_ROOT := $(CURDIR)/env-files/.config/env-files
 
 all: bootstrap

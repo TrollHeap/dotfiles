@@ -23,7 +23,6 @@ zoxide
 poppler
 qemu-base
 qemu-img
-vagrant
 vagrant-qemu
 navi
 yazi
