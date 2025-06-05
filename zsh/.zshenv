@@ -1,15 +1,26 @@
-# Encoding global
+# ─── Encoding global ───────────────────────────────────────────────────────────
 export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+# export LC_ALL="en_US.UTF-8"  # désactivé pour laisser les sous-locales décider
 
-# Binaire utilisateur
-export PATH="$HOME/.local/bin:/usr/local/bin:$PATH"
+# ─── PATH ──────────────────────────────────────────────────────────────────────
+path_add() {
+  case ":$PATH:" in
+    *":$1:"*) ;; 
+    *) PATH="$1:$PATH" ;;
+  esac
+}
 
-# Variables *universelles* toujours nécessaires
-export DOTFILES="$HOME/dotfiles"
-export DOT_ENV="$DOTFILES/env-files/.config/env-files"
-export C_BOOTSTRAP="$DOT_ENV/bootstrap"
-export C_FUNCTIONS="$DOT_ENV/functions"
+# Ajoute envctl uniquement si dossier existant
+ENVCTL_BIN="$HOME/dotfiles/env-files/.config/env-files/bin"
+[[ -d "$ENVCTL_BIN" ]] && path_add "$ENVCTL_BIN"
+
+# Ajouts classiques
+path_add "$HOME/.local/bin"
+path_add "/usr/local/bin"
+
+export PATH
+
+# ─── Variables globales ────────────────────────────────────────────────────────
 export NVM_DIR="$HOME/.nvm"
 export FZF_DIR="$HOME/.fzf"
 export EDITOR="nvim"
