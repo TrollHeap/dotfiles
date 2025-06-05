@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
+set -x
 # 1. Détection OS
 detect_os() {
     if [[ "$OSTYPE" == "darwin"* ]]; then

@@ -13,7 +13,7 @@ lazygit
 lsd
 neofetch
 neovim
-p7zip
+7zip
 ripgrep
 task
 tmux
@@ -23,6 +23,5 @@ zoxide
 poppler
 qemu-base
 qemu-img
-vagrant-qemu
 navi
 yazi

@@ -33,6 +33,9 @@ workspace:
 	@echo "🗂️  Initializing workspace structure..."
 	bash $(ENV_ROOT)/modules/workspace/setup.sh
 
+verify:
+	bash $(ENV_ROOT)/core/verify_pkgs.sh || echo "💥 Verification failed"
+
 clean:
 	@echo "🧹 Cleaning init flags..."
 	rm -f $(ENV_ROOT)/logs/.init_flags
