@@ -1,7 +1,8 @@
-.PHONY: all bootstrap os tools shell dotfiles workspace clean
+.PHONY: all bootstrap dotfiles workspace verify backup_zen restore_zen clean
 
 export DOTFILES := $(HOME)/dotfiles
 ENV_ROOT := $(CURDIR)/env-files/.config/env-files
+SCRIPTS_ROOT := $(CURDIR)/scripts/.config/scripts
 
 bootstrap:
 	@echo "🔧 Running full bootstrap..."
@@ -17,6 +18,12 @@ workspace:
 
 verify:
 	bash $(ENV_ROOT)/core/verify_pkgs.sh || echo "💥 Verification failed"
+
+backup_zen:
+	sh $(SCRIPTS_ROOT)/zen_browser/backup_zen_full.sh
+
+backup_zen:
+	sh $(SCRIPTS_ROOT)/zen_browser/restore_zen_full.sh
 
 clean:
 	@echo "🧹 Cleaning init flags..."
