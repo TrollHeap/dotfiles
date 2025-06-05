@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# 4. Sanity check des variables critiques
+[[ -z "${DOTFILES:-}" ]] && DOTFILES="$HOME/dotfiles"
+
 source "$HOME/dotfiles/env-files/.config/env-files/config/variables.env"
 
 # Determine script directory (zsh + bash compatible)
@@ -13,7 +16,7 @@ else
   SCRIPT_DIR="$(pwd)"
 fi
 
-source "$SCRIPT_DIR/exports.sh"
+[[ -f "$SCRIPT_DIR/exports.sh" ]] && source "$SCRIPT_DIR/exports.sh"
 
 # 1. Détection OS
 detect_os() {
@@ -39,10 +42,6 @@ export OS="$(detect_os)"
 [[ -n "${C_ENV_LOADED:-}" ]] && return
 export C_ENV_LOADED=1
 
-# 4. Sanity check des variables critiques
-: "${DOTFILES:?DOTFILES not set}"
-: "${C_PATHS:?C_PATHS not set}"
-: "${OS:?OS not detected}"
 
 # 4. Paths globaux (logiciels, etc.)
 if [[ -f "$C_PATHS/global.env" ]]; then
