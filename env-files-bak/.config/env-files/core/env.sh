@@ -2,8 +2,16 @@
 set -euo pipefail
 set -x
 
-# Portable detection of script directory
-SCRIPT_SOURCE="${BASH_SOURCE[0]:-${(%):-%N}}"
+# Determine script directory (bash/zsh-compatible)
+if [[ -n "${BASH_SOURCE:-}" ]]; then
+  SCRIPT_SOURCE="${BASH_SOURCE[0]}"
+elif [[ -n "${(%):-%x}" ]]; then
+  SCRIPT_SOURCE="${(%):-%x}"
+else
+  echo "❌ Cannot determine script path." >&2
+  exit 1
+fi
+
 SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_SOURCE")" && pwd)"
 
 source "$SCRIPT_DIR/exports.sh"
