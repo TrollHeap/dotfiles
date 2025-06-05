@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# ╭────────────────────────────────────────────────────────────╮
+# │ SHELL MODULE: Oh My Zsh installation & plugin setup        │
+# ╰────────────────────────────────────────────────────────────╯
+
 source "$C_CORE/installer.sh"
 
 ohmyzsh::installed() {
@@ -19,8 +23,7 @@ ohmyzsh::install() {
 
 ohmyzsh::install_plugins() {
     local zsh_custom="$HOME/.oh-my-zsh/custom"
-
-    echo "[+] Installing Zsh plugins…"
+    echo "[+] Installing Oh My Zsh plugins…"
 
     local plugins=(
         "zsh-autosuggestions::https://github.com/zsh-users/zsh-autosuggestions"
@@ -41,13 +44,13 @@ ohmyzsh::install_plugins() {
         echo "[+] Cloning $name..."
         if ! git clone --depth 1 "$url" "$path"; then
             echo "❌ Failed to install $name"
-            continue  # ⚠️ ne pas return 1 ici → on veut continuer
+            continue  # Don't abort on failure — skip to next
         fi
     done
 }
 
 ohmyzsh::reset_zshrc() {
-    echo "[+] Resetting .zshrc from stow"
+    echo "[+] Resetting .zshrc via stow"
     rm -f "$HOME/.zshrc"
     cd "$DOTFILES" && stow zsh && cd - > /dev/null
 }

@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# ╭────────────────────────────────────────────────────────────╮
+# │ SHELL MODULE: Zsh installation & default shell setup       │
+# ╰────────────────────────────────────────────────────────────╯
+
 source "$C_CORE/installer.sh"
 
 zsh::installed() {

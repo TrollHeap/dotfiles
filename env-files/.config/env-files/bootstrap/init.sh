@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-# 0. Charger variables fondamentales
+# ╭──────────────────────────────────────────────────────────────╮
+# │ ENVIRONMENT BOOTSTRAP - Full Init Sequence                   │
+# ╰──────────────────────────────────────────────────────────────╯
+
+# --- 0. Load core variables
 source "$HOME/dotfiles/env-files/.config/env-files/config/variables.env"
 
-# 0. Charger l’environnement (chemins, OS, flags)
+# --- 1. Load environment (paths, OS detection, flags)
 source "$C_CORE/env.sh"
 source "$C_CORE/state.sh"
 
@@ -16,7 +20,7 @@ fi
 
 echo "[+] Starting full environment bootstrap..."
 
-# 2. Appel du setup OS
+# --- 2. OS-specific setup
 case "$OS" in
     arch)   source "$C_MODULES/os/arch.sh" ;;
     ubuntu) source "$C_MODULES/os/ubuntu.sh" ;;
@@ -24,11 +28,10 @@ case "$OS" in
     *)      echo "❌ Unsupported OS: $OS" && exit 1 ;;
 esac
 
-# 3. Initialisation post-OS : dotfiles, workspace, etc.
-#source "$C_MODULES/dotfiles/setup.sh"     # si tu en crées un
-source "$C_MODULES/workspace/setup.sh"    # idem
+# --- 3. Post-OS initialization ( workspace, etc.)
+source "$C_MODULES/workspace/setup.sh"
 
-# 4. Marquage comme terminé
+# --- 4. Mark bootstrap as complete
 state::mark_done "$INIT_FLAG"
 
 echo "[✓] Bootstrap completed."

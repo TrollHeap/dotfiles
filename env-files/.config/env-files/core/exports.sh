@@ -1,18 +1,21 @@
 #!/usr/bin/env bash
 
+# ╭──────────────────────────────────────────────────────────────╮
+# │ ENV EXPORTS - Global environment variables & PATH setup      │
+# ╰──────────────────────────────────────────────────────────────╯
+
+# --- Locale and editor
 export LANG="en_US.UTF-8"
 export EDITOR="nvim"
 
-# Add to PATH only if missing
+# --- Utility: append to PATH only if not already present
 path_add() {
   case ":$PATH:" in
-    *:"$1":*) ;;  # Already present
+    *:"$1":*) ;;       # Already in PATH → skip
     *) PATH="$1:$PATH" ;;
   esac
 }
 
-# PATH augmentations
+# --- Common path additions
 path_add "$HOME/.local/bin"
 path_add "/usr/local/bin"
-
-# Optional tool directories (safe if used before tool install)

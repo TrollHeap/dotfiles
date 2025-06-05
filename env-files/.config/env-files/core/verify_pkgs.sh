@@ -1,54 +1,54 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+# ╭──────────────────────────────────────────────────────────────╮
+# │ VERIFY_PKGS - Check existence of packages in repo / AUR      │
+# ╰──────────────────────────────────────────────────────────────╯
 
 export DOTFILES="${DOTFILES:-$HOME/dotfiles}"
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
-# 1. Charger les variables fondamentales
+# --- Load environment variables
 source "$SCRIPT_DIR/../config/variables.env"
-
-# 2. Charger les chemins dynamiques + OS
 source "$SCRIPT_DIR/env.sh"
 
-echo "C_LOGS = $C_LOGS"
-# --- Chemins et log ---
+# --- Prepare logs ---
 PKG_DIR="${C_PKGS:-$SCRIPT_DIR/../pkgs}"
 LOG_FILE="$C_LOGS/pkg_verification.log"
 mkdir -p "$C_LOGS"
 > "$LOG_FILE"
 
-echo "🔍 Verifying package names in: $PKG_DIR"
-echo "Results will be logged to: $LOG_FILE"
+echo "🔍 Verifying package files in: $PKG_DIR"
+echo "📝 Results logged to: $LOG_FILE"
 echo
 
-# --- Fonctions ---
+# --- Check functions ---
 check_pkg_pacman() { pacman -Si "$1" &>/dev/null; }
 check_pkg_yay()    { yay -Si "$1" &>/dev/null; }
 
-# --- Parcours des fichiers ---
+# --- Iterate over all package lists ---
 for file in "$PKG_DIR"/*.txt; do
-    echo "📦 Checking file: $(basename "$file")"
+  echo "📦 Checking: $(basename "$file")"
 
-    case "$file" in
-        *arch_pacman.txt) checker="check_pkg_pacman" ;;
-        *arch_aur.txt)    checker="check_pkg_yay"    ;;
-        *) echo "⚠️  Skipping unsupported file: $file"; continue ;;
-    esac
+  case "$file" in
+    *arch_pacman.txt) checker="check_pkg_pacman" ;;
+    *arch_aur.txt)    checker="check_pkg_yay"    ;;
+    *) echo "⚠️  Skipping unsupported file: $file"; continue ;;
+  esac
 
-    while IFS= read -r line || [[ -n "$line" ]]; do
-        pkg="$(echo "$line" | sed 's/#.*//' | xargs)"
-        [[ -z "$pkg" ]] && continue
+  while IFS= read -r line || [[ -n "$line" ]]; do
+    pkg="$(echo "$line" | sed 's/#.*//' | xargs)"
+    [[ -z "$pkg" ]] && continue
 
-        if ! $checker "$pkg"; then
-            echo "❌ Package not found: $pkg" | tee -a "$LOG_FILE"
-        else
-            echo "✅ $pkg"
-        fi
-    done < "$file"
+    if ! $checker "$pkg"; then
+      echo "❌ Not found: $pkg" | tee -a "$LOG_FILE"
+    else
+      echo "✅ $pkg"
+    fi
+  done < "$file"
 
-    echo
+  echo
 done
 
-echo "🧾 Finished. Errors saved in: $LOG_FILE"
+echo "🧾 Package check complete. Errors saved in: $LOG_FILE"
