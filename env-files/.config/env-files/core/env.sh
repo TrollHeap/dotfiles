@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
-set -euo pipefail
+if [[ $- != *i* ]]; then
+  set -euo pipefail
+else
+  set -o pipefail
+fi
 
 # 4. Sanity check des variables critiques
 [[ -z "${DOTFILES:-}" ]] && DOTFILES="$HOME/dotfiles"

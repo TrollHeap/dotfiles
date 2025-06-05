@@ -3,3 +3,4 @@ ttf-nerd-fonts-symbols-mono
 discord
 spotify
 lazydocker
+neofetch
