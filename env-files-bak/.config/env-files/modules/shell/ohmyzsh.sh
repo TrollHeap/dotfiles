@@ -14,7 +14,7 @@ ohmyzsh::install() {
     fi
 
     echo "[+] Installing Oh My Zsh…"
-    installer::script_from_url "Oh My Zsh" "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh"
+    installer::script_from_url "Oh My Zsh" "https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh" sh
 }
 
 ohmyzsh::install_plugins() {

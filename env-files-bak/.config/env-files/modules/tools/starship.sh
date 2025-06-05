@@ -14,5 +14,5 @@ starship::install() {
     fi
 
     echo "[+] Installing Starship..."
-    installer::script_from_url "starship" "https://starship.rs/install.sh"
+    installer::script_from_url "starship" "https://starship.rs/install.sh" sh
 }

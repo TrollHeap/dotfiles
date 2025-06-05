@@ -92,9 +92,11 @@ installer::aur_helper() {
 installer::script_from_url() {
     local name="$1"
     local url="$2"
-    echo "[+] Installing $name from script..."
-    curl -fsSL "$url" | bash || {
+    local shell="${3:-sh}"  # ← par défaut POSIX sh
+
+    echo "[+] Installing $name from script ($shell)..."
+    if ! curl -fsSL "$url" | "$shell"; then
         echo "❌ Failed installing $name"
         return 1
-    }
+    fi
 }

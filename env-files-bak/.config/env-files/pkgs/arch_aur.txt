@@ -1,7 +1,5 @@
 wezterm
 ttf-nerd-fonts-symbols-mono
-ferdium-bin
 discord
 spotify
 lazydocker
-vagrant

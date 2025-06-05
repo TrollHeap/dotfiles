@@ -14,7 +14,7 @@ pyenv::install() {
     fi
 
     echo "[+] Installing pyenv..."
-    installer::script_from_url "pyenv" "https://pyenv.run"
+    installer::script_from_url "pyenv" "https://pyenv.run" bash
 }
 
 pyenv::init() {

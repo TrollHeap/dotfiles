@@ -26,4 +26,3 @@ zoxide
 yazi
 ffmpegthumbnailer
 poppler-utils
-vagrant

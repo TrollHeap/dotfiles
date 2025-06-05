@@ -14,7 +14,7 @@ nvm::install() {
     fi
 
     echo "[+] Installing NVM..."
-    installer::script_from_url "NVM" "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh"
+    installer::script_from_url "NVM" "https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh" bash
 }
 
 nvm::init() {
