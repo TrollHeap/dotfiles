@@ -1,18 +1,19 @@
 #!/usr/bin/env bash
 set -euo pipefail
-set -x
 
 # Determine script directory (bash/zsh-compatible)
-if [[ -n "${BASH_SOURCE:-}" ]]; then
-  SCRIPT_SOURCE="${BASH_SOURCE[0]}"
-elif [[ -n "${(%):-%x}" ]]; then
-  SCRIPT_SOURCE="${(%):-%x}"
+
+# Determine script directory (zsh + bash compatible)
+if [ -n "${BASH_SOURCE:-}" ]; then
+  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+elif [ -n "${ZSH_VERSION:-}" ]; then
+  SCRIPT_DIR="$(cd "$(dirname "${(%):-%x}")" && pwd)"
 else
-  echo "❌ Cannot determine script path." >&2
-  exit 1
+  echo "⚠️ Unsupported shell: fallback to current directory" >&2
+  SCRIPT_DIR="$(pwd)"
 fi
 
-SCRIPT_DIR="$(cd "$(dirname "$SCRIPT_SOURCE")" && pwd)"
+echo "[debug] SCRIPT_DIR = $SCRIPT_DIR"
 
 source "$SCRIPT_DIR/exports.sh"
 
