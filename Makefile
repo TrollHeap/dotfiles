@@ -1,4 +1,4 @@
-.PHONY: all bootstrap dotfiles workspace verify backup_zen restore_zen clean
+.PHONY: all bootstrap clean-boot verify dotfiles workspace remnote
 
 export DOTFILES := $(HOME)/dotfiles
 ENV_ROOT := $(CURDIR)/env-files/.config/env-files
@@ -8,23 +8,25 @@ bootstrap:
 	@echo "🔧 Running full bootstrap..."
 	bash $(ENV_ROOT)/bootstrap/init.sh
 
+clean-boot:
+	@echo "🧹 Cleaning init flags..."
+	rm -f $(ENV_ROOT)/logs/.init_flags
+
+verify:
+	bash $(ENV_ROOT)/core/verify_pkgs.sh || echo "💥 Verification failed"
+
 dotfiles:
 	@echo "🧩 Deploying dotfiles..."
-	bash $(ENV_ROOT)/modules/dotfiles/setup.sh
+	zsh $(ENV_ROOT)/modules/dotfiles/setup.sh
 
 workspace:
 	@echo "🗂️  Initializing workspace structure..."
 	bash $(ENV_ROOT)/modules/workspace/setup.sh
 
-verify:
-	bash $(ENV_ROOT)/core/verify_pkgs.sh || echo "💥 Verification failed"
+remnote:
+	@echo "🗂️  Initializing install remnote application..."
+	zsh $(SCRIPTS_ROOT)/appli/remnote/install_remnote.sh
 
-backup_zen:
-	sh $(SCRIPTS_ROOT)/zen_browser/backup_zen_full.sh
-
-restore_zen:
-	sh $(SCRIPTS_ROOT)/zen_browser/restore_zen_full.sh
-
-clean:
-	@echo "🧹 Cleaning init flags..."
-	rm -f $(ENV_ROOT)/logs/.init_flags
+tor-browser:
+	@echo "🗂️  Initializing a tor-browser session..."
+	zsh $(SCRIPTS_ROOT)/appli/tor-browser/launch_tor.sh

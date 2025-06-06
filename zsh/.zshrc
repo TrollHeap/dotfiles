@@ -6,7 +6,7 @@
 [[ -f "$HOME/.config/env-files/core/env.sh" ]] && source "$HOME/.config/env-files/core/env.sh"
 
 # --- 1. Load environment variables & aliases
-[[ -f "$ROOT_ENV/env/aliases.env" ]]   && source "$ROOT_ENV/env/aliases.env"
+[[ -f "$HOME/dotfiles/env-files/.config/env-files/config/aliases.env" ]]   && source "$ROOT_ENV/config/aliases.env"
 
 # --- 2. SSH Agent (Keychain)
 # if command -v keychain >/dev/null; then
@@ -27,8 +27,8 @@ command -v pyenv &>/dev/null && eval "$(pyenv init --path)"
 eval "$(starship init zsh)"
 
 # --- 4. Oh My Zsh
-[[ -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]] && source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 plugins=(git fzf zsh-syntax-highlighting zsh-autosuggestions)
+[[ -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]] && source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 # --- 5. Dynamic Displays (neofetch, taskwarrior, system status)
 if command -v neofetch >/dev/null; then

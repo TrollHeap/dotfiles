@@ -6,7 +6,7 @@ rm -f ~/.zshrc
 
 echo "[+] Stowing modules..."
 cd ~/dotfiles
-stow zsh starship tmux wezterm nvim
+stow zsh starship tmux wezterm nvim yazi
 cd ..
 
 echo "[+] Sourcing .zshrc"
