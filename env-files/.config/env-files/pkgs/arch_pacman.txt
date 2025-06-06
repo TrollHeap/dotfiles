@@ -15,6 +15,7 @@ jq
 xdg-utils
 lazygit
 lsd
+git-lfs
 neovim
 7zip
 ripgrep
