@@ -1,12 +1,15 @@
 # ╭──────────────────────────────────────────────────────────────╮
 # │ ZSH CONFIGURATION - Binary-grunt                             │
 # ╰──────────────────────────────────────────────────────────────╯
+export DOTFILES="$HOME/dotfiles"
+export ROOT_ENV="$DOTFILES/env-files/.config/env-files"
+export ROOT_LOGS="$DOTFILES/.cache/logs"
 
 # --- 0. Core Environment
-[[ -f "$HOME/.config/env-files/core/env.sh" ]] && source "$HOME/.config/env-files/core/env.sh"
+[[ -f "$ROOT_ENV/core/env.sh" ]] && source "$ROOT_ENV/core/env.sh"
 
 # --- 1. Load environment variables & aliases
-[[ -f "$HOME/dotfiles/env-files/.config/env-files/config/aliases.env" ]]   && source "$ROOT_ENV/config/aliases.env"
+[[ -f "$HOME/dotfiles/env-files/.config/env-files/config/env/aliases.env" ]]   && source "$ROOT_ENV/config/env/aliases.env"
 
 # --- 2. SSH Agent (Keychain)
 # if command -v keychain >/dev/null; then
@@ -17,9 +20,6 @@
 [[ -f "$FZF_DIR/shell/key-bindings.zsh" ]] && source "$FZF_DIR/shell/key-bindings.zsh"
 [[ -f "$FZF_DIR/shell/completion.zsh" ]]   && source "$FZF_DIR/shell/completion.zsh"
 
-[[ -f "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
-
-[[ -d "$PYENV_ROOT" ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 command -v pyenv &>/dev/null && eval "$(pyenv init --path)"
 
 
