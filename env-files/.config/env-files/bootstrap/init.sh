@@ -6,11 +6,12 @@ set -euo pipefail
 # ╰──────────────────────────────────────────────────────────────╯
 
 # --- 0. Load core variables
-source "$HOME/dotfiles/env-files/.config/env-files/config/variables.env"
+ROOT_ENV="${ROOT_ENV:-$HOME/dotfiles/env-files/.config/env-files}"
+source "$ROOT_ENV/config/env/globals_locals.env"
 
 # --- 1. Load environment (paths, OS detection, flags)
 source "$C_CORE/env.sh"
-source "$C_CORE/state.sh"
+source "$C_CORE/init/state.sh"
 
 INIT_FLAG="bootstrap"
 if state::is_done "$INIT_FLAG"; then
@@ -22,10 +23,10 @@ echo "[+] Starting full environment bootstrap..."
 
 # --- 2. OS-specific setup
 case "$OS" in
-    arch)   source "$C_MODULES/os/arch.sh" ;;
-    ubuntu) source "$C_MODULES/os/ubuntu.sh" ;;
-    macos)  source "$C_MODULES/os/macos.sh" ;;
-    *)      echo "❌ Unsupported OS: $OS" && exit 1 ;;
+    arch)   source "$C_BOOTSTRAP/os/arch.sh" ;;
+    ubuntu) source "$C_BOOTSTRAP/os/ubuntu.sh" ;;
+    macos)  source "$C_BOOTSTRAP/os/macos.sh" ;;
+    *)      echo "❌ Unsupported OS: $OS" ;;
 esac
 
 # --- 3. Post-OS initialization ( workspace, etc.)
