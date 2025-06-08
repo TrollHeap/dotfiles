@@ -11,10 +11,10 @@ git
 gh
 nodejs
 npm
-imagemagick
+ImageMagick
 jq
-xdg-utils
 lazygit
+xdg-utils
 lsd
 git-lfs
 neovim
@@ -32,3 +32,7 @@ qemu-img
 wl-clipboard
 navi
 tor
+luarocks
+lua-devel 
+gcc 
+make

@@ -61,7 +61,7 @@ detect_os() {
     case "$ID" in
       arch | manjaro | cachyos | endeavouros) echo "arch" ;;
       ubuntu | debian) echo "ubuntu" ;;
-      fedora) echo "fedora" ;;
+      fedora | nobara) echo "fedora" ;;
       *) echo "$ID" ;;
     esac
     return
@@ -92,5 +92,3 @@ log::summary() {
 log::summary
 
 log::success "Environment successfully initialized"
-
-exit 0

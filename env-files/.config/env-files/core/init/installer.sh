@@ -19,7 +19,7 @@ if [[ -z "$PKG_MANAGER" ]]; then
       case "$ID" in
         arch|manjaro|endeavouros|cachyos) PKG_MANAGER="pacman" ;;
         ubuntu|debian)                   PKG_MANAGER="apt" ;;
-        fedora|rhel|rocky|alma)         PKG_MANAGER="dnf" ;;
+        fedora|rhel|rocky|alma|nobara)         PKG_MANAGER="dnf" ;;
         *) log::error "Unsupported distro: $ID";;
       esac
       ;;
@@ -95,6 +95,18 @@ installer::from_file() {
       brew install --cask "${BASH_REMATCH[1]}"
       continue
     fi
+
+    # Hook spécifique : lazygit (dnf)
+    if [[ "$manager" == "dnf" && "$line" == "lazygit" ]]; then
+      if ! sudo dnf repolist | grep -q atim/lazygit; then
+        echo "[+] Enabling Copr repo: atim/lazygit"
+        sudo dnf copr enable atim/lazygit -y || {
+          log::error "Failed to enable Copr repo for lazygit"
+          return 1
+        }
+      fi
+    fi
+
     installer::pkg_from "$manager" "$line"
   done < "$file"
 }

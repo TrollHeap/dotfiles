@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -euo pipefail
-set -x
 # ╭──────────────────────────────────────────────────────────────╮
 # │ ENVIRONMENT BOOTSTRAP - Full Init Sequence                   │
 # ╰──────────────────────────────────────────────────────────────╯
@@ -27,6 +26,7 @@ echo "[+] Starting full environment bootstrap..."
 # --- 2. OS-specific setup
 case "$OS" in
     arch)   source "$C_BOOTSTRAP/os/arch.sh" ;;
+    fedora)  source "$C_BOOTSTRAP/os/fedora.sh" ;;
     ubuntu) source "$C_BOOTSTRAP/os/ubuntu.sh" ;;
     macos)  source "$C_BOOTSTRAP/os/macos.sh" ;;
     *)      echo "❌ Unsupported OS: $OS" ;;
