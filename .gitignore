@@ -2,5 +2,5 @@
 **/*.pyc
 **/*.pyo
 **/.env
-**/.lazy-lock.json
+nvim/.config/nvim/lazy-lock.json
 kde/kde-cachyos.knsv
