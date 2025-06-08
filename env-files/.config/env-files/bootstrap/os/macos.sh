@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 # ╭────────────────────────────────────────────────────────────╮
 # │ OS SETUP: macOS system configuration                       │
 # ╰────────────────────────────────────────────────────────────╯
 
+source "$C_MODULES/loader_modules.sh"
 echo "[+] Starting macOS setup..."
 
 # 1. Load core logic
@@ -22,15 +22,8 @@ fi
 installer::from_file "$C_PKGS/macos_brew.txt" brew
 
 # 4. Source tool modules
-source "$C_MODULES/shell/zsh.sh"
-source "$C_MODULES/shell/ohmyzsh.sh"
-source "$C_TOOLS/starship.sh"
-source "$C_TOOLS/tmux_tpm.sh"
-source "$C_TOOLS/nvm.sh"
-source "$C_TOOLS/fzf.sh"
-source "$C_TOOLS/wezterm.sh"
-source "$C_TOOLS/pyenv.sh"
-source "$C_TOOLS/nerdfonts.sh"
+#
+load_modules
 
 # 5. Shell setup
 zsh::install

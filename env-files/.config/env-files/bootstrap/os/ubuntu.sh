@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 # ╭────────────────────────────────────────────────────────────╮
 # │ OS SETUP: Ubuntu and Debian-based systems                  │
 # ╰────────────────────────────────────────────────────────────╯
 
+source "$C_MODULES/loader_modules.sh"
 echo "[+] Starting Ubuntu-based setup..."
 
 # 1. Core installer
@@ -18,15 +18,7 @@ sudo apt install -y build-essential git curl wget unzip
 installer::from_file "$C_PKGS/ubuntu_apt.txt" apt
 
 # 4. Source tool modules
-source "$C_MODULES/shell/zsh.sh"
-source "$C_MODULES/shell/ohmyzsh.sh"
-source "$C_TOOLS/starship.sh"
-source "$C_TOOLS/tmux_tpm.sh"
-source "$C_TOOLS/nvm.sh"
-source "$C_TOOLS/fzf.sh"
-source "$C_TOOLS/wezterm.sh"
-source "$C_TOOLS/pyenv.sh"
-source "$C_TOOLS/nerdfonts.sh"
+load_modules
 
 # 5. Install tools
 starship::install

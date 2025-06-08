@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 # ╭────────────────────────────────────────────────────────────╮
 # │ OS SETUP: Arch-based distributions (Arch, Manjaro, etc.)   │
 # ╰────────────────────────────────────────────────────────────╯
-
+source "$C_MODULES/loader_modules.sh"
 echo "[+] Starting Arch-based setup..."
 
 # 1. Ensure AUR helper is available
@@ -20,15 +19,7 @@ installer::from_file "$C_PKGS/arch_pacman.txt" pacman
 installer::from_file "$C_PKGS/arch_aur.txt" yay
 
 # 4. Source all tool modules
-source "$C_MODULES/shell/zsh.sh"
-source "$C_MODULES/shell/ohmyzsh.sh"
-source "$C_TOOLS/starship.sh"
-source "$C_TOOLS/tmux_tpm.sh"
-source "$C_TOOLS/nvm.sh"
-source "$C_TOOLS/fzf.sh"
-source "$C_TOOLS/wezterm.sh"
-source "$C_TOOLS/pyenv.sh"
-source "$C_TOOLS/nerdfonts.sh"
+load_modules
 
 # 5. Run installations
 tmux_tpm::install
