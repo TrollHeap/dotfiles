@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 source "$C_CORE/env.sh"
 source "$C_CORE/state.sh"

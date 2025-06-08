@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 # ╭────────────────────────────────────────────────────────────╮
 # │ SHELL MODULE: Oh My Zsh installation & plugin setup        │
 # ╰────────────────────────────────────────────────────────────╯
 
-source "$C_CORE/installer.sh"
+source "$C_CORE/init/installer.sh"
 
 ohmyzsh::installed() {
     [[ -d "$HOME/.oh-my-zsh" ]]

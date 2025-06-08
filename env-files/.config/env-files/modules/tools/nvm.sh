@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
-source "$C_CORE/installer.sh"
+source "$C_CORE/init/installer.sh"
 
 nvm::installed() {
     [[ -s "$NVM_DIR/nvm.sh" ]]

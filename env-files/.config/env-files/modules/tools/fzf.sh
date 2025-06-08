@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
-# Source dépendances
-source "$C_CORE/installer.sh"
+source "$C_CORE/init/installer.sh"
 
 fzf::installed() {
     command -v fzf &> /dev/null
