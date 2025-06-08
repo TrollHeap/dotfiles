@@ -4,3 +4,4 @@
 **/.env
 nvim/.config/nvim/lazy-lock.json
 kde/kde-cachyos.knsv
+env-files/.config/env-files/bootstrap/.init_flags
