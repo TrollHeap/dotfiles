@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 validate::binary() {
     local bin="$1"

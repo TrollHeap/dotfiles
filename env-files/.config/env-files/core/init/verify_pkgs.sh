@@ -1,33 +1,29 @@
 #!/usr/bin/env bash
-set -euo pipefail
 
 # ╭──────────────────────────────────────────────────────────────╮
 # │ VERIFY_PKGS - Check existence of packages in repo / AUR      │
 # ╰──────────────────────────────────────────────────────────────╯
 
+# --- Constants & logger setup ---
 export DOTFILES="${DOTFILES:-$HOME/dotfiles}"
+ROOT_ENVFILES="$DOTFILES/env-files/.config/env-files"
 
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "$ROOT_ENVFILES/config/env/globals_locals.env"
+source "$ROOT_ENVFILES/config/env/logs.env"
+source "$C_CORE/lib/logger.sh"
+log::use ENV_PKGS
+log::section "Verifying package lists"
 
-# --- Load environment variables
-source "$SCRIPT_DIR/../config/variables.env"
-source "$SCRIPT_DIR/env.sh"
-
-# --- Prepare logs ---
-PKG_DIR="${C_PKGS:-$SCRIPT_DIR/../pkgs}"
-LOG_FILE="$C_LOGS/pkg_verification.log"
-mkdir -p "$C_LOGS"
-> "$LOG_FILE"
-
+# --- Paths ---
+PKG_DIR="${C_PKGS:-$DOTFILES/env-files/.config/env-files/pkgs}"
 echo "🔍 Verifying package files in: $PKG_DIR"
-echo "📝 Results logged to: $LOG_FILE"
 echo
 
-# --- Check functions ---
+# --- Check commands ---
 check_pkg_pacman() { pacman -Si "$1" &>/dev/null; }
 check_pkg_yay()    { yay -Si "$1" &>/dev/null; }
 
-# --- Iterate over all package lists ---
+# --- Process all files ---
 for file in "$PKG_DIR"/*.txt; do
   echo "📦 Checking: $(basename "$file")"
 
@@ -42,7 +38,7 @@ for file in "$PKG_DIR"/*.txt; do
     [[ -z "$pkg" ]] && continue
 
     if ! $checker "$pkg"; then
-      echo "❌ Not found: $pkg" | tee -a "$LOG_FILE"
+      log::error "Not found: $pkg"
     else
       echo "✅ $pkg"
     fi
@@ -51,4 +47,5 @@ for file in "$PKG_DIR"/*.txt; do
   echo
 done
 
-echo "🧾 Package check complete. Errors saved in: $LOG_FILE"
+log::success "Package check complete"
+echo "🧾 Errors saved to: $LOG_FILE"

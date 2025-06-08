@@ -1,21 +1,17 @@
 #!/usr/bin/env bash
 
 # ╭──────────────────────────────────────────────────────────────╮
-# │ ENV EXPORTS - Global environment variables & PATH setup      │
+# │ STATE - Bootstrap step tracking using a flat file            │
 # ╰──────────────────────────────────────────────────────────────╯
 
-# --- Locale and editor
-export LANG="en_US.UTF-8"
-export EDITOR="nvim"
+STATE_FILE="$C_BOOTSTRAP/.init_flags"
 
-# --- Utility: append to PATH only if not already present
-path_add() {
-  case ":$PATH:" in
-    *:"$1":*) ;;       # Already in PATH → skip
-    *) PATH="$1:$PATH" ;;
-  esac
+state::is_done() {
+  local flag="$1"
+  grep -qx "$flag" "$STATE_FILE" 2>/dev/null
 }
 
-# --- Common path additions
-path_add "$HOME/.local/bin"
-path_add "/usr/local/bin"
+state::mark_done() {
+  local flag="$1"
+  echo "$flag" >> "$STATE_FILE"
+}
