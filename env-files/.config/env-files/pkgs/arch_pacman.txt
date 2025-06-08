@@ -8,6 +8,7 @@ fd
 ffmpegthumbnailer
 fzf
 git
+github-cli
 nodejs
 npm
 imagemagick

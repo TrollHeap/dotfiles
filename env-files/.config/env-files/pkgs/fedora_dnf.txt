@@ -8,6 +8,7 @@ fd-find
 ffmpegthumbnailer
 fzf
 git
+gh
 nodejs
 npm
 imagemagick
