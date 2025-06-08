@@ -29,6 +29,9 @@ cp "$ICON_PATH" "$INSTALL_DIR/remnote.png"
 
 # === Créer le fichier .desktop ===
 echo "[+] Création de $DESKTOP_FILE"
+# === Créer le fichier .desktop ===
+mkdir -p "$(dirname "$DESKTOP_FILE")"
+echo "[+] Création de $DESKTOP_FILE"
 cat > "$DESKTOP_FILE" <<EOF
 [Desktop Entry]
 Name=RemNote
