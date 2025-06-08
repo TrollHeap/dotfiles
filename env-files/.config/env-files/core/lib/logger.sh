@@ -34,6 +34,7 @@ _log::write() {
   echo "[$ts] [$level] $message" >> "$LOG_FILE"
 
   [[ "$level" == "ERROR" ]] && echo "❌ $message" >&2
+  return 0
 }
 
 # API
@@ -41,8 +42,11 @@ log::info()    { _log::write "INFO"  "🟦" "$*"; }
 log::success() { _log::write "OK"    "🟩" "$*"; }
 log::warn()    { _log::write "WARN"  "🟨" "$*"; }
 log::error()   { _log::write "ERROR" "🟥" "$*"; }
-log::debug()   { [[ "${DEBUG:-0}" == 1 ]] && _log::write "DEBUG" "⬛" "$*"; }
-
+log::debug()   {
+  if [[ "${DEBUG:-0}" == 1 ]]; then
+    _log::write "DEBUG" "⬛" "$*"
+  fi
+}
 # section = démarcation logique (pas d'affichage)
 log::section() {
   echo -e "\n# --- $* ---\n" >> "$LOG_FILE"

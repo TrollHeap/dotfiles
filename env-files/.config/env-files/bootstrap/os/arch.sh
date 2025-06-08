@@ -7,7 +7,7 @@ source "$C_MODULES/loader_modules.sh"
 echo "[+] Starting Arch-based setup..."
 
 # 1. Ensure AUR helper is available
-source "$C_CORE/installer.sh"
+source "$C_CORE/init/installer.sh"
 installer::aur_helper
 
 # 2. System upgrade

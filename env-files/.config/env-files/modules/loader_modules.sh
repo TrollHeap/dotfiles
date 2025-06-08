@@ -26,22 +26,14 @@ load_modules() {
   for mod in "${modules[@]}"; do
     local label="${mod##*/}"  # ex: zsh.sh → zsh.sh
     if [[ -f "$mod" ]]; then
-      source "$mod"
-      log::info "Loaded module: $label"
+      if source "$mod"; then
+        log::info "Loaded module: $label"
+      else
+        log::error "Failed to load module: $label → $mod"
+      fi
     else
       log::warn "Missing module: $label → $mod"
     fi
-
-if [[ -f "$mod" ]]; then
-  if source "$mod"; then
-    log::info "Loaded module: $label"
-  else
-    log::error "Failed to load module: $label → $mod"
-  fi
-else
-  log::warn "Missing module: $label → $mod"
-fi
-  done
 }
 
 load_modules

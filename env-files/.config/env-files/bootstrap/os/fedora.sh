@@ -8,7 +8,7 @@ source "$C_MODULES/loader_modules.sh"
 echo "[+] Starting Fedora-based setup..."
 
 # 1. Ensure installer core is available
-source "$C_CORE/installer.sh"
+source "$C_CORE/init/installer.sh"
 
 # 2. System upgrade
 echo "[+] Updating system via dnf..."

@@ -1,6 +1,6 @@
 .PHONY: all bootstrap clean-boot verify dotfiles workspace remnote
 
-export DOTFILES := $(HOME)/dotfiles
+export DOTFILES ?= $(HOME)/dotfiles
 ENV_ROOT := $(CURDIR)/env-files/.config/env-files
 SCRIPTS_ROOT := $(CURDIR)/scripts/.config/scripts
 

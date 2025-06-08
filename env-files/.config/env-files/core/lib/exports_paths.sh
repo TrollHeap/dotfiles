@@ -5,7 +5,7 @@
 # ╰──────────────────────────────────────────────────────────────╯
 
 # --- Logger setup ---
-ROOT_ENVFILES="$HOME/dotfiles/env-files/.config/env-files"
+ROOT_ENVFILES="${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files"
 source "$ROOT_ENVFILES/config/env/logs.env"
 source "$ROOT_ENVFILES/config/env/globals_locals.env"
 source "$C_CORE/lib/logger.sh"

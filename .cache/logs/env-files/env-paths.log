@@ -1,0 +1,18 @@
+
+# --- Setting up PATH exports ---
+
+[2025-06-08 18:48:24] [INFO] Added to PATH: /usr/local/sbin
+[2025-06-08 18:48:24] [INFO] Added to PATH: /home/binary/.dotnet/tools
+[2025-06-08 18:48:24] [INFO] Added to PATH: /home/binary/.tmuxifier/bin
+[2025-06-08 18:48:24] [INFO] Added to PATH: /home/binary/.fzf/bin
+[2025-06-08 18:48:24] [INFO] Added to PATH: /home/binary/.pyenv/bin
+[2025-06-08 18:48:24] [OK] PATH setup complete
+[2025-06-08 18:48:24] [INFO] Loaded exports_paths.sh
+[2025-06-08 18:48:24] [INFO] Detected OS: nobara
+[2025-06-08 18:48:24] [WARN] No OS-specific path override for nobara
+[2025-06-08 18:48:24] [INFO] No build flags for nobara
+
+# --- Environment init complete ---
+
+[2025-06-08 18:48:24] [OK] Duration: 0s | OS=nobara | ScriptDir=/home/binary/dotfiles/env-files/.config/env-files/core
+[2025-06-08 18:48:24] [OK] Environment successfully initialized

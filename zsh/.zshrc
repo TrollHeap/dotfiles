@@ -1,7 +1,7 @@
 # ╭──────────────────────────────────────────────────────────────╮
 # │ ZSH CONFIGURATION - Binary-grunt                             │
 # ╰──────────────────────────────────────────────────────────────╯
-export DOTFILES="$HOME/dotfiles"
+export DOTFILES="${DOTFILES:-$HOME/dotfiles}"
 export ROOT_ENV="$DOTFILES/env-files/.config/env-files"
 export ROOT_LOGS="$DOTFILES/.cache/logs"
 

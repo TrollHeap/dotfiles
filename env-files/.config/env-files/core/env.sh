@@ -1,11 +1,9 @@
-#!/usr/bin/env bash
-
 # ╭──────────────────────────────────────────────────────────────╮
 # │ ENV LOADER - Environment Detection & Path Bootstrapping      │
 # ╰──────────────────────────────────────────────────────────────╯
 
 # --- 0. Load global constants and logger ---
-ROOT_ENVFILES="$HOME/dotfiles/env-files/.config/env-files"
+ROOT_ENVFILES="${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files"
 source "$ROOT_ENVFILES/config/env/globals_public.env"
 source "$ROOT_ENVFILES/config/env/globals_locals.env"
 source "$ROOT_ENVFILES/config/env/logs.env"
@@ -94,3 +92,5 @@ log::summary() {
 log::summary
 
 log::success "Environment successfully initialized"
+
+exit 0

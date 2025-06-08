@@ -5,8 +5,8 @@
 # ╰──────────────────────────────────────────────────────────────╯
 
 # --- Init logging ---
-source "$HOME/dotfiles/env-files/.config/env-files/config/env/globals_locals.env"
-source "$HOME/dotfiles/env-files/.config/env-files/config/env/logs.env"
+source "${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files/config/env/globals_locals.env"
+source "${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files/config/env/logs.env"
 source "$C_CORE/lib/logger.sh"
 log::use ENV_INSTALLER
 

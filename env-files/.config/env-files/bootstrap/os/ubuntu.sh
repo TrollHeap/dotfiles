@@ -8,7 +8,7 @@ source "$C_MODULES/loader_modules.sh"
 echo "[+] Starting Ubuntu-based setup..."
 
 # 1. Core installer
-source "$C_CORE/installer.sh"
+source "$C_CORE/init/installer.sh"
 
 # 2. System update and base dev tools
 sudo apt update && sudo apt upgrade -y

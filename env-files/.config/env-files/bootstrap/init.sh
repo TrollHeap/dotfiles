@@ -1,18 +1,21 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
+set -x
 # ╭──────────────────────────────────────────────────────────────╮
 # │ ENVIRONMENT BOOTSTRAP - Full Init Sequence                   │
 # ╰──────────────────────────────────────────────────────────────╯
 
 # --- 0. Load core variables
-ROOT_ENV="${ROOT_ENV:-$HOME/dotfiles/env-files/.config/env-files}"
+ROOT_ENV="${ROOT_ENV:-${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files}"
 source "$ROOT_ENV/config/env/globals_locals.env"
 
 # --- 1. Load environment (paths, OS detection, flags)
+echo "Loading env" 
 source "$C_CORE/env.sh"
-source "$C_CORE/init/state.sh"
 
+echo "[✓] Testing init state"
+source "$C_CORE/init/state.sh"
+echo "[✓] Testing init state - skipped"
 INIT_FLAG="bootstrap"
 if state::is_done "$INIT_FLAG"; then
     echo "[✓] Bootstrap already completed — skipping"
