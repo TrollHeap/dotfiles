@@ -1,6 +1,6 @@
 source "$DOTFILES/tmux/utils/create_win_run.sh"
 
-if initialize_session "Management"; then
+if initialize_session "Organization"; then
 
   create_and_run_window "Taskwarrior" "task list"
   create_and_run_window "Obsidian" "obsidian"

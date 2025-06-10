@@ -5,6 +5,7 @@ if initialize_session "Shell"; then
   run_cmd "cd $HOME" || echo "Failed to run cd $HOME"
   run_cmd "lzd" || echo "Failed to run lzd"
 
+  create_and_run_window "C" "cd $WORK_SYSTEM/C_CPP && nvim ."
   create_and_run_window "shell" "cd $WORK_DEVOPS"
   create_and_run_window "term_shell" "cd $WORK_DEVOPS"
 
