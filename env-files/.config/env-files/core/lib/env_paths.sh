@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 case "$OS" in
   macos)  log::try_source "$C_PATHS/macos-paths.env" ;;
