@@ -36,3 +36,4 @@ luarocks
 lua-devel 
 gcc 
 make
+fuse-libs.x86_64
