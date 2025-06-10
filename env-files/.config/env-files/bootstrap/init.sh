@@ -34,6 +34,7 @@ esac
 
 # --- 3. Post-OS initialization ( workspace, etc.)
 source "$C_MODULES/workspace/setup.sh"
+source "$C_MODULES/app/remnote.sh"
 
 # --- 4. Mark bootstrap as complete
 state::mark_done "$INIT_FLAG"
