@@ -35,3 +35,4 @@ tor
 luarocks
 lua-devel 
 fuse-libs.x86_64
+torbrowser-launcher
