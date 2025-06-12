@@ -35,6 +35,10 @@ if command -v neofetch >/dev/null; then
   neofetch
 fi
 
+if command -v fastfetch >/dev/null; then
+  fastfetch 
+fi
+
 # system_status_summary() {
 #   echo -e "\033[0;34m🔋 GPU/Power Status\033[0m"
 #   

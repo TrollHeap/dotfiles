@@ -17,8 +17,9 @@ log::use() {
 }
 
 # log::try_source <file> [label]
-log::try_source() {
-  local file="$1" label="${2:-$file}"
+  log::try_source() {
+  local file="$1"
+  local label="${2:-$file}"
   if [[ -f "$file" ]]; then
     source "$file"
     log::info "Loaded $label"
