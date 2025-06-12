@@ -1,0 +1,112 @@
+{
+  "d8b79d4a-6cba-4495-9ff6-d6d30b0e94fe": {
+    "id": "d8b79d4a-6cba-4495-9ff6-d6d30b0e94fe",
+    "name": "Better Active Tab",
+    "description": "Adds a bright line next to the active tab to better highlight it.",
+    "homepage": "https://github.com/HliasOuzounis/zen-browser-better-active-tab-indicator",
+    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/d8b79d4a-6cba-4495-9ff6-d6d30b0e94fe/chrome.css",
+    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/d8b79d4a-6cba-4495-9ff6-d6d30b0e94fe/readme.md",
+    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/d8b79d4a-6cba-4495-9ff6-d6d30b0e94fe/image.png",
+    "author": "HliasOuzounis",
+    "version": "1.0.3",
+    "tags": [
+      "tabs"
+    ],
+    "createdAt": "2024-09-07",
+    "updatedAt": "2025-01-26",
+    "enabled": true
+  },
+  "b44004bb-8465-47fb-9e20-0422ff321f0a": {
+    "id": "b44004bb-8465-47fb-9e20-0422ff321f0a",
+    "name": "Better Spacing",
+    "description": "Let Zen breathe with more margin on the URL bar & icons aligned with the browser window",
+    "homepage": "https://github.com/nalejandroveron/zen-better-spacing",
+    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/b44004bb-8465-47fb-9e20-0422ff321f0a/chrome.css",
+    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/b44004bb-8465-47fb-9e20-0422ff321f0a/readme.md",
+    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/b44004bb-8465-47fb-9e20-0422ff321f0a/image.png",
+    "author": "nalejandroveron",
+    "version": "1.0.0",
+    "tags": [],
+    "createdAt": "2025-03-20",
+    "updatedAt": "2025-04-09",
+    "enabled": true
+  },
+  "f7c71d9a-bce2-420f-ae44-a64bd92975ab": {
+    "id": "f7c71d9a-bce2-420f-ae44-a64bd92975ab",
+    "name": "Better Unloaded Tabs",
+    "description": "Makes unloaded tabs easier to notice by making them greyscale and transparent.",
+    "homepage": "https://github.com/Felkazz/zen-browser-better-unloaded-tabs",
+    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/f7c71d9a-bce2-420f-ae44-a64bd92975ab/chrome.css",
+    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/f7c71d9a-bce2-420f-ae44-a64bd92975ab/readme.md",
+    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/f7c71d9a-bce2-420f-ae44-a64bd92975ab/image.png",
+    "author": "Felkazz",
+    "version": "1.0.1",
+    "tags": [],
+    "createdAt": "2024-10-12",
+    "updatedAt": "2025-01-26",
+    "enabled": true
+  },
+  "599a1599-e6ab-4749-ab22-de533860de2c": {
+    "id": "599a1599-e6ab-4749-ab22-de533860de2c",
+    "name": "Pimp your PiP",
+    "description": "Collection of tweaks and upgrades to PiP",
+    "homepage": "",
+    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/599a1599-e6ab-4749-ab22-de533860de2c/chrome.css",
+    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/599a1599-e6ab-4749-ab22-de533860de2c/readme.md",
+    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/599a1599-e6ab-4749-ab22-de533860de2c/image.png",
+    "author": "shldk",
+    "version": "1.0.0",
+    "tags": [],
+    "createdAt": "2025-02-07",
+    "updatedAt": "2025-05-13",
+    "enabled": true
+  },
+  "ad97bb70-0066-4e42-9b5f-173a5e42c6fc": {
+    "id": "ad97bb70-0066-4e42-9b5f-173a5e42c6fc",
+    "name": "SuperPins",
+    "description": "This Zen Mod enhances pinned tabs/Essentials, by making some UI/UX changes.",
+    "homepage": "https://github.com/CosmoCreeper/Zen-Themes/tree/main/SuperPins",
+    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/ad97bb70-0066-4e42-9b5f-173a5e42c6fc/chrome.css",
+    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/ad97bb70-0066-4e42-9b5f-173a5e42c6fc/readme.md",
+    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/ad97bb70-0066-4e42-9b5f-173a5e42c6fc/image.png",
+    "author": "CosmoCreeper",
+    "version": "1.5.4",
+    "preferences": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/ad97bb70-0066-4e42-9b5f-173a5e42c6fc/preferences.json",
+    "tags": [
+      "tabs"
+    ],
+    "createdAt": "2024-08-28",
+    "updatedAt": "2025-06-11",
+    "enabled": true
+  },
+  "13696593-837d-464d-adf4-ff13bd0e0545": {
+    "id": "13696593-837d-464d-adf4-ff13bd0e0545",
+    "name": "Download BG",
+    "description": "Add a background to the active download indicator.",
+    "homepage": "https://github.com/different55/download.bg",
+    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/13696593-837d-464d-adf4-ff13bd0e0545/chrome.css",
+    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/13696593-837d-464d-adf4-ff13bd0e0545/readme.md",
+    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/13696593-837d-464d-adf4-ff13bd0e0545/image.png",
+    "author": "different55",
+    "version": "1.0.0",
+    "tags": [],
+    "createdAt": "2024-12-29",
+    "updatedAt": "2025-01-26",
+    "enabled": true
+  },
+  "fd24f832-a2e6-4ce9-8b19-7aa888eb7f8e": {
+    "id": "fd24f832-a2e6-4ce9-8b19-7aa888eb7f8e",
+    "name": "Quietify",
+    "description": "quietify adds a calm visualizer type of animation to mute button to use with style and ease",
+    "homepage": "https://github.com/wysh3/Zen-Mods/tree/main/Quietify",
+    "style": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/fd24f832-a2e6-4ce9-8b19-7aa888eb7f8e/chrome.css",
+    "readme": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/fd24f832-a2e6-4ce9-8b19-7aa888eb7f8e/readme.md",
+    "image": "https://raw.githubusercontent.com/zen-browser/theme-store/main/themes/fd24f832-a2e6-4ce9-8b19-7aa888eb7f8e/image.png",
+    "author": "wysh3",
+    "version": "1.1.0",
+    "tags": [],
+    "createdAt": "2024-12-17",
+    "updatedAt": "2025-02-09",
+    "enabled": true
+  }
+}
