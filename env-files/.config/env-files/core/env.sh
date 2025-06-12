@@ -46,11 +46,9 @@ log::info "SCRIPT_DIR = $SCRIPT_DIR"
 # --- 5. Exports paths ---
 log::try_source "$C_CORE/lib/exports_paths.sh" "exports_paths.sh"
 
-# --- 6. Detect OS ---
+# --- 6. Loading Detect OS, Paths, BuildFlags ---
 source "$C_CORE/lib/detect_os.sh"
-# --- 7. Load OS-specific paths ---
 source "$C_CORE/lib/env_paths.sh"
-# --- 8. Optional build flags ---
 source "$C_CORE/lib/env_flags.sh"
 
 # --- 9. Summary ---
