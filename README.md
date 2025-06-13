@@ -1,82 +1,80 @@
-# 🛠️ My Dotfiles — Stow-based Configuration
+# Dotfiles
 
-Welcome to my personal dotfiles repository! 🎨 Organized with [GNU Stow](https://www.gnu.org/software/stow/), this setup allows me to manage my environment seamlessly by creating symlinks for each configuration folder. Below, you'll find a breakdown of each folder and its purpose.
-
----
-
-## 📂 Folder Structure
-
-### `binaryvim`
-**Description**:  
-Custom configuration for Neovim (`nvim`). This is where the magic happens with plugins, themes, and settings to enhance productivity and coding efficiency.  
-
-**Highlights**:  
-- Language Server Protocol (LSP) configuration.  
-- Fully modular setup for flexibility and performance.  
-- Tailored keybindings for speed.
+This repository contains my personal configuration files used across different machines. It is organized with **GNU Stow**, so each directory represents a self‑contained module that can be symlinked into `~`.
 
 ---
 
-### `env-files`
-**Description**:  
-Environment configuration files including aliases, scripts, and paths for a personalized and optimized workflow.  
+## Features
 
-**Highlights**:  
-- Useful aliases for day-to-day tasks.  
-- Environment path management.  
-- Includes configuration for custom shell scripts.
+* Centralized environment bootstrap scripts in `env-files` to set up packages and shell configuration on new systems.
+* Ready‑to‑use configs for Zsh, tmux, WezTerm, Starship and more.
+* Minimal Neovim and Yazi configuration as starting points.
 
----
+## Supported OS
 
-### `starship`
-**Description**:  
-Configuration for the [Starship Prompt](https://starship.rs/), a fast and customizable shell prompt.  
+Currently supported:
 
-**Highlights**:  
-- Clean and minimal design.  
-- Personalized to show only what matters at a glance.
+* **Ubuntu**
+* **Arch Linux** (and derivatives like EndeavourOS)
+* **Fedora** (including Nobara)
+* **macOS**
 
----
+Planned support:
 
-### `scripts`
-**Description**:  
-A collection of utility scripts written in Python to automate repetitive tasks and manage system resources.  
+* **Debian**
+* **Windows via WSL**
 
-**Highlights**:  
-- Python-based tools for quick operations.  
-- Script to clean up temporary folders.  
-- Easily extensible for future needs.
+## Getting Started
 
----
+1. **Clone the repository**
 
-### `tmux`
-**Description**:  
-Configuration for [tmux](https://github.com/tmux/tmux/wiki), a terminal multiplexer for managing multiple terminal sessions.  
+   ```bash
+   git clone https://github.com/binary-grunt/dotfiles ~/dotfiles
+   cd ~/dotfiles
+   ```
 
-**Highlights**:  
-- Custom keybindings for better usability.  
-- Predefined window layouts for specific workflows.  
-- Optimized for multitasking and organization.
+2. **Bootstrap the environment** (optional)
 
----
+   ```bash
+   stow env-files
+   make bootstrap
+   ```
 
-### `wezterm`
-**Description**:  
-Config files for [WezTerm](https://wezfurlong.org/wezterm/), my terminal emulator of choice.  
+   This runs the scripts in `env-files` to install packages and set up tools depending on your OS.
 
-**Highlights**:  
-- Aesthetic and functional terminal design.  
-- Transparency tweaks for better visuals.  
-- Performance-focused configuration.
+3. **Deploy the dotfiles**
 
----
+   ```bash
+   make dotfiles
+   ```
 
-### `zsh`
-**Description**:  
-Configuration for [Zsh](https://www.zsh.org/) with my `.zshrc` file for an enhanced shell experience.  
+   or manually run `env-files/.config/env-files/modules/dotfiles/setup.sh`. This uses `stow` to create symlinks in your home directory.
 
-**Highlights**:  
-- Integrated with `neofetch` for a welcoming shell startup.  
-- Plugin and theme support for extra functionality.  
-- Aliases and shortcuts for efficiency.
+## Directory Overview
 
+* **env-files/** – Shell scripts and environment definitions. The `bootstrap` folder contains OS‑specific installation scripts and helpers. The `modules` directory handles dotfile deployment, workspace creation and tool installation.
+* **zsh/** – `.zshrc` and `.zshenv` for the Zsh shell.
+* **tmux/** – Configuration for the tmux terminal multiplexer and tmuxifier layouts.
+* **starship/** – `starship.toml` prompt configuration.
+* **wezterm/** – `wezterm.lua` configuration for the WezTerm terminal emulator.
+* **nvim/** – Minimal Neovim setup stored under `.config/nvim`.
+* **yazi/** – Basic configuration for the Yazi terminal file manager.
+* **scripts/** – Utility shell and Python scripts used during bootstrap or for day‑to‑day tasks.
+* **kde-zen/** – KDE related tweaks and exported settings.
+
+## Requirements
+
+* `git`
+* `stow`
+
+Some modules may require additional software like `tmux` or `wezterm`. The bootstrap process attempts to install them automatically when possible.
+
+## Updating
+
+After pulling new changes, you can reapply the symlinks by rerunning the deploy step:
+
+```bash
+make dotfiles
+```
+
+Enjoy your personalized environment!
