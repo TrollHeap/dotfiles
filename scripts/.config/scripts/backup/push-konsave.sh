@@ -1,9 +1,9 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 
 set -euo pipefail
 
 PROFILE="${1:-kde-binary}"  
-DEST="${HOME}/${PROFILE}.knsv"
+DEST="${HOME}/dotfiles/${PROFILE}.knsv"
 
 echo "konsave: Saving profile..."
 konsave -s "$PROFILE" -f

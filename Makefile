@@ -56,7 +56,7 @@ launch-tor:
 
 konsave-push:
 	@echo "🗂️  Installing konsave..."
-	bash $(SCRIPTS_ROOT)/backup/push_konsave.sh
+	bash $(SCRIPTS_ROOT)/backup/push-konsave.sh
 
 # ==================[ Test]==================
 test-pkgs:
