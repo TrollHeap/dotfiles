@@ -6,8 +6,9 @@ dust
 fd
 ffmpegthumbnailer
 fzf
+glow
 git
-imagemagick
+ImageMagick
 jq
 lazygit
 lsd
@@ -31,3 +32,4 @@ zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
 #brew:cask wezterm
+

@@ -21,13 +21,14 @@ installer::from_file "$C_PKGS/ubuntu_apt.txt" apt
 load_modules
 
 # 5. Install tools
-starship::install
 tmux_tpm::install
 nvm::install
 fzf::install
 wezterm::install
 pyenv::install
 nerdfonts::install
+starship::install
+glow::install
 
 # 6. Finalize shell
 zsh::install

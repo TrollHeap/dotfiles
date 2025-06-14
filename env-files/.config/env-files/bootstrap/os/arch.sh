@@ -29,9 +29,11 @@ wezterm::install
 pyenv::install
 nerdfonts::install
 starship::install
+glow::install
 
 # 6. Finalize shell setup
 zsh::install
 ohmyzsh::install
 ohmyzsh::install_plugins
 zsh::set_default_shell
+

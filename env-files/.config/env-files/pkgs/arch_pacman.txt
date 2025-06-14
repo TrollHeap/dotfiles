@@ -4,6 +4,7 @@ curl
 docker
 dust
 python-pip
+glow
 fd
 ffmpegthumbnailer
 fzf
