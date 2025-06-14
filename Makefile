@@ -40,15 +40,23 @@ workspace:
 	@echo "🗂️  Initializing workspace structure..."
 	bash $(ENV_ROOT)/modules/workspace/setup.sh
 
-# ==================[ Apps install ]==================
+# ==================[ Apps & tools install ]==================
+.PHONY: install-konsave
+
+install-konsave:
+	@echo "🗂️  Installing konsave..."
+	zsh $(SCRIPTS_ROOT)/tools/install-konsave.sh
+
+# ==================[ tools install ]==================
+.PHONY: launch-tor konsave-push
+
 launch-tor:
 	@echo "🗂️  Initializing a tor-browser session..."
 	zsh $(SCRIPTS_ROOT)/appli/tor-browser/launch_tor.sh
 
-# ==================[ tools install ]==================
-install-konsave:
+konsave-push:
 	@echo "🗂️  Installing konsave..."
-	zsh $(SCRIPTS_ROOT)/tools/install-konsave.sh
+	bash $(SCRIPTS_ROOT)/backup/push_konsave.sh
 
 # ==================[ Test]==================
 test-pkgs:
