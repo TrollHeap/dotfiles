@@ -1,4 +1,4 @@
-# Konsave – Sauvegarder & Appliquer ses Customisations Linux
+# Konsave + Google Drive (rclone) — Workflow de sauvegarde/restauration
 
 ## Installation
 
@@ -6,11 +6,7 @@
 python3 -m pip install --user konsave
 ```
 
----
-
 ## Commandes courantes
-
-Nom utilisé actuellement `kde-binary`
 
 * **Aide rapide** :
   `konsave -h`
@@ -44,7 +40,64 @@ konsave -i ~/work.knsv    # Importe le profil exporté
 
 Modifie `~/.config/konsave/conf.yaml` pour ajouter/retirer des fichiers à sauvegarder.
 
+## 1. **Sauvegarder et exporter ta configuration**
+
+```sh
+konsave -s kde-binary -f        # Sauvegarde le profil avec l’état actuel (force la mise à jour)
+konsave -e kde-binary           # Exporte vers ~/kde-binary.knsv
+```
+
 ---
 
-**Supporte tout DE, focus KDE.**
-**Un seul binaire, simple, reproductible.**
+## 2. **Uploader vers Google Drive avec rclone**
+
+```sh
+rclone copy -P ~/kde-binary.knsv gdrive:/
+```
+
+* `-P` affiche la progression.
+* `gdrive` est le nom du remote défini dans rclone.
+
+---
+
+## 3. **Récupérer et restaurer depuis Google Drive**
+
+```sh
+rclone copy -P gdrive:/kde-binary.knsv ~/
+konsave -i ~/kde-binary.knsv    # Importe le profil dans Konsave
+```
+
+---
+
+## 4. **Initialiser rclone (à faire une fois par machine)**
+
+```sh
+rclone config
+```
+
+* Ajoute un remote `gdrive` de type `drive` (Google Drive).
+* Suis l’assistant (Entrée sur client\_id/client\_secret, scope = 1, auto config = y, tout laisser par défaut).
+
+---
+
+## **Résumé schématique**
+
+```
+[Config locale] --(konsave -s)--> [Profil Konsave] --(konsave -e)--> [Fichier .knsv]
+      |
+      +--> [rclone copy -P .knsv gdrive:/] --> [Google Drive cloud backup]
+      |
+      +<-- [rclone copy -P gdrive:/ .knsv ~/ ] <--(konsave -i)--- [Restauration sur une autre machine]
+```
+
+---
+
+## **Bonnes pratiques**
+
+* **Toujours** exécuter `konsave -s <nom> -f` **avant** d’exporter.
+* **Uploader après chaque changement important.**
+* **Utiliser `-P`** avec rclone pour monitorer la progression.
+* **Restauration =** download `.knsv` + import Konsave.
+
+---
+
