@@ -1,4 +1,4 @@
-source "$DOTFILES/tmux/utils/create_win_run.sh"
+source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
 if initialize_session "Organization"; then
 

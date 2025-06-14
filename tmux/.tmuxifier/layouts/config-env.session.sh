@@ -1,5 +1,4 @@
-
-source "$DOTFILES/tmux/utils/create_win_run.sh"
+source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
 if initialize_session "Config-Env"; then
   create_and_run_window "C-EnvFiles" "cd $DOTFILES/env-files/.config/env-files && nvim ."
