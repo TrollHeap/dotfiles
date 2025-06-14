@@ -26,3 +26,4 @@ zoxide
 yazi
 ffmpegthumbnailer
 poppler-utils
+zstd

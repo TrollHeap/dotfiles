@@ -35,3 +35,4 @@ navi
 yazi
 tor
 torbrowser-launcher
+zstd
