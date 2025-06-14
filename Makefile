@@ -7,9 +7,19 @@ SCRIPTS_ROOT := $(CURDIR)/scripts/.config/scripts
 
 # ==================[ Bootstrap ]==================
 .PHONY: help
+
 help:
 	@echo "Available targets:"
 	@awk '/^[a-zA-Z0-9_-]+:/ && !/^_/{print "-",$$(1)}' $(MAKEFILE_LIST) | sed 's/://'
+
+# ==================[ Docs ]==================
+.PHONY: ventoy konsave
+
+ventoy:
+	@command -v glow >/dev/null 2>&1 && glow $(DOTFILES)/docs/ventoy.md || less $(DOTFILES)/docs/ventoy.md
+
+konsave:
+	@command -v glow >/dev/null 2>&1 && glow $(DOTFILES)/docs/konsave.md || less $(DOTFILES)/docs/konsave.md
 
 # ==================[ Bootstrap ]==================
 .PHONY: bootstrap clean-boot dotfiles workspace launch-tor test-pkgs test-env-reload
@@ -30,10 +40,15 @@ workspace:
 	@echo "🗂️  Initializing workspace structure..."
 	bash $(ENV_ROOT)/modules/workspace/setup.sh
 
-# ==================[ Applications install ]==================
+# ==================[ Apps install ]==================
 launch-tor:
 	@echo "🗂️  Initializing a tor-browser session..."
 	zsh $(SCRIPTS_ROOT)/appli/tor-browser/launch_tor.sh
+
+# ==================[ tools install ]==================
+install-konsave:
+	@echo "🗂️  Initializing a tor-browser session..."
+	zsh $(SCRIPTS_ROOT)/tools/install-konsave.sh
 
 # ==================[ Test]==================
 test-pkgs:
