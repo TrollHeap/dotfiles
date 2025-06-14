@@ -1,4 +1,3 @@
-wezterm
 ttf-nerd-fonts-symbols-mono
 discord
 lazydocker
