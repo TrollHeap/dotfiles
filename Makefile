@@ -47,7 +47,7 @@ launch-tor:
 
 # ==================[ tools install ]==================
 install-konsave:
-	@echo "🗂️  Initializing a tor-browser session..."
+	@echo "🗂️  Installing konsave..."
 	zsh $(SCRIPTS_ROOT)/tools/install-konsave.sh
 
 # ==================[ Test]==================
