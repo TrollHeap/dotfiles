@@ -36,3 +36,4 @@ yazi
 tor
 torbrowser-launcher
 zstd
+tealdeer

@@ -27,3 +27,4 @@ yazi
 ffmpegthumbnailer
 poppler-utils
 zstd
+tealdeer

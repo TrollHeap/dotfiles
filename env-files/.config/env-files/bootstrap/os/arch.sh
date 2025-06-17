@@ -37,3 +37,4 @@ ohmyzsh::install
 ohmyzsh::install_plugins
 zsh::set_default_shell
 
+tldr --update
