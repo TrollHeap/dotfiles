@@ -14,7 +14,7 @@ return {
     workspaces = {
       {
         name = 'software-work',
-        path = '~/Developer/WORKSPACE/Learning/dev-doc/obsidian-software'
+        path = '~/Developer/obsidian-software'
       },
       -- Additional workspaces can be defined here
     },
