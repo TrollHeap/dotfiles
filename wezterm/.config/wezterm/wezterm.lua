@@ -27,7 +27,7 @@ config.font = wezterm.font_with_fallback({
     --{ family = 'JetBrains Mono',   scale = 0.95 },
     --{ family = 'FiraCode Nerd Font', scale = 1.25 },
     --{ family = 'Hack Nerd Font',   scale = 1.25 },
-    { family = 'GeistMono Nerd Font', scale = 0.95 },
+    { family = 'GeistMono Nerd Font', scale = 0.90 },
     { family = "Symbols Nerd Font" }
 })
 
