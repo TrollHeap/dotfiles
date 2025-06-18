@@ -13,7 +13,7 @@ create_split_window() {
     local win_name="$1"
     local cmd1="$2"
     local cmd2="$3"
-    local session_name=${SESSION:-Zsh}
+    local session_name=${SESSION:-00_ZSH}
 
     local win_id
     win_id=$(tmux new-window -P -F "#{window_id}" -n "$win_name" -t "$session_name:")
