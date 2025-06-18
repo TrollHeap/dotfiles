@@ -1,41 +1,62 @@
+# ======================
+# Core utilities
+# ======================
 bat
 btop
 curl
-docker
-python3-pip
 fd-find
-ffmpegthumbnailer
 fzf
 git
-rclone
-gh
-nodejs
-npm
-ImageMagick
-jq
-lazygit
-fastfetch
-xdg-utils
 lsd
-git-lfs
-neovim
-p7zip
 ripgrep
-fuse
-task
-tmux
 tree
 wget
 zoxide
+
+# ======================
+# Dev tools / languages
+# ======================
+python3-pip
+nodejs
+npm
+neovim
+tmux
+task
+luarocks
+lua-devel
+git-lfs
+cargo
+rust
+jq
+
+# ======================
+# Multimedia / Graphics
+# ======================
+ImageMagick
+ffmpegthumbnailer
 poppler-utils
+
+# ======================
+# Virtualization / Sysadmin
+# ======================
+docker
 qemu
 qemu-img
+fuse
+fuse-libs.x86_64
+rclone
 wl-clipboard
+xdg-utils
+
+# ======================
+# Extras / Nice-to-have
+# ======================
+lazygit
+fastfetch
 navi
 tor
-luarocks
-lua-devel 
-fuse-libs.x86_64
 torbrowser-launcher
-zstd
 tealdeer
+zstd
+p7zip
+gh
