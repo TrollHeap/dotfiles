@@ -8,6 +8,7 @@
 source "${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files/config/env/globals_locals.env"
 source "${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files/config/env/logs.env"
 source "$C_CORE/lib/logger.sh"
+source "$C_CORE/hooks/dnf_hooks.sh"
 log::use ENV_INSTALLER
 
 # --- Detect package manager if unset ---
@@ -31,6 +32,10 @@ fi
 # --- 1. Install one package ---
 installer::pkg() {
   local name="$1"
+  if command -v "$name" &>/dev/null; then
+    log::info "$name already present, skipping."
+    return 0
+  fi
 
   case "$PKG_MANAGER" in
 apt)
@@ -41,7 +46,7 @@ apt)
   ;;
 dnf)
   if ! sudo dnf install -y "$name"; then
-    log::error "apt: failed to install package: $name"
+    log::error "dnf: failed to install package: $name"
     return 1
   fi
   ;;
@@ -84,31 +89,24 @@ installer::pkg_from() {
 # --- 3. Install from file ---
 installer::from_file() {
   local file="$1" manager="$2"
-  if [[ ! -f "$file" ]]; then
-    log::error "Package list not found: $file"
-    return 1
-  fi
-
+  local OK=()
+  local FAILED=()
   while IFS= read -r line || [[ -n "$line" ]]; do
     [[ -z "$line" || "$line" =~ ^# ]] && continue
     if [[ "$line" =~ ^--[[:space:]]*cask[[:space:]]+(.+)$ ]]; then
       brew install --cask "${BASH_REMATCH[1]}"
       continue
     fi
-
-    # Hook spécifique : lazygit (dnf)
-    if [[ "$manager" == "dnf" && "$line" == "lazygit" ]]; then
-      if ! sudo dnf repolist | grep -q atim/lazygit; then
-        echo "[+] Enabling Copr repo: atim/lazygit"
-        sudo dnf copr enable atim/lazygit -y || {
-          log::error "Failed to enable Copr repo for lazygit"
-          return 1
-        }
-      fi
+    [[ "$manager" == "dnf" && "${DNF_HOOKS[$line]+isset}" ]] && eval "${DNF_HOOKS[$line]}"
+    if installer::pkg_from "$manager" "$line"; then
+      OK+=("$line")
+    else
+      FAILED+=("$line")
     fi
-
-    installer::pkg_from "$manager" "$line"
   done < "$file"
+  echo "=== SUMMARY ==="
+  echo "Success: ${#OK[@]} - ${OK[*]}"
+  echo "Failed : ${#FAILED[@]} - ${FAILED[*]}"
 }
 
 # --- 4. Install yay if missing ---
