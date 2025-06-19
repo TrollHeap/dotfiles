@@ -33,10 +33,8 @@ plugins=(git fzf zsh-syntax-highlighting zsh-autosuggestions)
 # --- 5. Dynamic Displays (neofetch, taskwarrior, system status)
 if command -v neofetch >/dev/null; then
   neofetch
-fi
-
-if command -v fastfetch >/dev/null; then
-  fastfetch 
+elif command -v fastfetch >/dev/null; then
+  fastfetch
 fi
 
 # system_status_summary() {
