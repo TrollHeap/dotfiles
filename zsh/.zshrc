@@ -11,26 +11,20 @@ export MANPAGER="nvim +Man!"
 # --- 1. Load environment variables & aliases
 [[ -f "$HOME/dotfiles/env-files/.config/env-files/config/env/aliases.env" ]]   && source "$ROOT_ENV/config/env/aliases.env"
 
-# --- 2. SSH Agent (Keychain)
-# if command -v keychain >/dev/null; then
-#   eval "$(keychain --eval --quiet ~/.ssh/id_ed25519)"
-# fi
-
-# --- 3. Shell Tools Initialization
+# --- 2. Shell Tools Initialization
 [[ -f "$FZF_DIR/shell/key-bindings.zsh" ]] && source "$FZF_DIR/shell/key-bindings.zsh"
 [[ -f "$FZF_DIR/shell/completion.zsh" ]]   && source "$FZF_DIR/shell/completion.zsh"
 
 command -v pyenv &>/dev/null && eval "$(pyenv init --path)"
 
-
 # --- Starship ---
 eval "$(starship init zsh)"
 
-# --- 4. Oh My Zsh
+# --- 3. Oh My Zsh
 plugins=(git fzf zsh-syntax-highlighting zsh-autosuggestions)
 [[ -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]] && source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
-# --- 5. Dynamic Displays (neofetch, taskwarrior, system status)
+# --- 4. Dynamic Displays (neofetch, taskwarrior, system status)
 if command -v neofetch >/dev/null; then
   neofetch
 elif command -v fastfetch >/dev/null; then
