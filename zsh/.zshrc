@@ -5,7 +5,6 @@ export DOTFILES="${DOTFILES:-$HOME/dotfiles}"
 export ROOT_ENV="$DOTFILES/env-files/.config/env-files"
 export ROOT_LOGS="$DOTFILES/.cache/logs"
 export MANPAGER="nvim +Man!"
-alias ls='lsd'
 # --- 0. Core Environment
 [[ -f "$ROOT_ENV/core/env.sh" ]] && source "$ROOT_ENV/core/env.sh"
 
