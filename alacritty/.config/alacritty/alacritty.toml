@@ -1,0 +1,49 @@
+[general]
+import = [
+    "~/.config/alacritty/themes/themes/{theme}.toml"
+]
+
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "0x45475a"
+blue = "0x89b4fa"
+cyan = "0x94e2d5"
+green = "0xa6e3a1"
+magenta = "0xf5c2e7"
+red = "0xf38ba8"
+white = "0xa6adc8"
+yellow = "0xf9e2af"
+
+[colors.normal]
+black = "0x181825"
+blue = "0x89b4fa"
+cyan = "0x94e2d5"
+green = "0xa6e3a1"
+magenta = "0xf5c2e7"
+red = "0xf38ba8"
+white = "0xcdd6f4"
+yellow = "0xf9e2af"
+
+[colors.primary]
+background = "0x1e1e2e"
+foreground = "0xcdd6f4"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 11
+
+[font.normal]
+family = "GeistMono Nerd Font"
+style = "Regular"
+
+# [wayland]
+# enable = true
+
+[window]
+decorations = "full"
+opacity = 0.96
+

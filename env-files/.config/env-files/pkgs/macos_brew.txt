@@ -31,5 +31,4 @@ zoxide
 zsh-autosuggestions
 zsh-completions
 zsh-syntax-highlighting
-#brew:cask wezterm
-
+alacritty

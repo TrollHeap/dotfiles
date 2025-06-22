@@ -4,7 +4,7 @@ if initialize_session "02_C_IDE"; then
   create_and_run_window "C-Vim" "cd $DOTFILES/nvim/.config/nvim/lua && nvim ."
   create_and_run_window "C-Tmux" "cd $DOTFILES/tmux && nvim .tmux.conf"
   create_and_run_window "C-Tmuxifier" "cd $DOTFILES/tmux/.tmuxifier/layouts && nvim ."
-  create_and_run_window "C-Wezterm" "cd $DOTFILES/wezterm/.config/wezterm && nvim wezterm.lua"
+  create_and_run_window "C-Alacritty" "cd $DOTFILES/alacritty/.config/alacritty && nvim alacritty.toml"
 
   select_window 1 || echo "Failed to select window 1"
 fi

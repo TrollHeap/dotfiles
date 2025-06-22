@@ -12,6 +12,7 @@ ripgrep
 tree
 wget
 zoxide
+alacritty
 
 # ======================
 # Dev tools / languages

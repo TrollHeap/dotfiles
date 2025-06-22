@@ -24,7 +24,7 @@ load_modules
 tmux_tpm::install
 nvm::install
 fzf::install
-wezterm::install
+#wezterm::install
 pyenv::install
 nerdfonts::install
 starship::install

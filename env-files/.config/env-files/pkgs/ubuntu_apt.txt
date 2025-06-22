@@ -21,7 +21,6 @@ qemu-system
 qemu-utils
 neovim
 lazygit
-wezterm
 zoxide
 yazi
 ffmpegthumbnailer
