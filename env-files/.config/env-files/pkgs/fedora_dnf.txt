@@ -36,6 +36,9 @@ jq
 ImageMagick
 ffmpegthumbnailer
 poppler-utils
+openssl-devel
+alsa-lib-devel
+dbus-devel
 
 # ======================
 # Virtualization / Sysadmin

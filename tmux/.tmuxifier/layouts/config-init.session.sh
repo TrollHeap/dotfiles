@@ -2,11 +2,12 @@ source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
 if initialize_session "00_ZSH"; then
   # Fenêtre SPLIT (deux panes : btop / cat Makefile)
-  create_split_window "btop-shell" \
-    "cd \$HOME && btop" \
-    "cd \$DOTFILES && cat Makefile"
+  # create_split_window "btop-shell" \
+  #   "cd \$HOME && btop" \
+  #   "cd \$DOTFILES && cat Makefile"
 
   # Fenêtre shell classique
+  create_and_run_window "btop" "cd \$HOME && btop"
   create_and_run_window "shell" "cd \$HOME"
 
   select_window 1 || echo "Failed to select window 1"
