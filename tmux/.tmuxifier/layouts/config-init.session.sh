@@ -8,7 +8,9 @@ if initialize_session "00_ZSH"; then
 
   # Fenêtre shell classique
   create_and_run_window "btop" "cd \$HOME && btop"
-  create_and_run_window "shell" "cd \$HOME"
+  create_and_run_window "Lazydocker" "cd \$HOME && lzd" 
+  create_and_run_window "taskflow" "cd \$HOME && cd Developer/taskflow-cli"
+  create_and_run_window "Alpine-linux" "cd \$HOME && docker run --rm -it alpine /bin/sh"
 
   select_window 1 || echo "Failed to select window 1"
 fi
