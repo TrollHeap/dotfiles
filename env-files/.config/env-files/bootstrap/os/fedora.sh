@@ -39,6 +39,11 @@ zsh::set_default_shell
 echo "[+] Installing Rust and Cargo..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+
+echo "[+] Installing lazydocker..."
+sudo dnf copr enable atim/lazydocker | tee -a /tmp/install.log
+sudo dnf install lazydocker | tee -a /tmp/install.log
+
 echo "[+] Installing spotify_layer term..."
 cargo install spotify_player --locked
 

@@ -46,9 +46,12 @@ dbus-devel
 docker
 qemu
 qemu-img
+qemu-kvm
 fuse
 fuse-libs.x86_64
+libvirt
 rclone
+virt-manager 
 wl-clipboard
 xdg-utils
 
