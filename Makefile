@@ -48,7 +48,7 @@ install-konsave:
 	zsh $(SCRIPTS_ROOT)/tools/install-konsave.sh
 
 # ==================[ tools install ]==================
-.PHONY: launch-tor konsave-push
+.PHONY: launch-tor konsave-push s-libvirtd
 
 launch-tor:
 	@echo "🗂️  Initializing a tor-browser session..."
@@ -57,6 +57,10 @@ launch-tor:
 konsave-push:
 	@echo "🗂️  Installing konsave..."
 	bash $(SCRIPTS_ROOT)/backup/push-konsave.sh
+
+s-libvirtd:
+	@echo "🗂️  Installing konsave..."
+	bash $(SCRIPTS_ROOT)/service-linux/service-libvirtd.sh
 
 # ==================[ Test]==================
 test-pkgs:
