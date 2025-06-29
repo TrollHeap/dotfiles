@@ -25,10 +25,13 @@ tmux
 task
 luarocks
 lua-devel
+compat-lua
 git-lfs
 cargo
 rust
 jq
+snapper
+python3-dnf-plugin-snapper
 
 # ======================
 # Multimedia / Graphics

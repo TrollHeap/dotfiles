@@ -28,7 +28,7 @@ fzf::install
 pyenv::install
 nerdfonts::install
 starship::install
-glow::install
+#glow::install
 
 # 6. Finalize shell setup
 zsh::install
