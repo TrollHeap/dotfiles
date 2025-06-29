@@ -12,9 +12,7 @@ export MANPAGER="nvim +Man!"
 [[ -f "$HOME/dotfiles/env-files/.config/env-files/config/env/aliases.env" ]]   && source "$ROOT_ENV/config/env/aliases.env"
 
 # --- 2. Shell Tools Initialization
-[[ -f "$FZF_DIR/shell/key-bindings.zsh" ]] && source "$FZF_DIR/shell/key-bindings.zsh"
-[[ -f "$FZF_DIR/shell/completion.zsh" ]]   && source "$FZF_DIR/shell/completion.zsh"
-
+command -v fzf &>/dev/null && eval "$(fzf --zsh)"
 command -v pyenv &>/dev/null && eval "$(pyenv init --path)"
 
 # --- Starship ---
