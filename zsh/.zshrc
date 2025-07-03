@@ -8,6 +8,9 @@ export MANPAGER="nvim +Man!"
 # --- 0. Core Environment
 [[ -f "$ROOT_ENV/core/env.sh" ]] && source "$ROOT_ENV/core/env.sh"
 
+eval "$(ssh-agent -s)" > /dev/null
+ssh-add -l > /dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519
+
 # --- 1. Load environment variables & aliases
 [[ -f "$HOME/dotfiles/env-files/.config/env-files/config/env/aliases.env" ]]   && source "$ROOT_ENV/config/env/aliases.env"
 
