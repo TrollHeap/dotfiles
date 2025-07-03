@@ -12,10 +12,10 @@ return {
     filetypes = { 'typescript', 'javascript', 'javascriptreact', 'typescriptreact' },
     -- Exclude 'vue' from tsserver to ensure volar handles Vue files
   },
-  volar = {
-    filetypes = { 'vue' }, -- Ensure that only volar handles Vue files
-    init_options = { vue = { hybridMode = false } },
-  },
+  -- volar = {
+  --   filetypes = { 'vue' }, -- Ensure that only volar handles Vue files
+  --   init_options = { vue = { hybridMode = false } },
+  -- },
   -- PHP
   intelephense = {
     filetypes = { 'php', 'blade' },
