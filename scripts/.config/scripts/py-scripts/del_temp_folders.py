@@ -1,5 +1,8 @@
 import os
 import shutil
+import sys
+
+assert sys.version_info >= (3, 5), "Python 3.5+ required"
 
 HOME = os.path.expanduser("~")
 

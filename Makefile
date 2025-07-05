@@ -52,15 +52,15 @@ install-konsave:
 
 launch-tor:
 	@echo "🗂️  Initializing a tor-browser session..."
-	bash $(SCRIPTS_ROOT)/appli/tor-browser/launch_tor.sh
+	bash $(SCRIPTS_ROOT)/apps/launch_tor.sh
 
 konsave-push:
 	@echo "🗂️  Installing konsave..."
-	bash $(SCRIPTS_ROOT)/backup/push-konsave.sh
+	bash $(SCRIPTS_ROOT)/systems/backup/push-konsave.sh
 
 s-libvirtd:
 	@echo "🗂️  Installing konsave..."
-	bash $(SCRIPTS_ROOT)/service-linux/service-libvirtd.sh
+	bash $(SCRIPTS_ROOT)/systems/service-linux/service-libvirtd.sh
 
 # ==================[ Test]==================
 test-pkgs:
