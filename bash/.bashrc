@@ -1,10 +1,15 @@
 # ╭──────────────────────────────────────────────────────────────╮
-# │ ZSH CONFIGURATION - Binary-grunt                             │
+# │ BASH CONFIGURATION - Binary-grunt                             │
 # ╰──────────────────────────────────────────────────────────────╯
-export DOTFILES="${DOTFILES:-$HOME/dotfiles}"
-export ROOT_ENV="$DOTFILES/env-files/.config/env-files"
-export ROOT_LOGS="$DOTFILES/.cache/logs"
-export MANPAGER="nvim +Man!"
+set -o vi
+[ -f "$HOME/.profile" ] && . "$HOME/.profile"
+
+# --- Starship ---
+eval "$(starship init bash)"
+
+[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --noattach
+[[ ! ${BLE_VERSION-} ]] || ble-attach
+
 # --- 0. Core Environment
 [[ -f "$ROOT_ENV/core/env.sh" ]] && source "$ROOT_ENV/core/env.sh"
 
@@ -12,17 +17,14 @@ ssh-add -l > /dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519
 
 # --- 1. Load environment variables & aliases
 [[ -f "$HOME/dotfiles/env-files/.config/env-files/config/env/aliases.env" ]]   && source "$ROOT_ENV/config/env/aliases.env"
+# Source global definitions
+# if [ -f /etc/bashrc ]; then
+#     . /etc/bashrc
+# fi
 
 # --- 2. Shell Tools Initialization
-command -v fzf &>/dev/null && eval "$(fzf --zsh)"
 command -v pyenv &>/dev/null && eval "$(pyenv init --path)"
 
-# --- Starship ---
-eval "$(starship init zsh)"
-
-# --- 3. Oh My Zsh
-plugins=(git fzf zsh-syntax-highlighting zsh-autosuggestions)
-[[ -f "$HOME/.oh-my-zsh/oh-my-zsh.sh" ]] && source "$HOME/.oh-my-zsh/oh-my-zsh.sh"
 
 # --- 4. Dynamic Displays (neofetch, taskwarrior, system status)
 if command -v neofetch >/dev/null; then
@@ -90,3 +92,16 @@ fi
 # Finalization
 echo "All configurations have been loaded."
 
+
+# Uncomment the following line if you don't like systemctl's auto-paging feature:
+# export SYSTEMD_PAGER=
+
+# User specific aliases and functions
+# if [ -d ~/.bashrc.d ]; then
+#     for rc in ~/.bashrc.d/*; do
+#         if [ -f "$rc" ]; then
+#             . "$rc"
+#         fi
+#     done
+# fi
+# unset rc

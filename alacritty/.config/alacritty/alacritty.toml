@@ -3,6 +3,9 @@ import = [
     "~/.config/alacritty/themes/themes/{theme}.toml"
 ]
 
+[terminal.shell]
+program = "/bin/bash"
+
 [colors]
 draw_bold_text_with_bright_colors = true
 
@@ -34,7 +37,7 @@ foreground = "0xcdd6f4"
 TERM = "xterm-256color"
 
 [font]
-size = 10.5
+size = 10
 
 [font.normal]
 family = "GeistMono Nerd Font"

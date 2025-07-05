@@ -1,0 +1,106 @@
+# -------- Catppuccin Mocha for ble.sh --------
+# Palette (code 256color):
+# rosewater = 224, flamingo = 217, pink = 219, mauve = 141, red = 210, maroon = 211, peach = 216
+# yellow = 229, green = 151, teal = 158, sky = 117, sapphire = 81, blue = 111, lavender = 147
+# text = 189, subtext = 146, surface2 = 103, surface0 = 60, base = 235
+
+#ble-bind -f 'C-x RET' newline
+# Désactive l’ancien binding C-j
+ble-bind -f 'C-n' newline
+ble-bind -m vi_imap -f 'C-e' accept-line
+ble-bind -m vi_nmap -f 'C-e' accept-line
+
+# ble-bind -k 'C-a' nop
+#
+# # # Ajoute un nouveau binding Alt+R pour valider en MULTILINE
+# ble-bind -k 'C-a' multiline/accept
+
+
+# --- Command line syntax highlighting
+ble-face -s syntax_command            fg=111,bold       # Blue
+ble-face -s syntax_function_name      fg=141,bold       # Mauve
+ble-face -s syntax_varname            fg=216            # Peach
+ble-face -s syntax_param_expansion    fg=229            # Yellow
+ble-face -s syntax_error              fg=189,bg=210     # Text on Red
+ble-face -s syntax_quoted             fg=151            # Green
+ble-face -s syntax_quotation          fg=151,bold       # Green bold
+ble-face -s syntax_escape             fg=219            # Pink
+ble-face -s syntax_brace              fg=147,bold       # Lavender bold
+ble-face -s syntax_comment            fg=103            # Surface2
+ble-face -s syntax_delimiter          fg=224            # Rosewater
+ble-face -s syntax_document           fg=217            # Flamingo
+ble-face -s syntax_document_begin     fg=219,bold       # Pink bold
+ble-face -s syntax_history_expansion  fg=189,bg=81      # Text on Sapphire
+ble-face -s syntax_expr               fg=158            # Teal
+ble-face -s syntax_glob               fg=210,bold       # Red bold
+ble-face -s syntax_tilde              fg=117,bold       # Sky bold
+ble-face -s syntax_default            fg=189            # Text
+ble-face -s syntax_varname            fg=216            # Peach
+
+# --- Prompt / status / region
+ble-face -s prompt_status_line        fg=189,bg=60      # Text on Surface0
+ble-face -s region                    fg=189,bg=141     # Text on Mauve
+ble-face -s region_target             fg=189,bg=211     # Text on Maroon
+ble-face -s region_match              fg=189,bg=158     # Text on Teal
+ble-face -s region_insert             fg=147,bg=60      # Lavender on Surface0
+ble-face -s overwrite_mode            fg=235,bg=210     # Base on Red
+ble-face -s disabled                  fg=103            # Surface2
+
+# --- Command info
+ble-face -s command_alias             fg=141            # Mauve
+ble-face -s command_builtin           fg=210            # Red
+ble-face -s command_builtin_dot       fg=210,bold       # Red bold
+ble-face -s command_directory         fg=111,underline  # Blue underline
+ble-face -s command_file              fg=151            # Green
+ble-face -s command_function          fg=141            # Mauve
+ble-face -s command_jobs              fg=211            # Maroon
+ble-face -s command_keyword           fg=229            # Yellow
+ble-face -s command_suffix            fg=224,bg=81      # Rosewater on Sapphire
+ble-face -s command_suffix_new        fg=224,bg=210     # Rosewater on Red
+
+# --- Filename types
+ble-face -s filename_directory        fg=111,underline  # Blue underline
+ble-face -s filename_directory_sticky fg=224,bg=81,underline # Rosewater/Sapphire underline
+ble-face -s filename_link             fg=147,underline  # Lavender underline
+ble-face -s filename_orphan           fg=232,bg=210,underline # Crust/Red underline
+ble-face -s filename_executable       fg=151,underline  # Green underline
+ble-face -s filename_setuid           fg=235,bg=229,underline # Base/Yellow underline
+ble-face -s filename_setgid           fg=235,bg=146,underline # Base/Subtext1 underline
+ble-face -s filename_other            fg=217,underline  # Flamingo underline
+ble-face -s filename_socket           fg=158,bg=60,underline   # Teal/Surface0 underline
+ble-face -s filename_pipe             fg=81,bg=60,underline    # Sapphire/Surface0 underline
+ble-face -s filename_character        fg=229,bg=60,underline   # Yellow/Surface0 underline
+ble-face -s filename_block            fg=151,bg=81,underline   # Green/Sapphire underline
+ble-face -s filename_warning          fg=210,underline         # Red underline
+ble-face -s filename_url              fg=117,underline         # Sky underline
+ble-face -s filename_ls_colors        fg=224                   # Rosewater
+
+# --- Menu completion / auto-complete
+ble-face -s auto_complete             fg=146,bg=60       # Subtext1 on Surface0
+ble-face -s menu_complete_match       fg=229,bold        # Yellow bold
+ble-face -s menu_complete_selected    reverse
+ble-face -s menu_desc_default         fg=189             # Text
+ble-face -s menu_desc_type            fg=103             # Surface2
+ble-face -s menu_desc_quote           fg=151             # Green
+ble-face -s menu_filter_fixed         fg=210,bold        # Red bold
+ble-face -s menu_filter_input         fg=232,bg=229      # Crust on Yellow
+
+# --- Visual bells
+ble-face -s vbell                     bg=217             # Flamingo
+ble-face -s vbell_erase               bg=224             # Rosewater
+ble-face -s vbell_flash               fg=210,reverse     # Red reversed
+
+# --- Variable names
+ble-face -s varname_array             fg=147,bold        # Lavender bold
+ble-face -s varname_empty             fg=224             # Rosewater
+ble-face -s varname_export            fg=229,bold        # Yellow bold
+ble-face -s varname_expr              fg=141,bold        # Mauve bold
+ble-face -s varname_hash              fg=158,bold        # Teal bold
+ble-face -s varname_new               fg=151             # Green
+ble-face -s varname_number            fg=216             # Peach
+ble-face -s varname_readonly          fg=210             # Red
+ble-face -s varname_transform         fg=117,bold        # Sky bold
+ble-face -s varname_unset             fg=60              # Surface0
+
+# ----------------------------------------------
+
