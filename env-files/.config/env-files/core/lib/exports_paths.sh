@@ -31,13 +31,3 @@ path_add "$HOME/.tmuxifier/bin"
 path_add "$HOME/.fzf/bin"
 path_add "$HOME/.local/bin"
 path_add "$HOME/.pyenv/bin"
-
-# --- Remove duplicates (quietly)
-old_path="$PATH"
-export PATH="$(echo "$PATH" | tr ':' '\n' | awk '!seen[$0]++' | paste -sd: -)"
-
-if [[ "$PATH" != "$old_path" ]]; then
-  log::info "Deduplicated PATH entries"
-fi
-
-log::success "PATH setup complete"
