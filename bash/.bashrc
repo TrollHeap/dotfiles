@@ -4,25 +4,21 @@
 set -o vi
 [ -f "$HOME/.profile" ] && . "$HOME/.profile"
 
-# --- Starship ---
+# --- 0. Starship ---
 eval "$(starship init bash)"
 
 [[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --noattach
 [[ ! ${BLE_VERSION-} ]] || ble-attach
 
-# --- 0. Core Environment
+# --- 1. Core Environment
 [[ -f "$ROOT_ENV/core/env.sh" ]] && source "$ROOT_ENV/core/env.sh"
 
 ssh-add -l > /dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519
 
-# --- 1. Load environment variables & aliases
+# --- 2. Load environment variables & aliases
 [[ -f "$HOME/dotfiles/env-files/.config/env-files/config/env/aliases.env" ]]   && source "$ROOT_ENV/config/env/aliases.env"
-# Source global definitions
-# if [ -f /etc/bashrc ]; then
-#     . /etc/bashrc
-# fi
 
-# --- 2. Shell Tools Initialization
+# --- 3. Shell Tools Initialization
 command -v pyenv &>/dev/null && eval "$(pyenv init --path)"
 
 
@@ -91,17 +87,3 @@ fi
 
 # Finalization
 echo "All configurations have been loaded."
-
-
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
-# User specific aliases and functions
-# if [ -d ~/.bashrc.d ]; then
-#     for rc in ~/.bashrc.d/*; do
-#         if [ -f "$rc" ]; then
-#             . "$rc"
-#         fi
-#     done
-# fi
-# unset rc
