@@ -4,6 +4,11 @@ switch-to-activity-2c71a779-2963-4fe1-bf95-bcb939a0721a=
 switch-to-activity-47038267-6c7e-4c61-a4ec-91cbc615f23a=
 switch-to-activity-629cbe47-d7dd-429a-a1fc-0623596d592a=
 switch-to-activity-69e60029-ac56-49a9-9742-a95758f7c55a=
+switch-to-activity-8ff8d4aa-1f4f-4f62-8ea0-4de67f061a14=
+
+[Alacritty.desktop][Global Shortcuts]
+New=
+_launch=Meta+Shift+Return
 
 [KDE Keyboard Layout Switcher][Global Shortcuts]
 Switch keyboard layout to English (US, alt. intl.)=
@@ -16,18 +21,18 @@ Switch to Next Keyboard Layout=Meta+Alt+K
 AboutApp=
 AboutKDE=
 Activate Next Tab=Ctrl+PgDown; Ctrl+]
-Activate Previous Tab=Ctrl+[; Ctrl+PgUp
+Activate Previous Tab=Ctrl+PgUp; Ctrl+[
 ActualSize=Ctrl+0
 AddBookmark=Ctrl+B
-Back=Alt+Left; Back
+Back=Back; Alt+Left
 BackwardWord=Ctrl+Left
 Begin=Ctrl+Home
 BeginningOfLine=Home
 Clear=
-Close=Ctrl+Esc; Ctrl+W
+Close=Ctrl+W; Ctrl+Esc
 ConfigureNotifications=
 ConfigureToolbars=
-Copy=Ctrl+Ins; Ctrl+C
+Copy=Ctrl+C; Ctrl+Ins
 CreateFolder=Ctrl+Shift+N
 Cut=Ctrl+X; Shift+Del
 DeleteFile=Shift+Del
@@ -46,14 +51,14 @@ FindPrev=Shift+F3
 FitToHeight=
 FitToPage=
 FitToWidth=
-Forward=Forward; Alt+Right
+Forward=Alt+Right; Forward
 ForwardWord=Ctrl+Right
 FullScreen=Ctrl+Shift+F
 Goto=
 GotoLine=Ctrl+G
 GotoPage=
 Help=F1
-Home=Home Page; Alt+Home
+Home=Alt+Home; Home Page
 KeyBindings=Ctrl+Alt+,
 Mail=
 MoveToTrash=Del
@@ -61,7 +66,7 @@ New=Ctrl+N
 Next=PgDown
 NextCompletion=Ctrl+Down
 Open=Ctrl+O
-OpenContextMenu=Shift+F10; Menu
+OpenContextMenu=Menu; Shift+F10
 OpenMainMenu=F10
 OpenRecent=
 Paste=Ctrl+V; Shift+Ins
@@ -83,7 +88,7 @@ RotateUp=Up
 Save=Ctrl+S
 SaveAs=Ctrl+Shift+S
 SelectAll=Ctrl+A
-ShowHideHiddenFiles=Ctrl+H; Alt+.
+ShowHideHiddenFiles=Alt+.; Ctrl+H
 ShowMenubar=Ctrl+M
 ShowStatusbar=
 ShowToolbar=
@@ -118,7 +123,7 @@ mute=Volume Mute
 
 [ksmserver][Global Shortcuts]
 Halt Without Confirmation=
-Lock Session=Meta+L; Screensaver
+Lock Session=Screensaver; Meta+L
 Log Out=Ctrl+Alt+Del
 Log Out Without Confirmation=
 LogOut=
@@ -129,7 +134,7 @@ Shut Down=
 [kwin][Global Shortcuts]
 Activate Window Demanding Attention=Meta+Ctrl+A
 Cube=Meta+C
-Cycle Overview=Meta+W
+Cycle Overview=
 Cycle Overview Opposite=
 Decrease Opacity=
 Edit Tiles=Meta+T
@@ -159,7 +164,7 @@ Switch Window Down=Meta+Alt+Down
 Switch Window Left=Meta+Alt+Left
 Switch Window Right=Meta+Alt+Right
 Switch Window Up=Meta+Alt+Up
-Switch to Desktop 1=Meta+1; Ctrl+F1
+Switch to Desktop 1=Ctrl+F1; Meta+1
 Switch to Desktop 10=
 Switch to Desktop 11=
 Switch to Desktop 12=
@@ -170,10 +175,10 @@ Switch to Desktop 16=
 Switch to Desktop 17=
 Switch to Desktop 18=
 Switch to Desktop 19=
-Switch to Desktop 2=Ctrl+F2; Meta+2
+Switch to Desktop 2=Meta+2; Ctrl+F2
 Switch to Desktop 20=
-Switch to Desktop 3=Meta+3; Ctrl+F3
-Switch to Desktop 4=Ctrl+F4; Meta+4
+Switch to Desktop 3=Ctrl+F3; Meta+3
+Switch to Desktop 4=Meta+4; Ctrl+F4
 Switch to Desktop 5=Meta+5
 Switch to Desktop 6=Meta+6
 Switch to Desktop 7=
@@ -311,7 +316,7 @@ _launch=Ctrl+Alt+T
 
 [org.kde.krunner.desktop][Global Shortcuts]
 RunClipboard=Alt+Shift+F2
-_launch=Search; Alt+F2; Alt+Space
+_launch=Alt+Space; Search; Alt+F2
 
 [org.kde.kscreen.desktop][Global Shortcuts]
 ShowOSD=Display; Meta+P
@@ -330,7 +335,7 @@ OpenWithoutScreenshot=
 RecordRegion=Meta+Shift+R
 RecordScreen=Meta+Alt+R
 RecordWindow=Meta+Ctrl+R
-RectangularRegionScreenShot=Meta+Shift+Print; Meta+R
+RectangularRegionScreenShot=Meta+Shift+Print
 WindowUnderCursorScreenShot=Meta+Ctrl+Print
 _launch=Print; Meta+Shift+S
 
@@ -352,7 +357,7 @@ PowerOff=Power Off
 Sleep=Sleep
 Toggle Keyboard Backlight=Keyboard Light On/Off
 Turn Off Screen=
-powerProfile=Meta+B; Battery
+powerProfile=Battery; Meta+B
 
 [plasmashell][Global Shortcuts]
 activate application launcher=Alt+F1; Meta
@@ -378,7 +383,7 @@ activate widget 451=
 activate widget 49=
 activate widget 73=
 clear-history=
-clipboard_action=Alt+ោ; Meta+Ctrl+X
+clipboard_action=Meta+Ctrl+X; Alt+ោ
 cycle-panels=Meta+Alt+P
 cycleNextAction=
 cyclePrevAction=
