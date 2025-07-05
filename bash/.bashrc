@@ -30,6 +30,7 @@ elif command -v fastfetch >/dev/null; then
 fi
 
 #source $ROOT_SCRIPTS/tools/taskwarrior/task_summary.sh
+
 # Remove any duplicate PATH entries after all sources
 PATH="$(echo "$PATH" | tr ':' '\n' | awk '!seen[$0]++' | paste -sd: -)"
 # Finalization
