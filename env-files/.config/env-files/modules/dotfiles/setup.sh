@@ -1,4 +1,4 @@
-#!/usr/bin/env zsh
+#!/usr/bin/env bash
 
 # Setup script to deploy dotfiles using GNU Stow
 
@@ -15,7 +15,7 @@ fi
 
 echo "[+] Stowing modules..."
 cd "$HOME/dotfiles"
-stow zsh starship tmux wezterm nvim yazi
+stow bash starship tmux nvim yazi
 
 cd - >/dev/null
 

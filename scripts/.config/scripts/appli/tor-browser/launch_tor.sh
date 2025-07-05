@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/usr/bin/env bash
 
 if ! systemctl is-active --quiet tor; then
     echo "[+] Démarrage du service Tor..."

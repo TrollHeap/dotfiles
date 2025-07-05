@@ -34,7 +34,7 @@ clean-boot:
 
 dotfiles:
 	@echo "🧩 Deploying dotfiles..."
-	zsh $(ENV_ROOT)/modules/dotfiles/setup.sh
+	bash $(ENV_ROOT)/modules/dotfiles/setup.sh
 
 workspace:
 	@echo "🗂️  Initializing workspace structure..."
@@ -45,14 +45,14 @@ workspace:
 
 install-konsave:
 	@echo "🗂️  Installing konsave..."
-	zsh $(SCRIPTS_ROOT)/tools/install-konsave.sh
+	bash $(SCRIPTS_ROOT)/tools/install-konsave.sh
 
 # ==================[ tools install ]==================
 .PHONY: launch-tor konsave-push s-libvirtd
 
 launch-tor:
 	@echo "🗂️  Initializing a tor-browser session..."
-	zsh $(SCRIPTS_ROOT)/appli/tor-browser/launch_tor.sh
+	bash $(SCRIPTS_ROOT)/appli/tor-browser/launch_tor.sh
 
 konsave-push:
 	@echo "🗂️  Installing konsave..."
