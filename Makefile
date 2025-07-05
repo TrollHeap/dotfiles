@@ -58,6 +58,10 @@ konsave-push:
 	@echo "🗂️  Installing konsave..."
 	bash $(SCRIPTS_ROOT)/systems/backup/push-konsave.sh
 
+konsave-pull:
+	@echo "🗂️  Installing konsave..."
+	bash $(SCRIPTS_ROOT)/systems/backup/pull-konsave.sh
+
 s-libvirtd:
 	@echo "🗂️  Installing konsave..."
 	bash $(SCRIPTS_ROOT)/systems/service-linux/service-libvirtd.sh
