@@ -29,7 +29,6 @@ starship::install
 tmux_tpm::install
 nvm::install
 fzf::install 
-#wezterm::install
 pyenv::install 
 nerdfonts::install
 glow::install

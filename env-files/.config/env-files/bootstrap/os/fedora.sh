@@ -23,18 +23,10 @@ load_modules
 # 5. Run installations
 tmux_tpm::install
 nvm::install
-fzf::install
-#wezterm::install
 pyenv::install
 nerdfonts::install
 starship::install
 #glow::install
-
-# 6. Finalize shell setup
-zsh::install
-ohmyzsh::install
-ohmyzsh::install_plugins
-zsh::set_default_shell
 
 echo "[+] Installing Rust and Cargo..."
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
