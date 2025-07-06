@@ -4,7 +4,7 @@
 set -o vi
 export LANG="en_US.UTF-8"
 export EDITOR="nvim"
-#export TERM="xterm-256color"
+export TERM="xterm-256color"
 export DOTFILES="$HOME/dotfiles"
 export ROOT_ENV="$DOTFILES/env-files/.config/env-files"
 export ROOT_LOGS="$DOTFILES/.cache/logs"
@@ -42,8 +42,3 @@ fi
 PATH="$(echo "$PATH" | tr ':' '\n' | awk '!seen[$0]++' | paste -sd: -)"
 # Finalization
 echo "All configurations have been loaded."
-
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-. "$HOME/.cargo/env"
