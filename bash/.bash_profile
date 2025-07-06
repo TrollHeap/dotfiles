@@ -7,9 +7,8 @@ export ROOT_ENV="$DOTFILES/env-files/.config/env-files"
 export ROOT_LOGS="$DOTFILES/.cache/logs"
 
 [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-
-# Ajoute le path cargo s’il existe (exemple, optionnel)
 [ -d "$HOME/.cargo/bin" ] && PATH="$HOME/.cargo/bin:$PATH"
+[ -d "$HOME/go/bin" ] && PATH="$HOME/go/bin:$PATH"
 
 if [[ $- == *i* ]]; then
     if [ -f ~/.bashrc ]; then

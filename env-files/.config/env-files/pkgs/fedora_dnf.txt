@@ -27,9 +27,10 @@ luarocks
 lua-devel
 compat-lua
 git-lfs
-cargo
 rust
+cargo
 jq
+golang-bin
 snapper
 python3-dnf-plugin-snapper
 
