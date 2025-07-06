@@ -4,6 +4,7 @@
 # │ OS SETUP: Fedora-based distributions (Fedora, Nebora, etc.)│
 # ╰────────────────────────────────────────────────────────────╯
 
+C_MODULES="${C_MODULES:-${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files/modules}"
 source "$C_MODULES/loader_modules.sh"
 echo "[+] Starting Fedora-based setup..."
 
@@ -36,9 +37,7 @@ echo "[+] Installing lazydocker..."
 sudo dnf copr enable atim/lazydocker | tee -a /tmp/install.log
 sudo dnf install lazydocker | tee -a /tmp/install.log
 
-echo "[+] Installing spotify_layer term..."
-cargo install spotify_player --locked
-
+source "$C_MODULES/packages/cargo_install.sh"
+source "$C_MODULES/packages/pip_install.sh"
 echo "[+] Updating tldr..."
-
 tldr --update
