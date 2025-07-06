@@ -9,8 +9,8 @@ echo "[+] Removing existing ~/.zshrc"
 rm -f "$HOME/.zshrc"
 
 if ! command -v stow >/dev/null; then
-  echo "❌ stow is not installed. Please install GNU stow first." >&2
-  exit 1
+    echo "❌ stow is not installed. Please install GNU stow first." >&2
+    exit 1
 fi
 
 echo "[+] Stowing modules..."

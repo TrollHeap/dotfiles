@@ -5,11 +5,12 @@ set -euo pipefail
 # ╰──────────────────────────────────────────────────────────────╯
 
 # --- 0. Load core variables
+
 ROOT_ENV="${ROOT_ENV:-${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files}"
 source "$ROOT_ENV/config/env/globals_locals.env"
 
 # --- 1. Load environment (paths, OS detection, flags)
-echo "Loading env" 
+echo "Loading env"
 source "$C_CORE/env.sh"
 
 echo "[✓] Testing init state"

@@ -25,26 +25,26 @@ check_pkg_yay()    { yay -Si "$1" &>/dev/null; }
 
 # --- Process all files ---
 for file in "$PKG_DIR"/*.txt; do
-  echo "📦 Checking: $(basename "$file")"
+    echo "📦 Checking: $(basename "$file")"
 
-  case "$file" in
-    *arch_pacman.txt) checker="check_pkg_pacman" ;;
-    *arch_aur.txt)    checker="check_pkg_yay"    ;;
-    *) echo "⚠️  Skipping unsupported file: $file"; continue ;;
-  esac
+    case "$file" in
+        *arch_pacman.txt) checker="check_pkg_pacman" ;;
+        *arch_aur.txt)    checker="check_pkg_yay"    ;;
+        *) echo "⚠️  Skipping unsupported file: $file"; continue ;;
+    esac
 
-  while IFS= read -r line || [[ -n "$line" ]]; do
-    pkg="$(echo "$line" | sed 's/#.*//' | xargs)"
-    [[ -z "$pkg" ]] && continue
+    while IFS= read -r line || [[ -n "$line" ]]; do
+        pkg="$(echo "$line" | sed 's/#.*//' | xargs)"
+        [[ -z "$pkg" ]] && continue
 
-    if ! $checker "$pkg"; then
-      log::error "Not found: $pkg"
-    else
-      echo "✅ $pkg"
-    fi
-  done < "$file"
+        if ! $checker "$pkg"; then
+            log::error "Not found: $pkg"
+        else
+            echo "✅ $pkg"
+        fi
+    done < "$file"
 
-  echo
+    echo
 done
 
 log::success "Package check complete"

@@ -15,19 +15,19 @@ __env_start_time=$(date +%s)
 
 # --- 1. Prevent duplicate loading ---
 if [[ -n "${C_ENV_LOADED:-}" ]]; then
-  log::info "env.sh already loaded, skipping."
-  log::info "env.sh loading in PID $$ (TTY: $(tty))"
-  return 0 2>/dev/null || true
+    log::info "env.sh already loaded, skipping."
+    log::info "env.sh loading in PID $$ (TTY: $(tty))"
+    return 0 2>/dev/null || true
 fi
 export C_ENV_LOADED=1
 
 log::section "Starting environment initialization"
 # --- 2. Shell mode ---
 if [[ $- != *i* ]]; then
-  set -euo pipefail
+    set -euo pipefail
 else
-  set -o pipefail
-  set +u
+    set -o pipefail
+    set +u
 fi
 
 : "${ZSH_CUSTOM:=}"
@@ -35,12 +35,12 @@ fi
 
 # --- 4. Script directory ---
 if [ -n "${BASH_SOURCE:-}" ]; then
-  SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 elif [ -n "${ZSH_VERSION:-}" ]; then
-  SCRIPT_DIR="$(cd "$(dirname "${(%):-%x}")" && pwd)"
+    SCRIPT_DIR="$(cd "$(dirname "${(%):-%x}")" && pwd)"
 else
-  SCRIPT_DIR="$(pwd)"
-  log::warn "Unsupported shell; fallback to $SCRIPT_DIR"
+    SCRIPT_DIR="$(pwd)"
+    log::warn "Unsupported shell; fallback to $SCRIPT_DIR"
 fi
 log::info "SCRIPT_DIR = $SCRIPT_DIR"
 
@@ -54,9 +54,9 @@ source "$C_CORE/lib/env_flags.sh"
 
 # --- 9. Summary ---
 log::summary() {
-  local duration=$(( $(date +%s) - __env_start_time ))
-  log::section "Environment init complete"
-  log::success "Duration: ${duration}s | OS=$OS | ScriptDir=$SCRIPT_DIR"
+    local duration=$(( $(date +%s) - __env_start_time ))
+    log::section "Environment init complete"
+    log::success "Duration: ${duration}s | OS=$OS | ScriptDir=$SCRIPT_DIR"
 }
 log::summary
 

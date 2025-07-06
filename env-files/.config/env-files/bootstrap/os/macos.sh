@@ -28,8 +28,8 @@ load_modules
 starship::install
 tmux_tpm::install
 nvm::install
-fzf::install 
-pyenv::install 
+fzf::install
+pyenv::install
 nerdfonts::install
 glow::install
 

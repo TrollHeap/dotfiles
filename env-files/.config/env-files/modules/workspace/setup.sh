@@ -19,9 +19,9 @@ cd "$WORKSPACE"
 # --- ACTIVE ---
 echo "→ Création des dossiers ACTIVE/INBOX/repository..."
 mkdir -p \
-  ACTIVE/INBOX/{42_POOL,Anglais,cnam-l3,CS_Projects,leetcode,OPEN_SOURCE,shell_exo} \
-  ACTIVE/PROJECTS/{Active,SideProject} \
-  ACTIVE/TASKS
+    ACTIVE/INBOX/{42_POOL,Anglais,cnam-l3,CS_Projects,leetcode,OPEN_SOURCE,shell_exo} \
+    ACTIVE/PROJECTS/{Active,SideProject} \
+    ACTIVE/TASKS
 
 # --- ARCHIVED ---
 echo "→ Création des dossiers ARCHIVED/ (hors archives et images)..."
@@ -31,17 +31,17 @@ mkdir -p ARCHIVED/portfolioimage  # Les images restent (adaptation si tu les exc
 # --- COMPUTER_SCIENCE ---
 echo "→ Création des dossiers COMPUTER_SCIENCE/ALGORITHMS, SYSTEMS, WEB, etc..."
 mkdir -p \
-  COMPUTER_SCIENCE/ALGORITHMS \
-  COMPUTER_SCIENCE/CLOUD \
-  COMPUTER_SCIENCE/DESIGNS_PATTERN \
-  COMPUTER_SCIENCE/MATHS \
-  COMPUTER_SCIENCE/SYSTEMS/{C-CPP,Linux,Python,VM-iso} \
-  COMPUTER_SCIENCE/WEB/{back-end,front-end}
+    COMPUTER_SCIENCE/ALGORITHMS \
+    COMPUTER_SCIENCE/CLOUD \
+    COMPUTER_SCIENCE/DESIGNS_PATTERN \
+    COMPUTER_SCIENCE/MATHS \
+    COMPUTER_SCIENCE/SYSTEMS/{C-CPP,Linux,Python,VM-iso} \
+    COMPUTER_SCIENCE/WEB/{back-end,front-end}
 
 # --- RESOURCES ---
 echo "→ Création des dossiers RESOURCES/PDF/…"
 mkdir -p \
-  RESOURCES/PDF/{42_SCHOOL,bash,CS,CYBER,DSA,SOLUTION_DIGITAL,WEB}
+    RESOURCES/PDF/{42_SCHOOL,bash,CS,CYBER,DSA,SOLUTION_DIGITAL,WEB}
 
 # --- Tree Preview ---
 echo -e "\n🌳 Aperçu de la structure :"

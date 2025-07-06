@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # ╭──────────────────────────────────────────────────────────────╮
 # │ ENV EXPORTS - Global environment variables & PATH setup      │
 # ╰──────────────────────────────────────────────────────────────╯
@@ -14,13 +13,13 @@ log::section "Setting up PATH exports"
 
 # --- Utility: add to PATH if not already present
 path_add() {
-  case ":$PATH:" in
-    *:"$1":*) return;;
-    *) 
-      PATH="$1:$PATH"
-      log::info "Added to PATH: $1"
-      ;;
-  esac
+    case ":$PATH:" in
+        *:"$1":*) return ;;
+        *)
+            PATH="$1:$PATH"
+            log::info "Added to PATH: $1"
+            ;;
+    esac
 }
 
 # --- Common path additions (HIGH → LOW priority)
