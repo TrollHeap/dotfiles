@@ -2,8 +2,19 @@
 
 source "$C_CORE/init/installer.sh"
 
+nerdfonts::installed() {
+    local fonts_dir="$HOME/.local/share/fonts"
+    find "$fonts_dir" -type f -iname '*JetBrainsMono*' -iname '*.ttf' | grep -q .
+}
+
 nerdfonts::install() {
     local fonts_dir="$HOME/.local/share/fonts"
+
+    if nerdfonts::installed; then
+        echo "[✓] Nerd Fonts already installed, skipping."
+        return 0
+    fi
+
     local github_url="https://github.com/ryanoasis/nerd-fonts/releases/download"
     local version_jetbrains="v3.0.2"
     local version_others="v3.3.0"
