@@ -37,6 +37,7 @@ esac
 source "$C_MODULES/workspace/setup.sh"
 source "$C_MODULES/app/remnote.sh"
 
+eval "$(zoxide init bash)"
 # --- 4. Mark bootstrap as complete
 state::mark_done "$INIT_FLAG"
 

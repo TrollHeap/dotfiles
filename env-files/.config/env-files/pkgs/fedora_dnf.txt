@@ -4,11 +4,9 @@
 bat
 btop
 curl
-fd-find
 fzf
 git
 lsd
-ripgrep
 tree
 wget
 zoxide
