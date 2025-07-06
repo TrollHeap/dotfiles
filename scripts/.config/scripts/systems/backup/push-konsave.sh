@@ -17,7 +17,7 @@ if [[ ! -f "$DEST" ]]; then
 fi
 
 echo "rclone: Pushing $DEST to Google Drive..."
-if rclone copy -P "$DEST" gdrive:/; then
+if rclone copy -P "$DEST" kde-binary:/; then
   echo "rclone: Profile KDE Push to GoogleDrive successful!"
 else
   echo "❌ rclone: Push failed!"
