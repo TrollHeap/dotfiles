@@ -1,17 +1,12 @@
 #!/usr/bin/env bash
 
 if command -v cargo>/dev/null; then
+
+    echo "[+] Installing cargo-update, ripgrep, fd-find and du-dust..."
+    cargo install cargo-update rigpgrep fd-find du-dust
+
     echo "[+] Installing spotify_layer term..."
     cargo install spotify_player --locked
-
-    echo "[+] Installing ripgrep..."
-    cargo install ripgrep
-
-    echo "[+] Installing fd-find..."
-    cargo install fd-find
-
-    echo "[+] Installing dust..."
-    cargo install du-dust
 
     echo "[+] Installing zoxide..."
     cargo install zoxide --locked
