@@ -23,6 +23,7 @@ command -v pyenv &>/dev/null && eval "$(pyenv init --path)"
 
 # --- 4. Dynamic Displays (neofetch, taskwarrior, system status)
 if command -v neofetch >/dev/null; then
+    echo ""
     neofetch
 elif command -v fastfetch >/dev/null; then
     fastfetch
