@@ -27,7 +27,7 @@ if command -v neofetch >/dev/null; then
 elif command -v fastfetch >/dev/null; then
     fastfetch
 fi
-
+eval "$(zoxide init bash)"
 #source $ROOT_SCRIPTS/tools/taskwarrior/task_summary.sh
 
 # Remove any duplicate PATH entries after all sources

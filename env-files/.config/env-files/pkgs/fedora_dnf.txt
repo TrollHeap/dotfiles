@@ -69,3 +69,4 @@ tealdeer
 zstd
 p7zip
 gh
+hyperline
