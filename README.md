@@ -53,7 +53,7 @@ Planned support:
 ## Directory Overview
 
 * **env-files/** – Shell scripts and environment definitions. The `bootstrap` folder contains OS‑specific installation scripts and helpers. The `modules` directory handles dotfile deployment, workspace creation and tool installation.
-* **zsh/** – `.zshrc` and `.zshenv` for the Zsh shell.
+* **bash/** – `.bashrc` and `.zshenv` for the Bash shell.
 * **tmux/** – Configuration for the tmux terminal multiplexer and tmuxifier layouts.
 * **starship/** – `starship.toml` prompt configuration.
 * **wezterm/** – `wezterm.lua` configuration for the WezTerm terminal emulator.
