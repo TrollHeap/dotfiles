@@ -29,6 +29,7 @@ elif command -v fastfetch >/dev/null; then
     fastfetch
 fi
 eval "$(zoxide init bash)"
+source "./api-key.env"
 #source $ROOT_SCRIPTS/tools/taskwarrior/task_summary.sh
 
 # Remove any duplicate PATH entries after all sources
