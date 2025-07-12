@@ -1,11 +1,20 @@
 source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
-if initialize_session "01_Capsule"; then
-    local CAPSULE="$HOME/Developer/capsule"
+SESSION_NAME="Capsule"
 
-    create_and_run_window "cap-rust" "cd $CAPSULE/toolbox_v1/src-tauri && nvim ."
-    create_and_run_window "cap-shell" "cd $CAPSULE/toolbox_v1"
-    create_and_run_window "cap-note" "cd $CAPSULE/notes && nvim info.md"
+if initialize_session "$SESSION_NAME"; then
+    local CAPSULE="$HOME/Developer/capsule/"
+    local TOOLBOX="$CAPSULE/toolbox_v1"
+    local TOOLBOX_CORE="$TOOLBOX/src-tauri/src/core"
+
+    create_three_panes_70_30v "$SESSION_NAME" "toolbox" \
+        "cd $TOOLBOX_CORE && nvim ." \
+        "cd $TOOLBOX_CORE" \
+        "cd $TOOLBOX && lzg"
+
+    create_split_window "$SESSION_NAME" "notes-capsule" "h" 50 \
+        "cd $CAPSULE/notes && nvim info.md" \
+        "cd $HOME && spotify_player"
 
     select_window 1 || echo "Failed to select window 1"
 fi
