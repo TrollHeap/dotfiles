@@ -1,6 +1,8 @@
 source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
-if initialize_session "Utils"; then
+SESSION_NAME="Utils"
+
+if initialize_session "$SESSION_NAME"; then
     # Fenêtre SPLIT (deux panes : btop / cat Makefile)
     # create_split_window "btop-shell" \
         #   "cd \$HOME && btop" \

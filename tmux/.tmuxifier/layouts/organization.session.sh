@@ -1,6 +1,8 @@
 source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
-if initialize_session "Organization"; then
+SESSION_NAME="Organization"
+
+if initialize_session "$SESSION_NAME"; then
 
     create_and_run_window "Taskwarrior" "task list"
     create_and_run_window "Obsidian" "obsidian"

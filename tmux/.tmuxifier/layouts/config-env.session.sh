@@ -1,10 +1,21 @@
+#!/usr/bin/env bash
+
 source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
-if initialize_session "02_C_ENV"; then
-    create_and_run_window "C-EnvFiles" "cd $DOTFILES/env-files/.config/env-files && nvim ."
-    create_and_run_window "C-Scripts" "cd $DOTFILES/scripts/.config/scripts/ && nvim ."
-    create_and_run_window "C-Bash" "cd $DOTFILES/bash && nvim .bashrc"
-    create_and_run_window "C-Makefile" "cd $DOTFILES && nvim Makefile"
+SESSION_NAME="C_ENV"
+
+if initialize_session "$SESSION_NAME"; then
+    local ENVFILES="$DOTFILES/env-files/.config/env-files"
+    local SCRIPTS="$DOTFILES/scripts/.config/scripts"
+    local BASHRC="$DOTFILES/bash"
+
+    create_split_window "$SESSION_NAME" "env-scripts" "h" 50 \
+        "cd $ENVFILES && nvim ." \
+        "cd $SCRIPTS && nvim ."
+
+    create_split_window "$SESSION_NAME" "bash-make" "h" 50 \
+        "cd $BASHRC && nvim .bashrc" \
+        "cd $DOTFILES && nvim Makefile"
 
     select_window 1 || echo "Failed to select window 1"
 fi
