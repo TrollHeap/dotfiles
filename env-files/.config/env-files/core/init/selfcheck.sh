@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$(dirname "$0")/env.sh"
+source "$(dirname "$0")/main.sh"
 source "$C_CORE/logger.sh"
 source "$C_CORE/validate.sh"
 

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$C_CORE/env.sh"
+source "$C_CORE/main.sh"
 source "$C_CORE/init/state.sh"
 
 WORKSPACE_FLAG="workspace"

@@ -11,7 +11,7 @@ source "$ROOT_ENV/config/env/globals_locals.env"
 
 # --- 1. Load environment (paths, OS detection, flags)
 echo "Loading env"
-source "$C_CORE/env.sh"
+source "$C_CORE/main.sh"
 
 echo "[✓] Testing init state"
 source "$C_CORE/init/state.sh"
