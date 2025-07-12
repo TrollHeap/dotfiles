@@ -39,7 +39,7 @@ function PLUGINS.telescope_keymaps()
   set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
 
   -- Buffer
-  set('n', '<leader>fb', builtin.buffers, { desc = '[B]uffers Find [B]uffers' })
+  set('n', '<Tab>', builtin.buffers, { desc = '[B]uffers Find [B]uffers' })
   -- Find
   set('n', '<leader>fg', builtin.live_grep, { desc = '[F]ind by [G]rep' })
   set('n', '<leader>ff', builtin.find_files, { desc = '[F]find [F]iles' })
@@ -100,27 +100,27 @@ function PLUGINS.lsp_keymaps()
 end
 
 -- Barbar keymaps
-function PLUGINS.barbar_keymaps()
-  set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', { noremap = true, silent = true })
-  set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', { noremap = true, silent = true })
-  set('n', '<leader>bd', ':CloseBufferAndGoLeft<CR>', { noremap = true, silent = true })
-  set('n', '<leader>bp', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
-  set('n', '<leader>bx', ':BufferLineCloseOthers<CR>', { noremap = true, silent = true })
-  set('n', '<leader>bl', ':BufferLineCloseLeft<CR>', { noremap = true, silent = true })
-  set('n', '<leader>br', ':BufferLineCloseRight<CR>', { noremap = true, silent = true })
-  -- Buffer key
-  -- set('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', opts)
-  -- set('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)
-  -- set('n', '<A-p>', '<Cmd>BufferPick<CR>', { desc = '[B]uffers [P]ick' })
-  -- set('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', { noremap = true, silent = true })
-  -- set('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', { noremap = true, silent = true })
-  -- set('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', { noremap = true, silent = true })
-  -- set('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', { noremap = true, silent = true })
-  -- set('n', '<leader>bd', '<Cmd>BufferClose<CR>', { desc = '[B]uffers [D]elete' })
-  -- set('n', '<leader>bx', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = '[B]uffers Close All' })
-  -- set('n', '<leader>bl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = '[B]uffers Close Left' })
-  -- set('n', '<leader>br', '<Cmd>BufferCloseBuffersRight<CR>', { desc = '[B]uffers Close Right' })
-end
+--function PLUGINS.barbar_keymaps()
+-- set('n', '<Tab>', '<Cmd>BufferLineCycleNext<CR>', { noremap = true, silent = true })
+-- set('n', '<S-Tab>', '<Cmd>BufferLineCyclePrev<CR>', { noremap = true, silent = true })
+-- set('n', '<leader>bd', ':CloseBufferAndGoLeft<CR>', { noremap = true, silent = true })
+-- set('n', '<leader>bp', ':BufferLinePickClose<CR>', { noremap = true, silent = true })
+-- set('n', '<leader>bx', ':BufferLineCloseOthers<CR>', { noremap = true, silent = true })
+-- set('n', '<leader>bl', ':BufferLineCloseLeft<CR>', { noremap = true, silent = true })
+-- set('n', '<leader>br', ':BufferLineCloseRight<CR>', { noremap = true, silent = true })
+-- Buffer key
+-- set('n', '<S-Tab>', '<Cmd>BufferPrevious<CR>', opts)
+-- set('n', '<Tab>', '<Cmd>BufferNext<CR>', opts)
+-- set('n', '<A-p>', '<Cmd>BufferPick<CR>', { desc = '[B]uffers [P]ick' })
+-- set('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', { noremap = true, silent = true })
+-- set('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', { noremap = true, silent = true })
+-- set('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', { noremap = true, silent = true })
+-- set('n', '<A-4>', '<Cmd>BufferGoto 4<CR>', { noremap = true, silent = true })
+-- set('n', '<leader>bd', '<Cmd>BufferClose<CR>', { desc = '[B]uffers [D]elete' })
+-- set('n', '<leader>bx', '<Cmd>BufferCloseAllButCurrent<CR>', { desc = '[B]uffers Close All' })
+-- set('n', '<leader>bl', '<Cmd>BufferCloseBuffersLeft<CR>', { desc = '[B]uffers Close Left' })
+-- set('n', '<leader>br', '<Cmd>BufferCloseBuffersRight<CR>', { desc = '[B]uffers Close Right' })
+--end
 
 function PLUGINS.setup()
   PLUGINS.copilot_keymaps()
