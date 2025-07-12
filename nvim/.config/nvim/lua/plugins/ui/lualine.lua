@@ -67,20 +67,24 @@ return {
       },
       sections = {
         lualine_a = { { mode_icon, separator = { left = '', right = '' } } },
-        lualine_b = {
+        lualine_b = { { 'filename', path = 1, shorting_target = 40,
+
           'branch',
           'diff',
+        } },
+        lualine_c = {
           {
             'diagnostics',
             sources = { 'nvim_diagnostic', 'coc' },
           },
+
           -- {
           --   require('noice').api.statusline.mode.get,
           --   cond = require('noice').api.statusline.mode.has,
           --   color = { fg = '#ff9e64' },
           -- },
         },
-        lualine_x = {
+        lualine_y = {
           { lsp_status, color = { fg = '#cbbbf4' } },
           {
             'filetype',
@@ -90,7 +94,6 @@ return {
             icon = { align = 'left' }, -- Display filetype icon on the right hand side
           },
         },
-        lualine_y = { { 'filename', path = 1, shorting_target = 40 } },
       },
       inactive_sections = {},
       winbar = {},
