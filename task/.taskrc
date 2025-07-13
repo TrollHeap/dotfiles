@@ -1,6 +1,6 @@
 # [Created by Binary-grunt 3.3.0 2/7/2025 15:40:18]
 data.location=~/.task
-news.version=3.3.0
+news.version=3.4.1
 
 # To use the default location of the XDG directories,
 # move this configuration file from ~/.taskrc to ~/.config/task/taskrc and update location config as follows:
@@ -11,7 +11,7 @@ news.version=3.3.0
 color=on
 #_forcecolor=1
 # Color theme (uncomment one to use)
-include dark-red-256.theme
+#include dark-red-256.theme
 #include ~/.task/themes/gruvbox.theme
 #include light-16.theme
 #include light-256.theme
@@ -98,4 +98,4 @@ alias tasks.utc502=task next project:UTC502
 
 # ******************************************************************************
 # 🏗️ Integration with Git for task tracking
-hook.on-mod
+#hook.on-mod
