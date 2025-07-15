@@ -14,6 +14,7 @@ if initialize_session "$SESSION_NAME"; then
         "cd $RUST/get-dependencies/src && nvim ." \
         "cd $RUST/notes-rust && nvim ."
 
+    create_and_run_window "sgpt-rust" "cd $RUST/spgt_rust && nvim ."
     select_window 1 || echo "Failed to select window 1"
 fi
 

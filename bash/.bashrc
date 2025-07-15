@@ -36,3 +36,6 @@ source "./api-key.env"
 PATH="$(echo "$PATH" | tr ':' '\n' | awk '!seen[$0]++' | paste -sd: -)"
 # Finalization
 echo "All configurations have been loaded."
+
+# opencode
+export PATH=/home/binary/.opencode/bin:$PATH
