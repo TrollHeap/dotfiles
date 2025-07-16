@@ -1,17 +1,15 @@
 source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
-SESSION_NAME="Utils"
+SESSION_NAME="school-linux"
 
 if initialize_session "$SESSION_NAME"; then
-    # Fenêtre SPLIT (deux panes : btop / cat Makefile)
-    # create_split_window "btop-shell" \
-        #   "cd \$HOME && btop" \
-        #   "cd \$DOTFILES && cat Makefile"
-
+    NOTES="$HOME/Developer/L3_CNAM_OS"
     # Fenêtre shell classique
-    create_and_run_window "btop" "cd \$HOME && btop"
-    create_and_run_window "taskflow" "cd \$HOME && cd Developer/taskflow-cli"
-    create_and_run_window "Alpine-Docker" "cd \$HOME && docker run --rm -it alpine /bin/sh"
+    create_and_run_window "primitiveOS" "cd $NOTES/exercise/primitiveos && nvim ."
+    create_split_window "$SESSION_NAME" "notes_l3" "h" 50 \
+        "cd $NOTES/weeks && nvim . " \
+        "cd $NOTES && nvim roadmap.md"
+    create_and_run_window "taskflow" "cd $HOME && cd Developer/taskflow-cli"
 
     select_window 1 || echo "Failed to select window 1"
 fi
