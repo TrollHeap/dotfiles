@@ -3,14 +3,15 @@ source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 SESSION_NAME="Capsule"
 
 if initialize_session "$SESSION_NAME"; then
-    local CAPSULE="$HOME/Developer/capsule/"
-    local TOOLBOX="$CAPSULE/toolbox_v1"
-    local TOOLBOX_CORE="$TOOLBOX/src-tauri/src/core"
+    CAPSULE="$HOME/Developer/capsule/"
+    TOOLBOX="$CAPSULE/toolbox_v1"
+    TOOLBOX_CORE="$TOOLBOX/src-tauri/src/core"
 
-    create_three_panes_70_30v "$SESSION_NAME" "toolbox" \
-        "cd $TOOLBOX_CORE && nvim ." \
-        "cd $TOOLBOX_CORE" \
-        "cd $TOOLBOX && lzg"
+    create_and_run_window "$SESSION_NAME" "cd $TOOLBOX_CORE && nvim ."
+    # create_three_panes_70_30v "$SESSION_NAME" "toolbox" \
+        #     "cd $TOOLBOX_CORE && nvim ." \
+        #     "cd $TOOLBOX_CORE" \
+        #     "cd $TOOLBOX && lzg"
 
     create_split_window "$SESSION_NAME" "notes-capsule" "h" 50 \
         "cd $CAPSULE/notes && nvim info.md" \

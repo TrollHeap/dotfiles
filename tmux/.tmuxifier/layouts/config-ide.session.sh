@@ -5,9 +5,9 @@ source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 SESSION_NAME="C_IDE"
 
 if initialize_session "$SESSION_NAME"; then
-    local NVIM="$DOTFILES/nvim/.config/nvim/lua"
-    local TMUXIFIER="$DOTFILES/tmux/.tmuxifier/layouts"
-    local ALACRITTY="$DOTFILES/alacritty/.config/alacritty "
+    NVIM="$DOTFILES/nvim/.config/nvim/lua"
+    TMUXIFIER="$DOTFILES/tmux/.tmuxifier/layouts"
+    ALACRITTY="$DOTFILES/alacritty/.config/alacritty "
 
     create_split_window "$SESSION_NAME" "IDE" "h" 50 \
         "cd $NVIM && nvim ." \

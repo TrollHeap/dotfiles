@@ -3,8 +3,8 @@ source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 SESSION_NAME="Rust"
 
 if initialize_session "$SESSION_NAME"; then
-    local RUST="$HOME/Developer/WORKSPACE/COMPUTER_SCIENCE/SYSTEMS/Rust"
-    local RUSTLING="$RUST/rustlings"
+    RUST="$HOME/Developer/WORKSPACE/COMPUTER_SCIENCE/SYSTEMS/Rust"
+    RUSTLING="$RUST/rustlings"
 
     create_split_window "$SESSION_NAME" "rustlings" "h" 50 \
         "cd $RUSTLING && rustlings" \

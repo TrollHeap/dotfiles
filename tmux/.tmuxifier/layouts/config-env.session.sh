@@ -5,9 +5,9 @@ source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 SESSION_NAME="C_ENV"
 
 if initialize_session "$SESSION_NAME"; then
-    local ENVFILES="$DOTFILES/env-files/.config/env-files"
-    local SCRIPTS="$DOTFILES/scripts/.config/scripts"
-    local BASHRC="$DOTFILES/bash"
+    ENVFILES="$DOTFILES/env-files/.config/env-files"
+    SCRIPTS="$DOTFILES/scripts/.config/scripts"
+    BASHRC="$DOTFILES/bash"
 
     create_split_window "$SESSION_NAME" "env-scripts" "h" 50 \
         "cd $ENVFILES && nvim ." \
