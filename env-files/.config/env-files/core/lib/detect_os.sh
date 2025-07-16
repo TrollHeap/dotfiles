@@ -7,7 +7,7 @@ detect_os() {
         case "$ID" in
             arch | manjaro | cachyos | endeavouros) echo "arch" ;;
             ubuntu | debian) echo "ubuntu" ;;
-            fedora | nobara) echo "fedora" ;;
+            fedora-asahi-remix | fedora | nobara) echo "fedora" ;;
             *) echo "$ID" ;;
         esac
         return

@@ -27,7 +27,7 @@ glow::install() {
             sudo apt update
             installer::pkg_from apt "glow"
             ;;
-        fedora|rhel|rocky|alma|nobara)
+        fedora-asahi-remix|fedora|rhel|rocky|alma|nobara)
             echo '[charm]
                     name=Charm
                     baseurl=https://repo.charm.sh/yum/

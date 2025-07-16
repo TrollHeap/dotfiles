@@ -3,6 +3,8 @@
 # ╰──────────────────────────────────────────────────────────────╯
 set -o vi
 
+source "$HOME/api-key.env"
+
 # --- 0. Starship ---
 eval "$(starship init bash)"
 
@@ -26,10 +28,11 @@ if command -v neofetch >/dev/null; then
     echo ""
     neofetch
 elif command -v fastfetch >/dev/null; then
+    echo ""
     fastfetch
 fi
+
 eval "$(zoxide init bash)"
-source "./api-key.env"
 #source $ROOT_SCRIPTS/tools/taskwarrior/task_summary.sh
 
 # Remove any duplicate PATH entries after all sources

@@ -20,7 +20,7 @@ if [[ -z "$PKG_MANAGER" ]]; then
             case "$ID" in
                 arch|manjaro|endeavouros|cachyos) PKG_MANAGER="pacman" ;;
                 ubuntu|debian)                   PKG_MANAGER="apt" ;;
-                fedora|rhel|rocky|alma|nobara)         PKG_MANAGER="dnf" ;;
+                fedora-asahi-remix|fedora|rhel|rocky|alma|nobara)         PKG_MANAGER="dnf" ;;
                 *) log::error "Unsupported distro: $ID" ;;
             esac
             ;;

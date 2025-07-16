@@ -28,6 +28,7 @@ git-lfs
 rust
 cargo
 jq
+ShellCheck
 golang-bin
 snapper
 python3-dnf-plugin-snapper
