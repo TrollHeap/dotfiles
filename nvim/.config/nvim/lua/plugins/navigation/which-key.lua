@@ -61,7 +61,7 @@ return {
       function()
         require("which-key").show({ global = false })
       end,
-      desc = "Obsidian"
+      desc = "O-Markdown"
     },
 
     {
