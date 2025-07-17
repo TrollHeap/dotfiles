@@ -13,10 +13,10 @@ if initialize_session "$SESSION_NAME"; then
         #     "cd $TOOLBOX_CORE" \
         #     "cd $TOOLBOX && lzg"
 
+    create_and_run_window "ssa-php" "cd $CAPSULE/SSA_web/ssapaysdemorlaix && nvim ."
     create_split_window "$SESSION_NAME" "notes-capsule" "h" 50 \
         "cd $CAPSULE/notes && nvim info.md" \
         "cd $HOME && spotify_player"
-
     select_window 1 || echo "Failed to select window 1"
 fi
 
