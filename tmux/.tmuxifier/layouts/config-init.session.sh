@@ -3,10 +3,12 @@ source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 SESSION_NAME="school-linux"
 
 if initialize_session "$SESSION_NAME"; then
-    NOTES="$HOME/Developer/L3_CNAM_OS"
+    NOTES="$HOME/Developer/L3_CNAM"
+
     # Fenêtre shell classique
-    create_and_run_window "primitiveOS" "cd $NOTES/exercise/primitiveos && nvim ."
-    create_and_run_window "shell" "cd $NOTES/exercise/primitiveos"
+    create_and_run_window "primitiveOS" "cd $NOTES/exercise_c_shell/primitiveos && nvim ."
+    create_and_run_window "exo-rust" "cd $NOTES/exercise_rust/primitiveos && nvim ."
+    create_and_run_window "shell" "cd $NOTES/exercise"
     create_split_window "$SESSION_NAME" "notes_l3" "h" 50 \
         "cd $NOTES/weeks && nvim . " \
         "cd $NOTES && nvim roadmap.md"
