@@ -7,13 +7,14 @@ if initialize_session "$SESSION_NAME"; then
     TOOLBOX="$CAPSULE/toolbox_v1"
     TOOLBOX_CORE="$TOOLBOX/src-tauri/src/core"
 
-    create_and_run_window "$SESSION_NAME" "cd $TOOLBOX_CORE && nvim ."
+    create_and_run_window "toolbox" "cd $TOOLBOX_CORE && nvim ."
     # create_three_panes_70_30v "$SESSION_NAME" "toolbox" \
         #     "cd $TOOLBOX_CORE && nvim ." \
         #     "cd $TOOLBOX_CORE" \
         #     "cd $TOOLBOX && lzg"
 
     create_and_run_window "ssa-php" "cd $CAPSULE/SSA_web/ssapaysdemorlaix && nvim ."
+    create_and_run_window "shell-ssa" "cd $CAPSULE/SSA_web/ssapaysdemorlaix && nvim ."
     create_split_window "$SESSION_NAME" "notes-capsule" "h" 50 \
         "cd $CAPSULE/notes && nvim info.md" \
         "cd $HOME && spotify_player"

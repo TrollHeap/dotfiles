@@ -3,15 +3,16 @@ source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 SESSION_NAME="school-linux"
 
 if initialize_session "$SESSION_NAME"; then
-    NOTES="$HOME/Developer/L3_CNAM"
+    L3CNAM="$HOME/Developer/L3_CNAM"
 
     # Fenêtre shell classique
-    create_and_run_window "primitiveOS" "cd $NOTES/exercise_c_shell/primitiveos && nvim ."
-    create_and_run_window "exo-rust" "cd $NOTES/exercise_rust/primitiveos && nvim ."
-    create_and_run_window "shell" "cd $NOTES/exercise"
+    create_and_run_window "exo-rust" "cd $L3CNAM/exercise_rust && nvim ."
+    create_and_run_window "shell" "cd $L3CNAM/exercise_rust"
     create_split_window "$SESSION_NAME" "notes_l3" "h" 50 \
-        "cd $NOTES/weeks && nvim . " \
-        "cd $NOTES && nvim roadmap.md"
+        "cd $L3CNAM/weeks && nvim . " \
+        "cd $L3CNAM && nvim roadmap.md"
+    create_and_run_window "primitiveOS" "cd $L3CNAM/exercise_c_shell/primitiveos && nvim ."
+    create_and_run_window "shell-primi" "cd $L3CNAM/exercise_c_shell/primitiveos"
     create_and_run_window "taskflow" "cd $HOME && cd Developer/taskflow-cli"
 
     select_window 1 || echo "Failed to select window 1"
