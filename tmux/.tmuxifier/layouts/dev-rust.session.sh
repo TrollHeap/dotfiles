@@ -5,6 +5,7 @@ SESSION_NAME="Rust"
 if initialize_session "$SESSION_NAME"; then
     RUST="$HOME/Developer/WORKSPACE/COMPUTER_SCIENCE/SYSTEMS/Rust"
     RUSTLING="$RUST/rustlings"
+    L3CNAM="$HOME/Developer/L3_CNAM"
 
     create_split_window "$SESSION_NAME" "rustlings" "h" 50 \
         "cd $RUSTLING && rustlings" \
@@ -14,7 +15,10 @@ if initialize_session "$SESSION_NAME"; then
         "cd $RUST/get-dependencies/src && nvim ." \
         "cd $RUST/notes-rust && nvim ."
 
-    create_and_run_window "sgpt-rust" "cd $RUST/spgt_rust && nvim ."
+    #create_and_run_window "sgpt-rust" "cd $RUST/spgt_rust && nvim ."
+    create_split_window "$SESSION_NAME" "notes_l3" "h" 50 \
+        "cd $L3CNAM/weeks && nvim . " \
+        "cd $L3CNAM && nvim roadmap.md"
     select_window 1 || echo "Failed to select window 1"
 fi
 
