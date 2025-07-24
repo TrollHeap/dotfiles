@@ -10,6 +10,16 @@ ICON_PATH="$HOME/dotfiles/env-files/.config/env-files/modules/app/icons/remnote-
 APPIMAGE_URL="https://backend.remnote.com/desktop/linux"
 APPIMAGE_NAME="remnote.AppImage"
 
+# === Désinstallation précédente ===
+echo "[*] Suppression ancienne installation de RemNote..."
+rm -rf "$INSTALL_DIR"
+rm -f "$BIN_DIR/remnote"
+rm -f "$DESKTOP_FILE"
+echo "[*] Suppression des données utilisateur RemNote..."
+rm -rf "$HOME/.config/RemNote" \
+    "$HOME/.cache/RemNote" \
+    "$HOME/.local/share/RemNote"
+
 # === Préparation des répertoires ===
 mkdir -p "$INSTALL_DIR" "$BIN_DIR"
 cd "$INSTALL_DIR"
@@ -29,12 +39,10 @@ cp "$ICON_PATH" "$INSTALL_DIR/remnote.png"
 
 # === Créer le fichier .desktop ===
 echo "[+] Création de $DESKTOP_FILE"
-# === Créer le fichier .desktop ===
 mkdir -p "$(dirname "$DESKTOP_FILE")"
-echo "[+] Création de $DESKTOP_FILE"
 cat > "$DESKTOP_FILE" <<EOF
 [Desktop Entry]
-Name=RemNote
+Name=$APP_NAME
 Comment=All-in-one thinking and learning tool
 Exec=$BIN_DIR/remnote
 Icon=$INSTALL_DIR/remnote.png
@@ -47,5 +55,4 @@ EOF
 # === Mise à jour de la base XDG ===
 command -v update-desktop-database >/dev/null && update-desktop-database "$HOME/.local/share/applications"
 
-echo "[✔] RemNote installé. Lance via 'remnote' ou le menu d'applications."
-
+echo "[✔] RemNote (ré)installé. Lance via 'remnote' ou le menu d'applications."

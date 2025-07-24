@@ -36,11 +36,19 @@ echo "[+] Installing lazydocker..."
 sudo dnf copr enable atim/lazydocker | tee -a /tmp/install.log
 sudo dnf install lazydocker | tee -a /tmp/install.log
 
+
 echo "[+] Installing spotify_layer term..."
 cargo install spotify_player --locked
 
+sudo dnf install \
+    "https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm" \
+    "https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm"
+
+sudo dnf upgrade --refresh
+sudo dnf install steam
+
 echo "[+] Clone wallpapers..."
-cd ~/Pictures 
+cd ~/Pictures
 git clone --depth=1 https://github.com/mylinuxforwork/wallpaper.git
 
 echo "[+] Updating tldr..."
