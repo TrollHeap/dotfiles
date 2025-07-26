@@ -21,7 +21,6 @@ ssh-add -l > /dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519_github
 # --- 2. Load environment variables & aliases
 [[ -f "$HOME/dotfiles/env-files/.config/env-files/config/env/aliases.env" ]]   && source "$ROOT_ENV/config/env/aliases.env"
 
-
 # --- 3. Shell Tools Initialization
 command -v pyenv &>/dev/null && eval "$(pyenv init --path)"
 
