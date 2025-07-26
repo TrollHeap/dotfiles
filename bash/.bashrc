@@ -15,7 +15,7 @@ eval "$(starship init bash)"
 # --- 1. Core Environment
 [[ -f "$ROOT_ENV/main.sh" ]] && source "$ROOT_ENV/main.sh"
 
-ssh-add -l > /dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519
+ssh-add -l > /dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519_github
 
 # --- 2. Load environment variables & aliases
 [[ -f "$HOME/dotfiles/env-files/.config/env-files/config/env/aliases.env" ]]   && source "$ROOT_ENV/config/env/aliases.env"
