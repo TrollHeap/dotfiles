@@ -4,11 +4,11 @@
 # │ OS SETUP: Ubuntu and Debian-based systems                  │
 # ╰────────────────────────────────────────────────────────────╯
 
-source "$C_MODULES/loader_modules.sh"
+source "$ROOT_ENV/core/modules/loader_modules.sh"
 echo "[+] Starting Ubuntu-based setup..."
 
 # 1. Core installer
-source "$C_CORE/init/installer.sh"
+source "$ROOT_ENV/core/lib/installer.sh"
 
 # 2. System update and base dev tools
 sudo apt update && sudo apt upgrade -y

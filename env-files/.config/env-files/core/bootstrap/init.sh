@@ -7,16 +7,19 @@ set -euo pipefail
 # --- 0. Load core variables
 
 ROOT_ENV="${ROOT_ENV:-${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files}"
+
 source "$ROOT_ENV/config/env/globals_locals.env"
 
 # --- 1. Load environment (paths, OS detection, flags)
 echo "Loading env"
-source "$C_CORE/main.sh"
+source "$ROOT_ENV/main.sh"
 
 echo "[✓] Testing init state"
-source "$C_CORE/init/state.sh"
+source "$ROOT_ENV/core/lib/state.sh"
 echo "[✓] Testing init state - skipped"
+
 INIT_FLAG="bootstrap"
+
 if state::is_done "$INIT_FLAG"; then
     echo "[✓] Bootstrap already completed — skipping"
     exit 0
@@ -26,18 +29,32 @@ echo "[+] Starting full environment bootstrap..."
 
 # --- 2. OS-specific setup
 case "$OS" in
-    arch)   source "$C_BOOTSTRAP/os/arch.sh" ;;
-    fedora)  source "$C_BOOTSTRAP/os/fedora.sh" ;;
-    ubuntu) source "$C_BOOTSTRAP/os/ubuntu.sh" ;;
-    macos)  source "$C_BOOTSTRAP/os/macos.sh" ;;
+    fedora)  source "$ROOT_ENV/core/bootstrap/os/fedora.sh" ;;
+    ubuntu) source "$ROOT_ENV/core/bootstrap/os/ubuntu.sh" ;;
     *)      echo "❌ Unsupported OS: $OS" ;;
 esac
 
 # --- 3. Post-OS initialization ( workspace, etc.)
-source "$C_MODULES/workspace/setup.sh"
-source "$C_MODULES/app/remnote.sh"
 
 eval "$(zoxide init bash)"
+
+# Setup script to deploy dotfiles using GNU Stow
+echo "[+] Removing existing ~/.bashrc"
+rm -f "$HOME/.bashrc"
+
+if ! command -v stow >/dev/null; then
+    echo "❌ stow is not installed. Please install GNU stow first." >&2
+    exit 1
+fi
+
+echo "[+] Stowing modules..."
+cd "$HOME/dotfiles"
+stow bash starship tmux nvim yazi
+
+cd - >/dev/null
+
+[[ -f "$HOME/.bashrc" ]] && source "$HOME/.bashrc" || echo "⚠️ Cannot source outside login shell"
+
 # --- 4. Mark bootstrap as complete
 state::mark_done "$INIT_FLAG"
 

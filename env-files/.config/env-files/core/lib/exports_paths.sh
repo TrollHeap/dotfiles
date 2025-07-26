@@ -4,10 +4,10 @@
 # ╰──────────────────────────────────────────────────────────────╯
 
 # --- Logger setup ---
-ROOT_ENVFILES="${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files"
-source "$ROOT_ENVFILES/config/env/logs.env"
-source "$ROOT_ENVFILES/config/env/globals_locals.env"
-source "$C_CORE/lib/logger.sh"
+ROOT_ENV="${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files"
+source "$ROOT_ENV/config/env/logs.env"
+source "$ROOT_ENV/config/env/globals_locals.env"
+source "$ROOT_ENV/core/lib/logger.sh"
 log::use ENV_PATHS
 log::section "Setting up PATH exports"
 

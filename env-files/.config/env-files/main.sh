@@ -4,16 +4,20 @@
 # ╰──────────────────────────────────────────────────────────────╯
 
 # --- 0. Load global constants and logger ---
-ROOT_ENVFILES="${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files"
-source "$ROOT_ENVFILES/config/env/globals_public.env"
-source "$ROOT_ENVFILES/config/env/globals_locals.env"
-source "$ROOT_ENVFILES/config/env/logs.env"
-source "$C_CORE/lib/logger.sh"
+ROOT_ENV="${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files"
+source "$ROOT_ENV/config/env/globals_public.env"
+source "$ROOT_ENV/config/env/globals_locals.env"
+source "$ROOT_ENV/config/env/logs.env"
+source "$ROOT_ENV/core/lib/logger.sh"
 
 log::use ENV_LOADING
 __env_start_time=$(date +%s)
 
-# --- 1. Prevent duplicate loading ---
+
+# --- 1. Loading Detect OS, Paths, BuildFlags ---
+source "$ROOT_ENV/core/lib/detect_os.sh"
+
+# --- 2. Prevent duplicate loading ---
 if [[ -n "${C_ENV_LOADED:-}" ]]; then
     log::info "env.sh already loaded, skipping."
     log::info "env.sh loading in PID $$ (TTY: $(tty))"
@@ -22,7 +26,7 @@ fi
 export C_ENV_LOADED=1
 
 log::section "Starting environment initialization"
-# --- 2. Shell mode ---
+# --- 3. Shell mode ---
 if [[ $- != *i* ]]; then
     set -euo pipefail
 else
@@ -33,7 +37,7 @@ fi
 : "${ZSH_CUSTOM:=}"
 : "${LOG_ENV_LOADING:=/dev/null}"
 
-# --- 4. Script directory ---
+# --- 5. Script directory ---
 if [ -n "${BASH_SOURCE:-}" ]; then
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 elif [ -n "${ZSH_VERSION:-}" ]; then
@@ -44,15 +48,12 @@ else
 fi
 log::info "SCRIPT_DIR = $SCRIPT_DIR"
 
-# --- 5. Exports paths ---
-log::try_source "$C_CORE/lib/exports_paths.sh" "exports_paths.sh"
+# --- 6. Exports paths ---
+source "$ROOT_ENV/core/lib/env_paths.sh"
+log::try_source "$ROOT_ENV/core/lib/exports_paths.sh" "exports_paths.sh"
 
-# --- 6. Loading Detect OS, Paths, BuildFlags ---
-source "$C_CORE/lib/detect_os.sh"
-source "$C_CORE/lib/env_paths.sh"
-source "$C_CORE/lib/env_flags.sh"
 
-# --- 9. Summary ---
+# --- 7. Summary ---
 log::summary() {
     local duration=$(( $(date +%s) - __env_start_time ))
     log::section "Environment init complete"

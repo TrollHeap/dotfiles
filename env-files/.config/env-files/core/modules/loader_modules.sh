@@ -1,30 +1,34 @@
 #!/usr/bin/env bash
 
 # ─── ENV: Logger & Constants ──────────────────────────────────────────────
-ROOT_ENVFILES="$HOME/dotfiles/env-files/.config/env-files"
-source "$ROOT_ENVFILES/config/env/globals_locals.env"
-source "$ROOT_ENVFILES/config/env/logs.env"
-source "$C_CORE/lib/logger.sh"
+ROOT_ENV="$HOME/dotfiles/env-files/.config/env-files"
+source "$ROOT_ENV/config/env/globals_locals.env"
+source "$ROOT_ENV/config/env/logs.env"
+source "$ROOT_ENV/core/lib/logger.sh"
 
 log::use ENV_MODULES
 log::section "Loading environment modules"
 
 # ─── load_modules : source all defined modules with logging ───────────────
 load_modules() {
+    local modules_path="$ROOT_ENV/core/modules"
+
     local modules=(
-        "$C_MODULES/shell/zsh.sh"
-        "$C_MODULES/shell/ohmyzsh.sh"
-        "$C_TOOLS/starship.sh"
-        "$C_TOOLS/tmux_tpm.sh"
-        "$C_TOOLS/nvm.sh"
-        "$C_TOOLS/fzf.sh"
-        "$C_TOOLS/wezterm.sh"
-        "$C_TOOLS/pyenv.sh"
-        "$C_TOOLS/nerdfonts.sh"
+        "$modules_path/tools/starship.sh"
+        "$modules_path/tools/tmux_tpm.sh"
+        "$modules_path/tools/nvm.sh"
+        "$modules_path/tools/fzf.sh"
+        "$modules_path/tools/wezterm.sh"
+        "$modules_path/tools/pyenv.sh"
+        "$modules_path/tools/nerdfonts.sh"
+        "$modules_path/shell/ble-sh.sh"
+        "$modules_path/packages/cargo_install.sh"
+        "$modules_path/packages/pip_install.sh"
+        "$modules_path/app/remnote.sh"
     )
 
     for mod in "${modules[@]}"; do
-        local label="${mod##*/}"  # ex: zsh.sh → zsh.sh
+        local label="${mod##*/}"
         if [[ -f "$mod" ]]; then
             source "$mod"
             log::info "Loaded module: $label"

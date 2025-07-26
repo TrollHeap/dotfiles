@@ -7,8 +7,9 @@
 # --- Init logging ---
 source "${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files/config/env/globals_locals.env"
 source "${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files/config/env/logs.env"
-source "$C_CORE/lib/logger.sh"
-source "$C_CORE/hooks/dnf_hooks.sh"
+source "${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files/core/lib/logger.sh"
+source "${DOTFILES:-$HOME/dotfiles}/env-files/.config/env-files/core/hooks/dnf_hooks.sh"
+
 log::use ENV_INSTALLER
 
 # --- Detect package manager if unset ---
