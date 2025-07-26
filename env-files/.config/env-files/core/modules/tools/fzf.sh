@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$C_CORE/init/installer.sh"
+source "$ROOT_ENV/core/lib/installer.sh"
 
 fzf::installed() {
     command -v fzf &> /dev/null

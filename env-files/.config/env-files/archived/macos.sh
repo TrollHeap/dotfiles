@@ -4,11 +4,11 @@
 # │ OS SETUP: macOS system configuration                       │
 # ╰────────────────────────────────────────────────────────────╯
 
-source "$C_MODULES/loader_modules.sh"
+source "$ROOT_ENV/core/modules/loader_modules.sh"
 echo "[+] Starting macOS setup..."
 
 # 1. Load core logic
-source "$C_CORE/init/installer.sh"
+source "$ROOT_ENV/core/lib/installer.sh"
 
 # 2. Install Homebrew if missing
 if ! command -v brew &>/dev/null; then

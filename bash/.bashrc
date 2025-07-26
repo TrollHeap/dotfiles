@@ -13,7 +13,7 @@ eval "$(starship init bash)"
 [[ ! ${BLE_VERSION-} ]] || ble-attach
 
 # --- 1. Core Environment
-[[ -f "$ROOT_ENV/core/main.sh" ]] && source "$ROOT_ENV/core/main.sh"
+[[ -f "$ROOT_ENV/main.sh" ]] && source "$ROOT_ENV/main.sh"
 
 ssh-add -l > /dev/null 2>&1 || ssh-add ~/.ssh/id_ed25519
 

@@ -41,6 +41,7 @@ eval "$(zoxide init bash)"
 # Setup script to deploy dotfiles using GNU Stow
 echo "[+] Removing existing ~/.bashrc"
 rm -f "$HOME/.bashrc"
+rm -f "$HOME/.bash_profile"
 
 if ! command -v stow >/dev/null; then
     echo "❌ stow is not installed. Please install GNU stow first." >&2
@@ -49,7 +50,7 @@ fi
 
 echo "[+] Stowing modules..."
 cd "$HOME/dotfiles"
-stow bash starship tmux nvim yazi
+stow bash starship alacritty tmux nvim yazi scripts task
 
 cd - >/dev/null
 

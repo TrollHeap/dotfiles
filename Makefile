@@ -26,7 +26,7 @@ konsave:
 
 bootstrap:
 	@echo "🔧 Running full bootstrap..."
-	bash $(ENV_ROOT)/bootstrap/init.sh
+	bash $(ENV_ROOT)/core/bootstrap/init.sh
 
 clean-boot:
 	@echo "🧹 Cleaning init flags..."
@@ -34,11 +34,11 @@ clean-boot:
 
 dotfiles:
 	@echo "🧩 Deploying dotfiles..."
-	bash $(ENV_ROOT)/modules/dotfiles/setup.sh
+	bash $(ENV_ROOT)/core/modules/dotfiles/setup.sh
 
 workspace:
 	@echo "🗂️  Initializing workspace structure..."
-	bash $(ENV_ROOT)/modules/workspace/setup.sh
+	bash $(ENV_ROOT)/core/modules/workspace/setup.sh
 
 # ==================[ Apps & tools install ]==================
 .PHONY: install-konsave

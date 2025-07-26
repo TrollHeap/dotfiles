@@ -40,8 +40,6 @@ fi
 # --- 5. Script directory ---
 if [ -n "${BASH_SOURCE:-}" ]; then
     SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-elif [ -n "${ZSH_VERSION:-}" ]; then
-    SCRIPT_DIR="$(cd "$(dirname "${(%):-%x}")" && pwd)"
 else
     SCRIPT_DIR="$(pwd)"
     log::warn "Unsupported shell; fallback to $SCRIPT_DIR"

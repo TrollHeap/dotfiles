@@ -1,22 +1,34 @@
 #!/usr/bin/env bash
 
 source "$ROOT_ENV/main.sh"
-source "$C_CORE/init/state.sh"
+source "$ROOT_ENV/core/lib/state.sh"
 
 WORKSPACE_FLAG="workspace"
 DEVELOPER_FLAG="Developer"
 
+# --- Check si déjà fait ---
 if state::is_done "$WORKSPACE_FLAG"; then
     echo "[✓] Workspace already initialized — skipping"
     exit 0
 fi
 
-cd "$HOME"
-mkdir $DEVELOPER_FLAG && cd "$HOME/Developer"
+# --- Demande à l'utilisateur ---
+read -r -p "Souhaitez-vous initialiser le workspace dans \$HOME/$DEVELOPER_FLAG ? [o/N] " confirm
+if [[ ! "$confirm" =~ ^[OoYy]$ ]]; then
+    echo "[✗] Initialisation annulée."
+    exit 1
+fi
+
+# --- Création du workspace ---
+cd "$HOME" || exit 1
+mkdir -p "$DEVELOPER_FLAG"
+cd "$HOME/$DEVELOPER_FLAG" || exit 1
+
+WORKSPACE="$PWD"
 
 echo "[+] Setting up WORKSPACE at: $WORKSPACE"
 mkdir -p "$WORKSPACE"
-cd "$WORKSPACE"
+cd "$WORKSPACE" || exit 1
 
 # --- ACTIVE ---
 echo "→ Création des dossiers ACTIVE/INBOX/repository..."
@@ -28,7 +40,7 @@ mkdir -p \
 # --- ARCHIVED ---
 echo "→ Création des dossiers ARCHIVED/ (hors archives et images)..."
 mkdir -p ARCHIVED/ARCHIVED_2023
-mkdir -p ARCHIVED/portfolioimage  # Les images restent (adaptation si tu les exclus)
+mkdir -p ARCHIVED/portfolioimage
 
 # --- COMPUTER_SCIENCE ---
 echo "→ Création des dossiers COMPUTER_SCIENCE/ALGORITHMS, SYSTEMS, WEB, etc..."

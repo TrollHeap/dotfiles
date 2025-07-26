@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$C_CORE/init/installer.sh"
+source "$ROOT_ENV/core/lib/installer.sh"
 
 pyenv::installed() {
     [[ -x "$HOME/.pyenv/bin/pyenv" ]]

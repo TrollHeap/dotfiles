@@ -15,7 +15,7 @@ log::use ENV_PKGS
 log::section "Verifying package lists"
 
 # --- Paths ---
-PKG_DIR="${C_PKGS:-$DOTFILES/env-files/.config/env-files/pkgs}"
+PKG_DIR="${PKG_DIR-$DOTFILES/env-files/.config/env-files/core/pkgs}"
 echo "🔍 Verifying package files in: $PKG_DIR"
 echo
 

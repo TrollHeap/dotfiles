@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$C_CORE/init/installer.sh"
+source "$ROOT_ENV/core/lib/installer.sh"
 
 nvm::installed() {
     [[ -s "$NVM_DIR/nvm.sh" ]]

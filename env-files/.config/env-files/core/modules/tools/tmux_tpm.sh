@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-source "$C_CORE/init/installer.sh"
+source "$ROOT_ENV/core/lib/installer.sh"
 
 tmux_tpm::installed() {
     [[ -d "$HOME/.tmux/plugins/tpm" ]]

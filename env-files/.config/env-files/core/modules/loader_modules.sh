@@ -21,21 +21,13 @@ load_modules() {
         "$modules_path/tools/wezterm.sh"
         "$modules_path/tools/pyenv.sh"
         "$modules_path/tools/nerdfonts.sh"
-        "$modules_path/shell/ble-sh.sh"
+        "$modules_path/app/remnote.sh"
         "$modules_path/packages/cargo_install.sh"
         "$modules_path/packages/pip_install.sh"
-        "$modules_path/app/remnote.sh"
     )
 
     for mod in "${modules[@]}"; do
         local label="${mod##*/}"
-        if [[ -f "$mod" ]]; then
-            source "$mod"
-            log::info "Loaded module: $label"
-        else
-            log::warn "Missing module: $label → $mod"
-        fi
-
         if [[ -f "$mod" ]]; then
             if source "$mod"; then
                 log::info "Loaded module: $label"
