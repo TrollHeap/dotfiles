@@ -4,13 +4,15 @@ source "$C_CORE/main.sh"
 source "$C_CORE/init/state.sh"
 
 WORKSPACE_FLAG="workspace"
+DEVELOPER_FLAG="Developer"
 
 if state::is_done "$WORKSPACE_FLAG"; then
     echo "[✓] Workspace already initialized — skipping"
     exit 0
 fi
 
-cd $HOME/Developer
+cd "$HOME"
+mkdir $DEVELOPER_FLAG && cd "$HOME/Developer"
 
 echo "[+] Setting up WORKSPACE at: $WORKSPACE"
 mkdir -p "$WORKSPACE"

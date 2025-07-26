@@ -4,6 +4,7 @@
 set -o vi
 
 source "$HOME/api-key.env"
+export N8N_RUNNERS_ENABLED=true
 
 # --- 0. Starship ---
 eval "$(starship init bash)"
