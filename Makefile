@@ -41,14 +41,18 @@ workspace:
 	bash $(ENV_ROOT)/core/modules/workspace/setup.sh
 
 # ==================[ Apps & tools install ]==================
-.PHONY: install-konsave
+.PHONY: install-konsave install-zenbrowser
 
 install-konsave:
 	@echo "🗂️  Installing konsave..."
 	bash $(SCRIPTS_ROOT)/tools/install-konsave.sh
 
+install-zenbrowser:
+	@echo "🗂️  Installing konsave..."
+	bash $(ENV_ROOT)/core/modules/app/zen-browser.sh
+
 # ==================[ tools install ]==================
-.PHONY: launch-tor konsave-push s-libvirtd
+.PHONY: launch-tor konsave-push konsave-pull libvirtd
 
 launch-tor:
 	@echo "🗂️  Initializing a tor-browser session..."
@@ -62,8 +66,8 @@ konsave-pull:
 	@echo "🗂️  Installing konsave..."
 	bash $(SCRIPTS_ROOT)/systems/backup/pull-konsave.sh
 
-s-libvirtd:
-	@echo "🗂️  Installing konsave..."
+libvirtd:
+	@echo "🗂️  Installing libvirt..."
 	bash $(SCRIPTS_ROOT)/systems/service-linux/service-libvirtd.sh
 
 # ==================[ Test]==================
