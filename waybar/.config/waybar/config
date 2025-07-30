@@ -27,6 +27,7 @@
 			"default": ["", "", ""]
 		}
 	},
+
 	"network": {
 		"tooltip": false,
 		"format-wifi": "  {essid}",
@@ -39,6 +40,7 @@
         "on-scroll-up": "light -A 5",
 		"on-scroll-down": "light -U 5"
 	},
+
     "battery": {
         "states": {
             "good": 95,
@@ -55,10 +57,13 @@
 		"icon-size":18,
 		"spacing": 10
 	},
+
   "clock": {
     "format": " {:%a %d %H:%M}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
+
+
     "cpu": {
         "interval": 15,
         "format": " {}%",
@@ -69,6 +74,7 @@
         "format": " {}%",
         "max-length": 10
     },
+
     "custom/media": {
         "interval": 30,
         "format": "{icon} {}",
@@ -78,25 +84,30 @@
             "spotify": " ",
             "default": " "
         },
+
         "escape": true,
         "exec": "$HOME/.config/system_scripts/mediaplayer.py 2> /dev/null",
         "on-click": "playerctl play-pause"
     },
+
     "custom/launcher":{
         "format": " ", 
         "on-click": "rofi -show drun",
         "on-click-right": "killall rofi"
     },
+
     "custom/power":{
         "format": " ",
         "on-click": "bash ~/.config/rofi/leave/leave.sh",
     },
+
 "custom/updates":{
     "format": "{} Update(s)",
     "exec": "dnf check-update | grep -cE '^\\S'",
     "interval": 15,
     "on-click": "alacritty -e sudo dnf upgrade && notify-send 'System updated'"
 },
+
     "custom/wallpaper":{
         "format":" ",
         "on-click": "bash ~/.config/system_scripts/pkill_bc"

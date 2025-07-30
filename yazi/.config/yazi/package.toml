@@ -3,6 +3,6 @@ deps = []
 
 [flavor]
 deps = [
-    { use = "bennyyip/gruvbox-dark", rev = "b4cc9f2" }, 
-    #{ use = "yazi-rs/flavors:catppuccin-mocha", rev = "fd85060" }
+    #{ use = "bennyyip/gruvbox-dark", rev = "b4cc9f2" }, 
+    { use = "yazi-rs/flavors:catppuccin-mocha", rev = "fd85060" }
 ]

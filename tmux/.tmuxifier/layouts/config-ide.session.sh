@@ -6,6 +6,8 @@ SESSION_NAME="C_IDE"
 
 if initialize_session "$SESSION_NAME"; then
     NVIM="$DOTFILES/nvim/.config/nvim/lua"
+    HYPRLAND="$DOTFILES/hypr/.config/hypr"
+    WAYBAR="$DOTFILES/waybar/.config/waybar"
     TMUXIFIER="$DOTFILES/tmux/.tmuxifier/layouts"
     ALACRITTY="$DOTFILES/alacritty/.config/alacritty "
 
@@ -13,8 +15,13 @@ if initialize_session "$SESSION_NAME"; then
         "cd $NVIM && nvim ." \
         "cd $ALACRITTY && nvim alacritty.toml"
 
-    create_and_run_window "tmuxifier" "cd $TMUXIFIER && nvim ."
-    create_and_run_window "tmux" "cd $DOTFILES/tmux && nvim .tmux.conf"
+    create_split_window "$SESSION_NAME" "hyprland" "h" 50 \
+        "cd $HYPRLAND && nvim ." \
+        "cd $WAYBAR && nvim ."
+
+    create_split_window "$SESSION_NAME" "tmux" "h" 50 \
+        "cd $TMUXIFIER && nvim ." \
+        "cd $DOTFILES/tmux && nvim .tmux.conf"
 
     select_window 1 || echo "Failed to select window 1"
 fi
