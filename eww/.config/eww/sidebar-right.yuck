@@ -1,0 +1,310 @@
+(defwidget usrctl-widget [uptime]
+    (box :space-evenly false
+         :valign "start"
+    (eventbox :class "shadow-container"
+         :onhoverlost "./scripts/usrctl.sh"
+         (box :orientation "v"
+              :space-evenly false
+         (box :class "main-container"
+              :orientation "v"
+              :halign "center"
+              :space-evenly false
+              (box :class "profile-container"
+                   :space-evenly false
+                   (box :class "profile"
+                        :space-evenly false
+                        :valign "start"
+                        :halign "start"
+                        (box :class "pfp")
+                        (box :class "pfp-text"
+                             :orientation "v"
+                             :space-evenly false
+                             (box :class "username"
+                                  :space-evenly false
+                                  (label :text "trollheap")
+                             )
+                             (box :class "uptime"
+                                  :space-evenly false
+                                  (label :limit-width 25 :text "${uptime}")
+                             )
+                             (box :class "ctlpanel"
+                                  (eventbox :cursor "pointer"
+                                            :class "shutdown"
+                                            :onclick "systemctl poweroff"
+                                            :tooltip " Shutdown "
+                                            (label :text "⏻")
+                                  )
+                                  (eventbox :cursor "pointer"
+                                            :class "logout"
+                                            :onclick "loginctl terminate-user $USER"
+                                            :tooltip " Logout "
+                                            (label :text "")
+                                  )
+                                  (eventbox :cursor "pointer"
+                                            :class "lockscr"
+                                            :onclick "./scripts/lock.sh"
+                                            :tooltip " Lock "
+                                            (label :text "\\uf023")
+                                  )
+                                  (eventbox :cursor "pointer"
+                                            :class "reboot"
+                                            :onclick "systemctl reboot"
+                                            :tooltip " Reboot "
+                                            (label :text "\\uf021")
+                                  )
+                                  (eventbox :cursor "pointer"
+                                            :class "suspend"
+                                            :onclick "systemctl suspend"
+                                            :tooltip " Sleep "
+                                            (label :text "󰒲")
+                                  )
+                                  (eventbox :cursor "pointer"
+                                            :class "hibernate"
+                                            :onclick "systemctl hibernate"
+                                            :tooltip " Hibernate "
+                                            (label :text "\\uf2dc")
+                                  )
+                             )
+                        )
+                   )
+              )
+              (box :class "monitor-container"
+                   :orientation "v"
+                   :space-evenly false
+                   (box :class "sysctl"
+                        :orientation "v"
+                        :space-evenly false
+                        ;; (box :class "bats"
+                        ;;      :space-evenly false
+                        ;;      (box :class "batico-main"
+                        ;;           (literal :content batico)
+                        ;;      )
+                        ;;      (box :class "bat-detail"
+                        ;;           :orientation "v"
+                        ;;           (box :class "bat-percent"
+                        ;;                :space-evenly false
+                        ;;                (label :text "Battery ${EWW_BATTERY.BAT0.capacity}%")
+                        ;;           )
+                        ;;           (box :class "bat-status"
+                        ;;                :space-evenly false
+                        ;;                (label :limit-width 26 :text "${batest}")
+                        ;;           )
+                        ;;      )
+                        ;; )
+                        ;; (box :class "divider-h")
+                        (box :class "sys"
+                            (box :class "cpu-box" 
+                                 :orientation "v" 
+                                 :space-evenly false
+                                 (eventbox :class "cpu-hover"
+                                           :tooltip " ${round(EWW_CPU.avg,1)}% used "
+                                           (circular-progress :class "cpu"
+                                                    :value {round(EWW_CPU.avg,10)}
+                                                    :thickness 5
+                                                    (box :class "cpuico"
+                                                        (label :text " ")
+                                                    )
+                                           )
+                                 )
+                                 (box :class "cpu-text"
+                                      :space-evenly false
+                                      :halign "center"
+                                      (box :class "cpu01"
+                                        "CPU "
+                                      )
+                                      (box :class "cpu02"
+                                        "${round(EWW_CPU.avg,0)}%"
+                                      )
+                                 )
+                            )
+                            (box :class "ram-box" 
+                                 :orientation "v" 
+                                 :space-evenly false
+                                 (eventbox :class "ram-hover"
+                                           :tooltip " ${round(EWW_RAM.used_mem/1073741824,1)}GB used "
+                                           (circular-progress :class "ram"
+                                                    :value {round(EWW_RAM.used_mem_perc,10)}
+                                                    :thickness 5
+                                                    (box :class "ramico"
+                                                         (label :text " ")
+                                                    )
+                                           )
+                                 )
+                                 (box :class "ram-text"
+                                      :space-evenly false
+                                      :halign "center"
+                                      (box :class "ram01"
+                                        "RAM "
+                                      )
+                                      (box :class "ram02"
+                                        "${round(EWW_RAM.used_mem_perc,0)}%"
+                                      )
+                                 )
+                            )
+                            (box :class "disk-box"
+                                 :orientation "v" 
+                                 :space-evenly false 
+                                 (eventbox :class "disk-hover"
+                                           :tooltip " ${round(EWW_DISK["/"].used/1073741824,1)}GB used "
+                                           (circular-progress :class "disk"
+                                                    :value {round(EWW_DISK["/"].used_perc,10)}
+                                                    :thickness 5
+                                                    (box :class "diskico"
+                                                         (label :text " ")
+                                                    )
+                                           )
+                                 )
+                                 (box :class "disk-text"
+                                      :space-evenly false
+                                      :halign "center"
+                                      (box :class "disk01"
+                                        "DISK "
+                                      )
+                                      (box :class "disk02"
+                                        "${round(EWW_DISK["/"].used_perc,0)}%"
+                                      )
+                                 )
+                            )
+                        )
+                        (box :class "sliderctl"
+                             :orientation "v"
+                             :spacing 15
+                             (box :class "volume-slider"
+                                  :space-evenly false
+                                  :halign "center"
+                                  (label :text "${volico}")
+                                  (scale :class "vol"
+                                         :value get_vol
+                                         :max 101 
+                                         :min 0
+                                         :round-digits 0
+                                         :onchange "pamixer --set-volume {}"
+                                  )
+                             )
+                             (box :class "light-slider"
+                                  :space-evenly false
+                                  :halign "center"
+                                  (label :text "")
+                                  (scale :value get_light
+                                         :class "lig"
+                                         :max 101 
+                                         :min 1
+                                         :round-digits 0
+                                         :onchange "brightnessctl set {}%"
+                                  )
+                             )
+                        )
+                   )
+              )
+         )
+         ;; (cpu-panel)
+         (music-player) 
+         )
+    ))
+)
+
+(deflisten batico "./scripts/batico.sh")
+(deflisten batest "./scripts/batest.sh")
+(deflisten music :initial "{}" "./scripts/music.sh")
+(deflisten pmusic :initial "{}" "./scripts/pmusic.sh")
+
+(defpoll cmusic :interval "1s"
+    "playerctl -l"
+)
+
+(defpoll get_light :interval "1s"
+  "brightnessctl -m | awk -F, '{gsub(/%/, \"\", \$4); print \$4}'"
+)
+
+(defvar get_vol "")
+(deflisten get_volume
+    "./scripts/getvol.sh"
+)
+
+;; (defwidget cpu-panel []
+;;     (box :class "cpu-container"
+;;          :orientation "v"
+;;          :space-evenly false
+;;          (box :orientation "h"
+;;               :class "cpu-header"
+;;               :space-evenly false
+;;               (label :text "Core Temperature" :style "color:#cdd6f4;font-size:20px;")
+;;          )
+;;          (box :class "graph-container"
+;;               :orientation "v"
+;;               :space-evenly false
+;;               (overlay
+;;               (graph :thickness 2
+;;                      :dynamic true
+;;                      :height "100"
+;;                      :width "350"
+;;                      :class "graph-display"
+;;                      :time-range "300s"
+;;                      :min 0
+;;                      :max 101
+;;                      :value {EWW_TEMPS.CORETEMP_PACKAGE_ID_0}
+;;               )
+;;               (box :class "main-temp"
+;;                    :halign "start"
+;;                    :valign "end"
+;;                    (label :class "main-temp-text" :text "${EWW_TEMPS.CORETEMP_PACKAGE_ID_0} °C")
+;;               )
+;;               )
+;;          )
+;;          (box :class "minicore-container"
+;;               :orientation "v"
+;;               :space-evenly false
+;;               (box :class "minicores"
+;;                    (label :class "C0" :text "Core 0: ${EWW_TEMPS.CORETEMP_CORE_0} °C")
+;;                    (label :class "C1" :text "Core 1: ${EWW_TEMPS.CORETEMP_CORE_1} °C")
+;;               )
+;;               (box :class "minicores"
+;;                    (label :class "C2" :text "Core 2: ${EWW_TEMPS.CORETEMP_CORE_2} °C")
+;;                    (label :class "C3" :text "Core 3: ${EWW_TEMPS.CORETEMP_CORE_3} °C")
+;;               )
+;;          )
+;;
+;;     )
+;; )
+
+(defwidget music-player []
+    (revealer :transition "slidedown"
+                   :reveal {"${cmusic}" == "" || "${music.title}" == "" ? false : true}
+         (box :class "music-container"
+              :space-evenly false
+              :orientation "v"
+              (box :class "music-title"
+                   :orientation "h"
+                   :space-evenly false
+                   (box :class "music-thumbnail" 
+                        :style "background-image: url('${music.thumbnail}');"
+                   )
+                   (box :class "music-desc"
+                        :orientation "v"
+                        :space-evenly false
+                        (label :class "main-title" :halign "start" :limit-width 21 :text "${music.title}")
+                        (label :class "artist" :halign  "start" :limit-width 31 :text "By ${music.artist}")
+                   )
+              )
+              (scale :class "music-slider"
+                     :min 0
+                     :max {music.length}
+                     :value {pmusic.position}
+                     :onchange "playerctl position {}"
+              )
+              (box :class "music-timer"
+                   (label :halign "start" :text "${pmusic.positionStr}")
+                   (label :halign "end" :text "${music.lengthStr}")
+              )
+              (box :class "music-action"
+                   :orientation "h"
+                   :space-evenly false
+                   :halign "center"
+                   :spacing 45
+                   (eventbox :class "mico" :cursor "pointer" :onclick "playerctl previous" "󰒮")
+                   (eventbox :class "mico" :cursor "pointer" :onclick "playerctl play-pause" {music.status == "Playing" ? "󰓛" : "󰐊"})
+                   (eventbox :class "mico" :cursor "pointer" :onclick "playerctl next" "󰒭")
+              )
+         ))
+
+)

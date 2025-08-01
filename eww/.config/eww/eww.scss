@@ -1,0 +1,916 @@
+* {
+  all: unset;
+}
+
+.bar {
+  box-shadow: 0 2px 3px 1px rgba(24, 24, 37, 0.9);
+  /* mantle */
+  border-radius: 10px;
+  background-color: rgba(30, 30, 46, 0.94);
+  /* base */
+  padding: 5px;
+  margin: 6.5px;
+}
+
+.menu {
+  margin-left: 12px;
+}
+
+.menu-eventbox {
+  color: #89b4fa;
+  /* blue */
+  transition: color 0.3s;
+
+  &:hover {
+    color: #cdd6f4;
+    /* text */
+  }
+}
+
+.power {
+  margin-right: 10px;
+}
+
+.power-eventbox {
+  color: #f38ba8;
+  /* red */
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "JetBrainsMono Nerd Font";
+  transition: color 0.3s;
+
+  &:hover {
+    color: #fab387;
+    /* peach */
+  }
+}
+
+.ws {
+  font-family: "JetBrainsMono Nerd Font";
+  font-size: 16px;
+  color: #cdd6f4;
+  /* text */
+}
+
+.div {
+  font-size: 25px;
+  font-weight: 100;
+  color: rgba(205, 214, 244, 0.3);
+  /* text + alpha */
+}
+
+.free {
+  opacity: 0.2;
+  transition: opacity 0.3s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.time-label {
+  background-color: rgba(49, 50, 68, 0.38);
+  /* surface0 */
+  color: #89dceb;
+  /* sky */
+  border-radius: 20px;
+  transition: color 0.3s;
+  transition: background-color 0.3s;
+
+  &:hover {
+    color: #cdd6f4;
+    /* text */
+    background-color: #89dceb;
+    /* sky */
+  }
+}
+
+.keyboard,
+.battery,
+.volume-short,
+.ram-short {
+  background-color: rgba(49, 50, 68, 0.38);
+  /* surface0 */
+  padding: 0px 13px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin: 3px 0px;
+}
+
+.ram-short {
+  color: #89b4fa;
+  /* blue */
+}
+
+.keyboard {
+  color: #fab387;
+  /* peach */
+}
+
+.kb-div,
+.wifi-div {
+  margin: 0px 3px;
+}
+
+.kb-type,
+.wifi-type {
+  color: #bac2de;
+  /* subtext1 */
+}
+
+.tray-button {
+  font-size: 20px;
+  font-family: "JetBrainsMono Nerd Font";
+  color: #cdd6f4;
+  /* text */
+  border-radius: 10px;
+  transition: background-color 0.6s;
+
+  &:hover {
+    background-color: rgba(49, 50, 68, 0.38);
+    /* surface0 */
+  }
+}
+
+.systray-shadow {
+  background-color: rgba(49, 50, 68, 0.38);
+  /* surface0 */
+  margin-right: 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding: 0px 8px;
+  border-radius: 20px;
+}
+
+image {
+  margin: 0px 3px;
+}
+
+menu {
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #f38ba8;
+  /* red (old: red) */
+  color: #cdd6f4;
+  /* text */
+  background-color: rgba(30, 30, 46, 0.68);
+  /* base */
+
+  menuitem {
+    border-radius: 10px;
+    padding: 8px 12px;
+  }
+
+  menuitem:hover {
+    background-color: rgba(137, 180, 250, 0.85);
+    /* blue */
+  }
+}
+
+.tray-text {
+  margin-bottom: 4px;
+}
+
+.wifi {
+  background-color: rgba(49, 50, 68, 0.38);
+  /* surface0 */
+  padding-left: 13px;
+  padding-right: 13px;
+  color: #fab387;
+  /* peach */
+  border-radius: 20px;
+  font-size: 11px;
+  margin: 3px 0px;
+}
+
+.space-wifi {
+  font-size: 4px;
+}
+
+.wifictl-container,
+.menuctl-container {
+  box-shadow: 0 2px 3px 2px #181825;
+  /* mantle */
+  margin: 5.5px;
+  border-radius: 20px;
+  min-width: 385px;
+  background-color: rgba(30, 30, 46, 0.92);
+  /* base */
+  padding: 5px;
+}
+
+.wifi-header,
+.cpu-header,
+.menu-header {
+  font-size: 25px;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 7px;
+  color: #89b4fa;
+  /* blue */
+}
+
+.wifi-stats,
+.menu-subheader {
+  color: #cdd6f4;
+  /* text */
+  margin-left: 15px;
+}
+
+.nocon {
+  color: #f38ba8;
+  /* red */
+}
+
+.yescon {
+  color: #a6e3a1;
+  /* green */
+}
+
+.network-container,
+.app-container {
+  min-height: 15rem;
+  margin: 7px;
+  margin-top: 17px;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  /* mantle */
+  background-color: rgba(49, 50, 68, 0.28);
+  /* surface0 */
+}
+
+.app-container {
+  min-height: 25rem;
+}
+
+.wifi-option-box,
+.app-option-box {
+  font-size: 16px;
+  margin: 5px 5px;
+  border-radius: 15px;
+  padding: 10px;
+  background-color: rgba(49, 50, 68, 0.3);
+  /* surface0 */
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  /* mantle */
+}
+
+.wifi-ssid {
+  margin: 2px 15px;
+}
+
+.app-display {
+  margin: 2px 2px;
+}
+
+.app-name {
+  margin-left: 15px;
+}
+
+.wifi-ssid-01 {
+  color: #cdd6f4;
+  /* text */
+}
+
+.wifi-ssid-02 {
+  color: #89b4fa;
+  /* blue */
+}
+
+.wifi-ssid-03 {
+  color: #a6e3a1;
+  /* green */
+}
+
+.wifi-buttons {
+  color: #cdd6f4;
+  /* text */
+  border-radius: 10px;
+  background-color: rgba(49, 50, 68, 0.52);
+  /* surface0 */
+}
+
+.wifi-bcon {
+  margin: 10px;
+}
+
+.iwifi {
+  margin-top: 2px;
+  margin-left: 10px;
+}
+
+.swifi-header {
+  font-size: 15px;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 7px;
+  color: #cdd6f4;
+  /* text */
+}
+
+.calendar-container {
+  box-shadow: 0 2px 3px 2px #181825;
+  /* mantle */
+  margin: 5.5px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  background-color: rgba(30, 30, 46, 0.92);
+  /* base */
+  padding: 5px;
+}
+
+.time-box {
+  box-shadow: 0 2px 3px 2px #181825;
+  /* mantle */
+  border-radius: 15px;
+  margin-top: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 20px;
+  background-color: rgba(49, 50, 68, 0.28);
+  /* surface0 */
+}
+
+.time-inner {
+  color: #89b4fa;
+  /* blue */
+  font-size: 50px;
+  margin-left: 4px;
+  margin-top: 10px;
+}
+
+.date-inner {
+  color: #bac2de;
+  /* subtext1 */
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.calendar-box {
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  /* mantle */
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 9px;
+  background-color: rgba(49, 50, 68, 0.28);
+  /* surface0 */
+}
+
+.cal {
+  padding: 5px;
+  color: #bac2de;
+  /* subtext1 */
+
+  &.header {
+    color: #f9e2af;
+    /* yellow */
+  }
+
+  &.button {
+    color: #f9e2af;
+    /* yellow */
+
+    &:hover {
+      color: #f38ba8;
+      /* red */
+    }
+  }
+
+  &:indeterminate {
+    color: rgba(205, 214, 244, 0.4);
+    /* text alpha */
+  }
+
+  &.highlight {
+    color: #fab387;
+    /* peach */
+  }
+}
+
+.main-container,
+.music-container,
+.cpu-container {
+  box-shadow: 0 2px 3px 2px #181825;
+  /* mantle */
+  margin: 5.5px;
+  border-radius: 20px;
+  min-width: 385px;
+  background-color: rgba(30, 30, 46, 0.92);
+  /* base */
+  padding: 5px;
+}
+
+.profile,
+.graph-container {
+  min-width: 370px;
+  margin: 0px 7px;
+  margin-top: 5px;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  /* mantle */
+  background-color: rgba(49, 50, 68, 0.28);
+  /* surface0 */
+}
+
+.graph-container {
+  color: #f38ba8;
+  /* red */
+}
+
+.graph-display {
+  min-width: 350px;
+}
+
+.main-temp {
+  border-radius: 10px;
+  background-color: rgba(49, 50, 68, 0.3);
+  /* surface0 */
+  margin-left: 3px;
+  padding: 5px 10px;
+}
+
+.pfp {
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  /* mantle */
+  background-image: url('./assets/trollheap.png');
+  background-size: 90px;
+  background-position: 50% 35%;
+  background-repeat: no-repeat;
+  min-height: 90px;
+  min-width: 90px;
+  border-radius: 100%;
+  margin-right: 20px;
+}
+
+.username {
+  font-size: 30px;
+  color: #89b4fa;
+  /* blue */
+}
+
+.uptime {
+  color: #cdd6f4;
+  /* text */
+}
+
+.minicore-container {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}
+
+.minicores {
+  padding: 7px;
+}
+
+.C0,
+.C1,
+.C2,
+.C3 {
+  margin: 0px 7px;
+  padding: 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  /* mantle */
+  background-color: rgba(49, 50, 68, 0.28);
+  /* surface0 */
+  color: #89dceb;
+  /* sky (accent) */
+}
+
+.ctlpanel {
+  min-width: 230px;
+  margin-top: 10px;
+  border-radius: 20px;
+  padding: 5px;
+  background-color: rgba(49, 50, 68, 0.3);
+  /* surface0 */
+  font-family: "JetBrainsMono Nerd Font";
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  /* mantle */
+}
+
+.shutdown {
+  color: #f38ba8;
+  /* red */
+  transition: color 0.3s;
+
+  &:hover {
+    color: #eba0ac;
+    /* maroon */
+  }
+}
+
+.logout {
+  color: #fab387;
+  /* peach */
+  transition: color 0.3s;
+
+  &:hover {
+    color: #f9e2af;
+    /* yellow */
+  }
+}
+
+.lockscr {
+  color: #89b4fa;
+  /* blue */
+  transition: color 0.3s;
+
+  &:hover {
+    color: #b4befe;
+    /* lavender */
+  }
+}
+
+.reboot {
+  color: #cba6f7;
+  /* mauve */
+  transition: color 0.3s;
+
+  &:hover {
+    color: #b4befe;
+    /* lavender */
+  }
+}
+
+.suspend {
+  color: #94e2d5;
+  /* teal */
+  transition: color 0.3s;
+
+  &:hover {
+    color: #a6e3a1;
+    /* green */
+  }
+}
+
+.hibernate {
+  color: #94e2d5;
+  /* teal */
+  transition: color 0.3s;
+
+  &:hover {
+    color: #a6e3a1;
+    /* green */
+  }
+}
+
+tooltip {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgba(30, 30, 46, 0.75);
+  /* base */
+}
+
+.sysctl {
+  margin: 0px 7px;
+  margin-top: 17px;
+  padding: 10px;
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  /* mantle */
+  background-color: rgba(49, 50, 68, 0.28);
+  /* surface0 */
+  min-width: 370px;
+  border-radius: 15px;
+}
+
+.BAT1,
+.BAT2,
+.BAT3 {
+  color: #a6e3a1;
+  /* green */
+}
+
+.BAT4,
+.BAT5 {
+  color: #f38ba8;
+  /* red */
+}
+
+.CHARGING {
+  color: #f9e2af;
+  /* yellow */
+}
+
+.batico-main {
+  margin-left: 10px;
+  margin-right: 15px;
+  font-size: 50px;
+}
+
+.batico-short {
+  margin-right: 6px;
+  margin-top: 6px;
+}
+
+.volico {
+  color: #cba6f7;
+  /* mauve */
+  margin-left: 3px;
+}
+
+.bsht {
+  color: #cdd6f4;
+  /* text */
+}
+
+.bat-percent {
+  font-size: 20px;
+  color: #bac2de;
+  /* subtext1 */
+}
+
+.bat-status {
+  color: rgba(205, 214, 244, 0.5);
+  /* text alpha */
+}
+
+.bat-btn {
+  font-size: 13px;
+}
+
+.divider-h {
+  min-height: 3px;
+  margin: 15px 5px;
+  background-color: #11111b;
+  /* crust (presque noir) */
+}
+
+.sys {
+  margin: 0px 10px;
+}
+
+.cpu-box,
+.ram-box,
+.disk-box {
+  margin: 0px 10px;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  /* mantle */
+  background-color: rgba(45, 52, 66, 0.3);
+  /* surface1 */
+}
+
+.cpu,
+.ram,
+.disk {
+  border-radius: 100px;
+  margin-top: 20px;
+}
+
+.cpu,
+.cpu01 {
+  color: #f38ba8;
+  /* red */
+}
+
+.ram,
+.ram01 {
+  color: #89b4fa;
+  /* blue */
+}
+
+.disk,
+.disk01 {
+  color: #a6e3a1;
+  /* green */
+}
+
+.cpu02,
+.ram02,
+.disk02 {
+  color: #cdd6f4;
+  /* text */
+}
+
+.ramico,
+.diskico,
+.cpuico {
+  margin-right: 15px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.cpuico {
+  margin-left: 20px;
+}
+
+.ramico,
+.diskico {
+  margin-left: 25px;
+}
+
+.cpu,
+.ram,
+.disk {
+  background-color: #181825;
+  /* mantle */
+}
+
+.cpu-text,
+.ram-text,
+.disk-text {
+  margin-bottom: 10px;
+}
+
+.ram-text,
+.disk-text {
+  margin-top: 3.2px;
+}
+
+.sliderctl {
+  border-radius: 15px;
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  /* mantle */
+  background-color: rgba(68, 71, 90, 0.3);
+  /* surface2 */
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.monitor-container {
+  margin-bottom: 6px;
+}
+
+.volume-slider {
+  margin-top: 10px;
+  margin-left: 13px;
+}
+
+.light-slider {
+  margin-bottom: 10px;
+  margin-left: 13px;
+}
+
+.vol trough {
+  all: unset;
+  background-color: rgba(49, 50, 68, 0.3);
+  /* surface0 */
+  box-shadow: 0 2px 3px 2px rgba(49, 50, 68, 0.3);
+  /* surface0 */
+  border-radius: 50px;
+  min-height: 10px;
+  min-width: 250px;
+  margin: 0 20px 0 20px;
+}
+
+.vol trough highlight {
+  all: unset;
+  background-color: #cba6f7;
+  /* mauve */
+  border-radius: 10px;
+}
+
+.volume-slider,
+.volume-short {
+  color: #cba6f7;
+  /* mauve */
+}
+
+.lig trough {
+  all: unset;
+  background-color: rgba(49, 50, 68, 0.3);
+  /* surface0 */
+  box-shadow: 0 2px 3px 2px rgba(49, 50, 68, 0.3);
+  /* surface0 */
+  border-radius: 50px;
+  min-height: 10px;
+  min-width: 250px;
+  margin: 0 20px 0 20px;
+}
+
+.lig trough highlight {
+  all: unset;
+  background-color: #f9e2af;
+  /* yellow */
+  border-radius: 10px;
+}
+
+.light-slider {
+  color: #f9e2af;
+  /* yellow */
+}
+
+.clear-container {
+  margin: 6px 10px;
+}
+
+.nheader {
+  font-size: 20px;
+  color: #bac2de;
+  /* subtext1 */
+}
+
+.clear {
+  color: #f38ba8;
+  /* red */
+  font-size: 30px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #f9e2af;
+    /* yellow */
+  }
+}
+
+.music-title {
+  margin-left: 7px;
+  margin-right: 7px;
+  margin-top: 7px;
+}
+
+.music-thumbnail {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 6rem;
+  min-width: 6rem;
+  border-radius: 1rem;
+}
+
+.app-ico {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 2.5rem;
+  min-width: 2.5rem;
+}
+
+.main-title {
+  margin-top: 15px;
+  margin-bottom: 12px;
+  margin-left: 15px;
+  font-size: 20px;
+  color: #89b4fa;
+  /* blue */
+}
+
+.artist {
+  color: #bac2de;
+  /* subtext1 */
+  font-size: 13px;
+  margin-left: 15px;
+}
+
+.music-slider {
+  margin-top: 10px;
+}
+
+.music-slider trough {
+  all: unset;
+  background-color: rgba(49, 50, 68, 0.3);
+  /* surface0 */
+  box-shadow: 0 2px 3px 2px rgba(49, 50, 68, 0.3);
+  /* surface0 */
+  border-radius: 50px;
+  min-height: 5px;
+  min-width: 270px;
+  margin: 0 20px 0 20px;
+}
+
+.music-slider trough highlight {
+  all: unset;
+  background-color: #89b4fa;
+  /* blue */
+  border-radius: 10px;
+}
+
+.music-timer {
+  color: #bac2de;
+  /* subtext1 */
+  margin: 3px 20px;
+}
+
+.mico {
+  font-size: 30px;
+  margin-left: 10px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #89b4fa;
+    /* blue */
+  }
+}
+
+.vol-mini trough {
+  all: unset;
+  margin-left: 7px;
+  background-color: rgba(49, 50, 68, 0.4);
+  /* surface0 */
+  border-radius: 50px;
+  min-height: 5px;
+  min-width: 100px;
+}
+
+.vol-mini trough highlight {
+  all: unset;
+  background-color: #cba6f7;
+  /* mauve */
+  border-radius: 10px;
+}

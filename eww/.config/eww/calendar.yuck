@@ -1,0 +1,94 @@
+
+(defwindow calendar
+    :monitor 0
+    :stacking "overlay"
+    :geometry (geometry :anchor "top center"
+                        :y "-15px"
+                        :width "355px"
+                        :height "41%"
+    )
+    (expander :expanded true
+              (revealer :transition "slidedown"
+                        :reveal calrev
+                        :duration "350ms"
+                        (calendar_event)
+              )
+    )
+)
+
+(defvar calrev false)
+
+(defwidget calendar_event []
+    (eventbox :onhoverlost "./scripts/calendar.sh"
+         (calendar_widget :time get_time
+                          :date get_date
+         )
+    )
+)
+
+(defwidget calendar_widget[time date]
+    (box :class "calendar-container"
+         :orientation "v"
+         :spacing 16
+         :space-evenly false
+         (box :class "time-box"
+              :orientation "v"
+              :halign "center"
+              :space-evenly false
+              (box :class "time-inner"
+                   (label :text "${time}")
+              )
+              (box :class "date-inner"
+                   (label :text "${date}")
+              )
+         )
+         (box :class "calendar-box"
+              :halign "center"    
+              (calendar :class "cal")
+         )
+    )
+)
+
+(defwidget time [time]
+    (eventbox :cursor "pointer"
+              :onclick "./scripts/calendar.sh"
+              :width 120
+              :height 25
+              :class "time-label"
+              (label :text "${time}")
+    )
+)
+
+(defpoll get_date :interval "1s"
+                  "date +'%d.%m.%Y, %A'"
+)
+
+(defpoll get_time :interval "1s"
+                  "date +%H:%M:%S"
+)
+
+(defpoll get_uptime :interval "1s"
+                  "uptime -p"
+)
+
+(defwindow usrctl 
+    :monitor 0
+    :stacking "overlay"
+    :geometry (geometry :anchor "top right"
+                        :x "5px"
+                        :y "-4px"
+                        :width "425px"
+                        :height "993px"
+    )
+    (box :space-evenly false
+         :halign "end"
+              (revealer :transition "slideleft"
+                        :reveal ctlrev
+                        :duration "350ms"
+                        (usrctl-widget :uptime get_uptime)
+              )
+    )
+)
+
+(defvar ctlrev false)
+

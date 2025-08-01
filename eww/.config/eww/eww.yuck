@@ -1,0 +1,90 @@
+(include "calendar.yuck")
+(include "sidebar-left.yuck")
+(include "sidebar-right.yuck")
+(include "right-bar.yuck")
+
+(defwidget bar []
+    (box :class "bar"
+         :orientation "h"
+         (box :halign "start"
+              :valign "center"
+              :spacing 10
+              :hexpand true
+              :space-evenly false
+              (menu)
+              (workspaces)
+         )
+         (box :halign "center"
+              :valign "center"
+              :spacing 10
+              :hexpand true
+              :orientation "h"
+              (time :time get_time)
+         )
+         (box :halign "end"
+              :valign "center"
+              :hexpand true
+              :space-evenly false
+              :spacing 10
+              (box :space-evenly false
+                        :spacing 7
+                        (tray)
+                        (volume)
+                        (ram)
+                        (battery)
+                        (eventbox :onhoverlost "bash -c '/usr/bin/eww update keyrev=false && /usr/bin/eww update keyhov=false && /usr/bin/eww update wifirev=false && /usr/bin/eww update wifihov=false'"
+                                  (wifi)
+                        )
+              )
+              (divider)
+              (power)
+         )
+    )
+)
+
+(defvar trayrev false)
+
+(defwidget tray []
+    (box :orientation "h"
+         :space-evenly false
+         (revealer :reveal {trayrev}
+                   :transition "slideleft"
+                   (box :class "systray-shadow"
+                        (systray :space-evenly true :icon-size 16 :prepend-new true)
+                   )
+         )
+         (eventbox :class "tray-button"
+                   :width 20
+                   :onclick "${trayrev==false?"/usr/bin/eww update trayrev=true":"/usr/bin/eww update trayrev=false"}"
+                   :cursor "pointer"
+                   (label :class "tray-text" :text "${trayrev==false?"‹":"›"}")         
+         )
+    )
+)
+
+
+
+
+
+(defwidget workspaces []
+    (literal :content workspaces-output)
+)
+
+(defvar workspaces-output "(box :class \"ws\" :halign \"end\" :orientation \"h\" :spacing 5 :space-evenly \"false\" (eventbox :onclick \"hyprctl dispatch workspace 1\" :cursor \"pointer\" :class \"visiting\" (label :text \" \")) (eventbox :onclick \"hyprctl dispatch workspace 2\" :cursor \"pointer\" :class \"free\" (label :text \" \")) (eventbox :onclick \"hyprctl dispatch workspace 3\" :cursor \"pointer\" :class \"free\" (label :text \" \")) (eventbox :onclick \"hyprctl dispatch workspace 4\" :cursor \"pointer\" :class \"free\" (label :text \" \")) (eventbox :onclick \"hyprctl dispatch workspace 5\" :cursor \"pointer\" :class \"free\" (label :text \" \")) (eventbox :onclick \"hyprctl dispatch workspace 6\" :cursor \"pointer\" :class \"free\" (label :text \" \")))")
+
+(defwidget divider []
+    (label :class "div" :text "|")
+)
+
+
+
+(defwindow bar_widget
+    :monitor 0
+    :stacking "bg"
+    :geometry (geometry :anchor "top center"
+                        :width "99.5%"
+                        :height "37px"
+    )
+    :exclusive true
+    (bar)
+)
