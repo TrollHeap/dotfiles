@@ -7,69 +7,66 @@
     )
 )
 
-(defvar menurev false)
-
-(defwindow menuctl
-    :monitor 0
-    :stacking "overlay"
-    :focusable "ondemand"
-    :geometry (geometry :anchor "top left"
-                        :x "5px"
-                        :y "-4px"
-                        :width "425px"
-                        :height "993px")
-    (box :space-evenly false
-         (revealer :transition "slideright"
-                   :reveal menurev
-                   :duration "350ms"
-                   (menu_event)))
-)
-
-(defpoll apps :interval "60s"
-    "./scripts/menu.sh"
-)
-
-(defwidget menu_event []
-    (eventbox :class "shadow-container"
-              :onhoverlost "./scripts/menuctl.sh"
-              (box :orientation "v"
-                   :space-evenly false
-                   (box :class "menuctl-container"
-                        :space-evenly false
-                        :orientation "v"
-                        (box :class "menu-header"
-                             :space-evenly false
-                             (label :text "Program Launcher"))
-                        (box :class "menu-subheader"
-                             :space-evenly false
-                             (label :text ">> Executable List")
-                        )
-                        (scroll :vscroll true
-                                :class "app-container"
-                                (box :orientation "v" 
-                                     :space-evenly false
-                                     (for i in {apps}
-                                        (application :name "${i.name}"
-                                                     :exec "${i.exec}"
-                                                     :icon "${i.icon}"
-                                                     :term "${i.terminal}"
-                                        )
-                                     )
-                                     ))))))
-
-(defwidget application [name exec icon term]
-    (eventbox :cursor "pointer"
-              :onclick "sh -c './scripts/menuctl.sh && cd ~ && ([[ ${term} == true ]] && kitty -e ${exec} || ${exec}) & disown'"
-              (box :class "app-option-box"
-                   :orientation "v"
-                   (box :class "app-display"
-                        :space-evenly false
-                        :orientation "h"
-                        (box :class "app-ico"
-                             :style "background-image:url('${icon}');"
-                        )
-                        (label :class "app-name" :text "${name}")
-                   )
-               )
-    )
-)
+;; (defvar menurev false)
+;;
+;; (defwindow menuctl
+;;     :monitor 0
+;;     :stacking "overlay"
+;;     :focusable "ondemand"
+;;     :geometry (geometry :anchor "top left"
+;;                         :x "5px"
+;;                         :y "-4px"
+;;                         :width "425px"
+;;                         :height "993px")
+;;     (box :space-evenly false
+;;          (revealer :transition "slideright"
+;;                    :reveal menurev
+;;                    :duration "350ms"
+;;                    (menu_event)))
+;; )
+;;
+;; (defpoll apps :interval "60s"
+;;     "./scripts/menu.sh"
+;; )
+;;
+;; (defwidget menu_event []
+;;     (eventbox :class "shadow-container"
+;;               :onhoverlost "./scripts/menuctl.sh"
+;;               (box :orientation "v"
+;;                    :space-evenly false
+;;                    (box :class "menuctl-container"
+;;                         :space-evenly false
+;;                         :orientation "v"
+;;                         (box :class "menu-header"
+;;                              :space-evenly false
+;;                              (label :text "Program Launcher"))
+;;                         (box :class "menu-subheader"
+;;                              :space-evenly false
+;;                              (label :text ">> Executable List")
+;;                         )
+;;                         (scroll :vscroll true
+;;                                 :class "app-container"
+;;                                 (box :orientation "v" 
+;;                                      :space-evenly false
+;;                                      (for i in {apps}
+;;                                         (application :name "${i.name}"
+;;                                                      :exec "${i.exec}"
+;;                                                      :icon "${i.icon}"
+;;                                                      :term "${i.terminal}"
+;;                                         )
+;;                                      )
+;;                                      ))))))
+;;
+;; (defwidget application [name exec icon term]
+;;     (eventbox :cursor "pointer"
+;;               :onclick "sh -c './scripts/menuctl.sh && cd ~ && ([[ ${term} == true ]] && kitty -e ${exec} || ${exec}) & disown'"
+;;               (box :class "app-option-box"
+;;                    :orientation "v"
+;;                    (box :class "app-display"
+;;                         :space-evenly false
+;;                         :orientation "h"
+;;                         (label :class "app-name" :text "${name}")
+;;                    )
+;;                )
+;;     )
+;; )

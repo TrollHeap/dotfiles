@@ -1,0 +1,100 @@
+.wifi {
+  background-color: rgba(49, 50, 68, 0.38);
+  padding-left: 13px;
+  padding-right: 13px;
+  color: #fab387;
+  border-radius: 20px;
+  font-size: 11px;
+  margin: 3px 0px;
+}
+
+.space-wifi {
+  font-size: 4px;
+}
+
+.wifictl-container,
+.menuctl-container {
+  box-shadow: 0 2px 3px 2px #181825;
+  background-color: rgba(30, 30, 46, 0.92);
+}
+
+.wifi-header,
+.cpu-header,
+.menu-header {
+  font-size: 14px;
+  margin-left: 8px;
+  margin-top: 8px;
+  margin-bottom: 4px;
+  color: #89b4fa;
+}
+
+.wifi-stats,
+.menu-subheader {
+  color: #cdd6f4;
+  margin-left: 15px;
+}
+
+.nocon {
+  color: #f38ba8;
+}
+
+.yescon {
+  color: #a6e3a1;
+}
+
+.network-container,
+.app-container {
+  min-height: 15rem;
+  margin: 7px;
+  margin-top: 17px;
+  border-radius: 15px;
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  background-color: rgba(49, 50, 68, 0.28);
+}
+
+.wifi-ssid {
+  margin: 2px 15px;
+}
+
+.app-display {
+  margin: 2px 2px;
+}
+
+.app-name {
+  margin-left: 15px;
+}
+
+.wifi-ssid-01 {
+  color: #cdd6f4;
+}
+
+.wifi-ssid-02 {
+  color: #89b4fa;
+}
+
+.wifi-ssid-03 {
+  color: #a6e3a1;
+}
+
+.wifi-buttons {
+  color: #cdd6f4;
+  border-radius: 10px;
+  background-color: rgba(49, 50, 68, 0.52);
+}
+
+.wifi-bcon {
+  margin: 10px;
+}
+
+.iwifi {
+  margin-top: 2px;
+  margin-left: 10px;
+}
+
+.swifi-header {
+  font-size: 15px;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 7px;
+  color: #cdd6f4;
+}

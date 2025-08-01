@@ -1,0 +1,80 @@
+.calendar-container {
+  box-shadow: 0 2px 3px 2px #181825;
+  margin: 5.5px;
+  margin-bottom: 10px;
+  border-radius: 20px;
+  background-color: rgba(30, 30, 46, 0.92);
+  padding: 5px;
+}
+
+.time-box {
+  box-shadow: 0 2px 3px 2px #181825;
+  border-radius: 15px;
+  margin-top: 8px;
+  padding-left: 25px;
+  padding-right: 25px;
+  padding-bottom: 20px;
+  background-color: rgba(49, 50, 68, 0.28);
+}
+
+.time-inner {
+  color: #f38ba8;
+  font-size: 40px;
+  margin-left: 4px;
+  margin-top: 10px;
+}
+
+.date-inner {
+  color: #89b4fa;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.time-label {
+  background-color: rgba(49, 50, 68, 0.38);
+  color: #f38ba8;
+  border-radius: 20px;
+  transition: color 0.3s;
+  transition: background-color 0.3s;
+
+  &:hover {
+    color: #cdd6f4;
+    background-color: #89b4fa;
+  }
+}
+
+
+.calendar-box {
+  box-shadow: 0 2px 3px 2px rgba(24, 24, 37, 0.9);
+  border-radius: 15px;
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 9px;
+  background-color: rgba(49, 50, 68, 0.28);
+}
+
+.cal {
+  padding: 5px;
+  color: #bac2de;
+
+  &.header {
+    color: #f9e2af;
+  }
+
+  &.button {
+    color: #f9e2af;
+
+    &:hover {
+      color: #f38ba8;
+    }
+  }
+
+  &:indeterminate {
+    color: rgba(205, 214, 244, 0.4);
+  }
+
+  &.highlight {
+    color: #fab387;
+  }
+}

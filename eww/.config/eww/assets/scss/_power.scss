@@ -1,0 +1,15 @@
+.power {
+  margin-right: 10px;
+}
+
+.power-eventbox {
+  color: #f38ba8;
+  font-weight: bold;
+  font-size: 20px;
+  font-family: "JetBrainsMono Nerd Font";
+  transition: color 0.3s;
+
+  &:hover {
+    color: #fab387;
+  }
+}

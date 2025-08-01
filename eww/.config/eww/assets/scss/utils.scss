@@ -1,0 +1,26 @@
+.divider-h {
+  min-height: 3px;
+  margin: 15px 5px;
+  background-color: #11111b;
+}
+
+.nheader {
+  font-size: 20px;
+  color: #bac2de;
+}
+
+.clear {
+  color: #f38ba8;
+  font-size: 30px;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #f9e2af;
+  }
+}
+
+.tooltip {
+  padding: 10px;
+  border-radius: 20px;
+  background-color: rgba(30, 30, 46, 0.75);
+}

@@ -1,0 +1,12 @@
+.menu {
+  margin-left: 12px;
+}
+
+.menu-eventbox {
+  color: #89b4fa;
+  transition: color 0.3s;
+
+  &:hover {
+    color: #cdd6f4;
+  }
+}
