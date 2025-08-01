@@ -1,7 +1,7 @@
 (include "calendar.yuck")
 (include "sidebar-left.yuck")
 (include "sidebar-right.yuck")
-(include "right-bar.yuck")
+(include "widgets.yuck")
 
 (defwidget bar []
     (box :class "bar"
@@ -29,9 +29,9 @@
               (box :space-evenly false
                         :spacing 7
                         (tray)
+                        (battery)
                         (volume)
                         (ram)
-                        (battery)
                         (eventbox :onhoverlost "bash -c '/usr/bin/eww update keyrev=false && /usr/bin/eww update keyhov=false && /usr/bin/eww update wifirev=false && /usr/bin/eww update wifihov=false'"
                                   (wifi)
                         )

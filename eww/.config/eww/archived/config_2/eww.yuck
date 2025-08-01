@@ -696,7 +696,7 @@
     ))
 )
 
-(deflisten batico "./scripts/batico.sh")
+(defpoll batico :interval "5s" "./scripts/batinfo")
 (deflisten batest "./scripts/batest.sh")
 (deflisten music :initial "{}" "./scripts/music.sh")
 (deflisten pmusic :initial "{}" "./scripts/pmusic.sh")
