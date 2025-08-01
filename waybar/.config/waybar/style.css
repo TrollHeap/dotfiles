@@ -159,8 +159,8 @@ window#waybar.hidden {
 #custom-wallpaper,
 #custom-updates,
 #custom-media {
-    margin: 4px 4px 0 8px;
-    padding: 3px 6px;
+    margin: 6px 0 0 6px;
+    padding: 1px 9px;
     border-radius: 8px;
     transition: background 0.1s, color 0.1s;
 }

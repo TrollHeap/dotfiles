@@ -9,7 +9,6 @@
         "custom/updates",
         "custom/wallpaper",
         "backlight",
-        "pulseaudio#input",
         "pulseaudio#output",
         "clock",
         "battery",
@@ -49,17 +48,6 @@
         "on-click-right": "pavucontrol",
         "tooltip": true,
         "scroll-step": 5
-    },
-    "pulseaudio#input": {
-        "format": " {icon} {format_source}%",
-        "format-source": "{volume}",
-        "format-source-muted": "{volume}",
-        "on-scroll-up": "sh -c 'vol=$(pactl get-source-volume @DEFAULT_SOURCE@ | grep -oP \"\\d+(?=%)\" | head -1); if [ \"$vol\" -lt 100 ]; then pactl set-source-volume @DEFAULT_SOURCE@ +5%; fi'",
-        "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
-        "max-volume": "100",
-        "on-click-right": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-        "on-click": "pwvucontrol & aplay ~/.config/sounds/interact.wav",
-        "tooltip-format": "{source_desc}"
     },
     "network#info": {
         "interval": 2,
