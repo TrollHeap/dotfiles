@@ -1,0 +1,12 @@
+
+(defwidget ram []
+    (box :class "ram-short"
+        (box :orientation "h"
+             :space-evenly false
+             (label :text " ")
+             (label :class "bsht" 
+                    :text "${round(EWW_RAM.used_mem_perc,0)}%")
+        )
+    )
+)
+

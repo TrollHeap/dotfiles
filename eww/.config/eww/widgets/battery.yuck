@@ -1,0 +1,14 @@
+(defwidget battery []
+    (box :class "battery"
+        (box :orientation "h"
+                       :space-evenly false
+                       (box :class "batico-short"
+                            (literal :content batico)
+                       )
+                       (label :class "bsht" 
+                              :text "${EWW_BATTERY.BAT0.capacity}%")
+                  )
+    )
+)
+
+

@@ -1,0 +1,13 @@
+(defvar volrev false)
+(defvar volico "󰕾")
+
+(defwidget volume []
+    (box :class "volume-short"
+        (box :orientation "h"
+             :space-evenly false
+             (label :text "${volico} " :style "margin-right:1px;")
+             (label :class "bsht" 
+                    :text "${get_vol}%")
+        )
+    )
+)

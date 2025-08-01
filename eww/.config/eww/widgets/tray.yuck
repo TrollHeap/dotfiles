@@ -1,0 +1,20 @@
+
+(defvar trayrev false)
+
+(defwidget tray []
+    (box :orientation "h"
+         :space-evenly false
+         (revealer :reveal {trayrev}
+                   :transition "slideleft"
+                   (box :class "systray-shadow"
+                        (systray :space-evenly true :icon-size 16 :prepend-new true)
+                   )
+         )
+         (eventbox :class "tray-button"
+                   :width 20
+                   :onclick "${trayrev==false?"/usr/bin/eww update trayrev=true":"/usr/bin/eww update trayrev=false"}"
+                   :cursor "pointer"
+                   (label :class "tray-text" :text "${trayrev==false?"‹":"›"}")         
+         )
+    )
+)
