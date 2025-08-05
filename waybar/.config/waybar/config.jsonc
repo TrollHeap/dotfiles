@@ -108,7 +108,11 @@
             "",
             "",
             ""
-        ]
+        ],
+        "exec": "~/.config/hypr/scripts/cpu_mode.sh status",
+        "interval": 5,
+        "on-click-right": "/home/trollheap/.config/hypr/scripts/cpu_menu.sh",
+        "tooltip": "Toggle performance/eco mode (CPU governor)"
     },
     "tray": {
         "icon-size": 18,
@@ -148,7 +152,7 @@
     },
     "custom/power": {
         "format": " ",
-        "on-click": "bash ~/.config/rofi/leave/leave.sh",
+        "on-click": "bash ~/.config/rofi/leave/leave.sh"
     },
     "custom/updates": {
         "format": "{} Update(s)",
