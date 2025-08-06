@@ -5,7 +5,7 @@ MODEL=$(hostnamectl | awk -F': ' '/Model/ {print $2}')
 
 if [[ "$MODEL" == "EliteMini Series" ]]; then
     TERMINAL=kitty
-else
+elif [[ "$MODEL" == "ThinkPad T480" ]]; then
     TERMINAL=alacritty
 fi
 
