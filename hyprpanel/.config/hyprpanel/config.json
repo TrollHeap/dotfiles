@@ -418,7 +418,7 @@
   "theme.bar.buttons.workspaces.enableBorder": false,
   "bar.workspaces.monitorSpecific": true,
   "bar.workspaces.show_icons": false,
-  "bar.workspaces.show_numbered": false,
+  "bar.workspaces.show_numbered": true,
   "bar.network.label": false,
   "bar.bluetooth.label": false,
   "theme.bar.buttons.bluetooth.enableBorder": false,
@@ -497,5 +497,8 @@
   "theme.bar.menus.menu.dashboard.profile.size": "10.5em",
   "theme.bar.menus.menu.dashboard.profile.radius": "6.4em",
   "menus.dashboard.directories.left.directory2.label": "󰉏 Developer",
-  "menus.dashboard.directories.left.directory2.command": "bash -c \"xdg-open $HOME/Developer/\""
+  "menus.dashboard.directories.left.directory2.command": "bash -c \"xdg-open $HOME/Developer/\"",
+  "bar.workspaces.showWsIcons": false,
+  "bar.workspaces.showApplicationIcons": false,
+  "bar.workspaces.workspaceMask": false
 }
