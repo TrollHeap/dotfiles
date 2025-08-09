@@ -410,7 +410,7 @@
   "theme.osd.border.color": "#8ff0a4",
   "wallpaper.enable": false,
   "theme.bar.floating": false,
-  "theme.bar.buttons.enableBorders": true,
+  "theme.bar.buttons.enableBorders": false,
   "theme.bar.enableShadow": false,
   "bar.launcher.icon": "󰣛",
   "bar.launcher.autoDetectIcon": true,
@@ -429,11 +429,11 @@
     "0": {
       "left": [
         "dashboard",
-        "workspaces",
-        "windowtitle"
+        "windowtitle",
+        "media"
       ],
       "middle": [
-        "media"
+        "workspaces"
       ],
       "right": [
         "network",
