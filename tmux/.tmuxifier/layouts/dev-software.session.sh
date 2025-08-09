@@ -1,6 +1,6 @@
 source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
-SESSION_NAME="Shell"
+readonly SESSION_NAME="Shell"
 
 if initialize_session "$SESSION_NAME"; then
     new_window "Docker" || echo "Failed to create Docker window"

@@ -2,14 +2,14 @@
 
 source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
-SESSION_NAME="C_IDE"
+readonly SESSION_NAME="C_IDE"
 
 if initialize_session "$SESSION_NAME"; then
-    NVIM="$DOTFILES/nvim/.config/nvim/lua"
-    HYPRLAND="$DOTFILES/hypr/.config/hypr"
-    WAYBAR="$DOTFILES/waybar/.config/waybar"
-    TMUXIFIER="$DOTFILES/tmux/.tmuxifier/layouts"
-    ALACRITTY="$DOTFILES/alacritty/.config/alacritty "
+    readonly NVIM="$DOTFILES/nvim/.config/nvim/lua"
+    readonly HYPRLAND="$DOTFILES/hypr/.config/hypr"
+    readonly WAYBAR="$DOTFILES/waybar/.config/waybar"
+    readonly TMUXIFIER="$DOTFILES/tmux/.tmuxifier/layouts"
+    readonly ALACRITTY="$DOTFILES/alacritty/.config/alacritty "
 
     create_split_window "$SESSION_NAME" "IDE" "h" 50 \
         "cd $NVIM && nvim ." \

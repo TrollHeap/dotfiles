@@ -1,9 +1,9 @@
 source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
-SESSION_NAME="school-linux"
+readonly SESSION_NAME="school-linux"
 
 if initialize_session "$SESSION_NAME"; then
-    L3CNAM="$HOME/Developer/L3_CNAM"
+    readonly L3CNAM="$HOME/Developer/L3_CNAM"
 
     # Fenêtre shell classique
     create_and_run_window "primitiveOS" "cd $L3CNAM/exercise_c_shell/primitiveos && nvim ."

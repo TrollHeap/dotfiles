@@ -1,11 +1,11 @@
 source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
-SESSION_NAME="Rust"
+readonly SESSION_NAME="Rust"
 
 if initialize_session "$SESSION_NAME"; then
-    RUST="$HOME/Developer/WORKSPACE/COMPUTER_SCIENCE/SYSTEMS/Rust"
-    RUSTLING="$RUST/rustlings"
-    L3CNAM="$HOME/Developer/L3_CNAM"
+    readonly RUST="$HOME/Developer/WORKSPACE/COMPUTER_SCIENCE/SYSTEMS/Rust"
+    readonly RUSTLING="$RUST/rustlings"
+    readonly L3CNAM="$HOME/Developer/L3_CNAM"
 
     create_split_window "$SESSION_NAME" "rustlings" "h" 50 \
         "cd $RUSTLING && rustlings" \

@@ -2,12 +2,12 @@
 
 source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
-SESSION_NAME="C_ENV"
+readonly SESSION_NAME="C_ENV"
 
 if initialize_session "$SESSION_NAME"; then
-    ENVFILES="$DOTFILES/env-files/.config/env-files"
-    SCRIPTS="$DOTFILES/scripts/.config/scripts"
-    BASHRC="$DOTFILES/bash"
+    readonly ENVFILES="$DOTFILES/env-files/.config/env-files"
+    readonly SCRIPTS="$DOTFILES/scripts/.config/scripts"
+    readonly BASHRC="$DOTFILES/bash"
 
     create_split_window "$SESSION_NAME" "env-scripts" "h" 50 \
         "cd $ENVFILES && nvim ." \

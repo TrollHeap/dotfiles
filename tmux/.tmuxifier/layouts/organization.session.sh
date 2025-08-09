@@ -1,6 +1,6 @@
 source "$DOTFILES/tmux/scripts/create_win_tmux.sh"
 
-SESSION_NAME="Organization"
+readonly SESSION_NAME="Organization"
 
 if initialize_session "$SESSION_NAME"; then
 
