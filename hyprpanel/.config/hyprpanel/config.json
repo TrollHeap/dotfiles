@@ -332,7 +332,7 @@
   "theme.bar.buttons.icon_background": "#242438",
   "theme.bar.buttons.background": "#242438",
   "theme.bar.buttons.borderColor": "#b4befe",
-  "theme.bar.buttons.style": "default",
+  "theme.bar.buttons.style": "wave",
   "theme.bar.background": "#11111b",
   "theme.osd.label": "#b4beff",
   "theme.osd.icon": "#11111b",
@@ -491,5 +491,11 @@
   "menus.clock.weather.location": "<22000>",
   "menus.clock.weather.unit": "metric",
   "menus.clock.time.military": true,
-  "menus.clock.time.hideSeconds": true
+  "menus.clock.time.hideSeconds": true,
+  "theme.matugen": false,
+  "theme.bar.transparent": false,
+  "theme.bar.menus.menu.dashboard.profile.size": "10.5em",
+  "theme.bar.menus.menu.dashboard.profile.radius": "6.4em",
+  "menus.dashboard.directories.left.directory2.label": "󰉏 Developer",
+  "menus.dashboard.directories.left.directory2.command": "bash -c \"xdg-open $HOME/Developer/\""
 }
